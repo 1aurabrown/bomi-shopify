@@ -1,18 +1,6 @@
 {
   "current": {
-    "social_instagram_link": "https:\/\/instagram.com\/rodi.jewelry",
-    "favicon": "shopify:\/\/shop_images\/Frame_5.png",
     "show_cart_note": true,
-    "checkout_logo_image": "shopify:\/\/shop_images\/RODI_LOGO_WHITE_BACKGROUND.jpg",
-    "checkout_logo_size": "medium",
-    "checkout_body_background_color": "#ffffff",
-    "checkout_input_background_color_mode": "transparent",
-    "checkout_sidebar_background_color": "#fdfbf9",
-    "checkout_heading_font": "Lato",
-    "checkout_body_font": "Lato",
-    "checkout_accent_color": "#212121",
-    "checkout_button_color": "#212121",
-    "checkout_error_color": "#b3322c",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -32,22 +20,13 @@
         "settings": {
           "bg_color": "",
           "newsletter_enable": true,
-          "newsletter_html": "<div class=\"klaviyo-form-VbQ27a\"><\/div>",
+          "newsletter_html": "",
           "show_social": true,
           "menu": "footer"
         }
       }
     },
     "content_for_index": [
-
-    ],
-    "blocks": {
-      "855628211100114053": {
-        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": false,
-        "settings": {
-        }
-      }
-    }
+    ]
   }
 }

@@ -1,6 +1,6 @@
-# Rodi
+# BOMI
 
-[![Build status](https://github.com/1aurabrown/rodi-shopify/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/1aurabrown/rodi-shopify/actions/workflows/ci.yml?query=branch%3Amain)
+[![Build status](https://github.com/1aurabrown/bomi-shopify/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/1aurabrown/bomi-shopify/actions/workflows/ci.yml?query=branch%3Amain)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?color=informational)](/.github/CONTRIBUTING.md)
 
 
@@ -38,7 +38,7 @@ shopify theme check
 
 ### Continuous Integration
 
-Dawn uses [GitHub Actions](https://github.com/features/actions) to maintain the quality of the theme. [This is a starting point](https://github.com/1aurabrown/rodi-shopify/blob/main/.github/workflows/ci.yml) and what we suggest to use in order to ensure you're building better themes. Feel free to build off of it!
+Dawn uses [GitHub Actions](https://github.com/features/actions) to maintain the quality of the theme. [This is a starting point](https://github.com/1aurabrown/bomi-shopify/blob/main/.github/workflows/ci.yml) and what we suggest to use in order to ensure you're building better themes. Feel free to build off of it!
 
 #### Shopify/lighthouse-ci-action
 

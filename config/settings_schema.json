@@ -1,11 +1,11 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "RODI",
+    "theme_name": "BOMI",
     "theme_version": "1.0.0",
     "theme_author": "Human NTY",
-    "theme_documentation_url": "https://github.com/1aurabrown/rodi-shopify",
-    "theme_support_url": "https://github.com/1aurabrown/rodi-shopify"
+    "theme_documentation_url": "https://github.com/1aurabrown/bomi-shopify",
+    "theme_support_url": "https://github.com/1aurabrown/bomi-shopify"
   },
   {
     "name": "t:settings_schema.social-media.name",
