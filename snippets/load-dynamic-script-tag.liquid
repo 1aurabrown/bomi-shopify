@@ -1,0 +1,17 @@
+<script>
+  function loadDynamicScriptTag(assetUrl, onload) {
+    if (!window.loadedScripts) { window.loadedScripts = [];
+     }
+    if (window.loadedScripts.indexOf(assetUrl) > -1) { return;
+     }
+    var h = document.querySelector('head') || document.body;
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.defer = "defer";
+    if(onload) s.onload = onload;
+    s.src = assetUrl;
+    h.appendChild(s);
+
+    window.loadedScripts.push(assetUrl)
+  }
+</script>

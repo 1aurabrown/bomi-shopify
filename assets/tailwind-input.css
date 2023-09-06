@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+  }
+
+  body.custom-cursor,
+  body.custom-cursor *,
+  body.custom-cursor button,
+  body.custom-cursor [role=button] {
+    cursor: none;
+  }
+
+  *:focus {
+    @apply focus;
+  }
+
+  *:focus:not(:focus-visible) {
+    @apply outline-0 ring-0 ring-offset-0;
+  }
+
+  *:focus-visible {
+    @apply focus;
+  }
+
+  html, body {
+    @apply bg-white text-black;
+  }
+
+  input[type='radio']:focus + label {
+    @apply focus;
+  }
+
+  input[type='radio']:focus:not(:focus-visible) + label {
+    @apply outline-0 ring-0 ring-offset-0;
+  }
+
+  input[type='radio']:focus-visible + label {
+    @apply focus;
+  }
+
+  .rte {
+    @apply leading-body;
+  }
+
+  .rte a {
+    @apply text-link;
+  }
+
+  .product-card__image-wrapper .product-card__image:last-child:not(:first-child) {
+    @apply hidden
+  }
+
+  .product-card__image-wrapper .product-card__image:last-child:not(:first-child) {
+    @apply block opacity-0 duration-300 z-10
+  }
+
+  .product-card__image-wrapper:hover .product-card__image:last-child:not(:first-child) {
+    @apply opacity-100
+  }
+
+}
+
+@layer utilities {
+  .focus {
+    @apply outline-0 ring-1 ring-offset-1 ring-black;
+  }
+  .uppercase {
+    @apply tracking-wide;
+  }
+
+  .visually-hidden {
+    @apply sr-only
+  }
+
+  .padding-x {
+    @apply px-gutter-sm md:px-padding-sm;
+  }
+}
+
+@layer components {
+  .button {
+    @apply z-0 relative text-center text-black px-4 py-1 flex items-center justify-center uppercase h-7 w-full transition-colors duration-200;
+  }
+
+  .button:disabled,
+  .button[aria-disabled='true'],
+  .button.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .button::before {
+    content: '';
+    z-index: -1;
+    @apply border-black border absolute transition-all duration-200 inset-0 bg-white;
+  }
+
+  .button:hover {
+    @apply text-white;
+  }
+
+  .button:hover::before {
+    @apply inset-y-[2px] -inset-x-1 md:-inset-x-3 bg-black;
+  }
+
+  .button--reverse {
+    @apply text-white;
+  }
+
+
+  .button--reverse::before {
+    @apply bg-black;
+  }
+
+  .button--reverse:hover {
+    @apply text-black;
+  }
+
+  .button--reverse:hover::before {
+    @apply bg-white;
+  }
+
+  .text-link {
+    @apply hover:underline
+  }
+
+}
+
+/*Typography*/
+
+@layer base {
+  html {
+    @apply underline-offset-2;
+  }
+
+  body {
+    @apply text-base tracking-normal leading-normal font-figtree;
+  }
+
+  strong, b {
+    @apply font-semibold;
+  }
+
+  main {
+    @apply min-h-screen-less-header
+  }
+
+  .shopify-challenge__container {
+    @apply flex flex-col items-center justify-center space-y-4;
+  }
+
+  .shopify-challenge__container input[type=submit] {
+    @apply button flex mt-8;
+  }
+
+  .shopify-payment-button__button {
+    @apply mt-1 w-full;
+  }
+
+  .shopify-payment-button__button,
+  .shopify-payment-button__button .shopify-cleanslate,
+  .shopify-payment-button__button .shopify-cleanslate [role=button]{
+    @apply !min-h-10 !h-10 !max-h-10 !border-0;
+  }
+  .shopify-payment-button__button .shopify-cleanslate [role=button]{
+    @apply !transition-colors;
+  }
+
+  .shopify-payment-button__button .shopify-cleanslate [role=button]:focus {
+    @apply !outline-0 !ring-1 !ring-offset-1 !ring-black;
+  }
+
+  .shopify-payment-button__button .shopify-cleanslate [role=button]:focus:not(:focus-visible) {
+    @apply ring-0 ring-offset-0;
+  }
+
+  .shopify-payment-button__button .shopify-cleanslate [role=button]:focus-visible {
+    @apply !outline-0 !ring-1 !ring-offset-1 !ring-black;
+  }
+
+  .shopify-payment-button__more-options {
+    @apply text-link;
+  }
+
+  /* Policy Pages */
+
+  body .shopify-policy__container {
+    @apply padding-x max-w-none sm:max-w-md mt-9;
+  }
+
+  body .shopify-policy__title {
+    @apply md:top-header py-0 text-left;
+  }
+
+  body .shopify-policy__title h1 {
+    @apply uppercase;
+  }
+
+  body .shopify-policy__body {
+    @apply mt-9
+  }
+
+  .rte a {
+    @apply text-link underline hover:no-underline;
+  }
+
+  .rte p {
+    @apply my-4;
+  }
+
+  .rte h1 {
+    @apply uppercase;
+    margin-top: 3em;
+  }
+
+  .rte h2 {
+    @apply uppercase;
+    margin-top: 2em;
+  }
+
+  .rte h3 {
+    @apply underline;
+    margin-top: 1.5em;
+  }
+
+  .rte h4 {
+    @apply text-sm uppercase;
+    margin-top: 2em;
+  }
+
+
+  .rte h5 {
+    @apply text-sm uppercase;
+    margin-top: 2em;
+  }
+
+  .rte h6 {
+    @apply text-sm underline;
+    margin-top: 2em;
+  }
+
+  .rte > :first-child {
+    margin-top: 0;
+  }
+
+  .rte > :last-child {
+    margin-bottom: 0;
+  }
+}

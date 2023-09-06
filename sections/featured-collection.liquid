@@ -1,0 +1,94 @@
+{{ 'component-featured-products-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-featured-collection.css' | asset_url | stylesheet_tag }}
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+
+<script type="application/javascript">
+  loadDynamicScriptTag("https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js", function() { document.dispatchEvent(new Event('swiperLoaded')); })
+  loadDynamicScriptTag("{{ 'product-form.js' | asset_url }}")
+  loadDynamicScriptTag("{{ 'component-featured-collection.js' | asset_url }}")
+</script>
+
+{% assign collection = section.settings.collection %}
+
+
+
+<featured-collection class="block mt-9 mb-25 lg:mb-35">
+  <section id="FeaturedProducts-{{ section.id }}" data-section="{{ section.id }}">
+
+    <div class="mb-6 md:mb-9 padding-x flex justify-between">
+      {% if collection %}
+        <h2 class="uppercase"><a class="animate-arrow inline-flex items-center" title="{{ collection.title }}" href="{{ collection.url }}">{{ section.settings.heading | default: collection.title }}</a></h2>
+        <a class="animate-arrow inline-flex items-center" title="{{ collection.title }}" aria-hidden="true" href="{{ collection.url }}"><span class="mr-1">See All</span> {% render 'icon-arrow' %}</a>
+      {% else %}
+        <h2 class="uppercase">{{ section.settings.heading | default: collection.title }}</h2>
+      {% endif %}
+    </div>
+
+      <div class="collection-swiper relative z-[1] overflow-hidden px-20">
+        <div class="collection-prev focus-visible:ring-inset w-18 flex items-center justify-center">{% render 'icon-arrow-small', class: 'absolute top-1/2 left-padding-sm -translate-y-1/2 -rotate-180 w-2 lg:w-3' %}</div>
+        <div class="collection-next focus-visible:ring-inset w-18 flex items-center justify-center">{% render 'icon-arrow-small', class: 'absolute top-1/2 right-padding-sm -translate-y-1/2 w-2 lg:w-3' %}</div>
+
+        <ul class="flex swiper-wrapper">
+          {%- for collection_product in collection.products -%}
+          {% liquid
+          %}
+            <li class="w-1/6 swiper-slide pb-thin">
+              {% render 'product-card',
+                card_product: collection_product,
+                collection: collection,
+                show_rating: section.settings.show_rating,
+                show_quick_add: section.settings.enable_quick_add,
+                section_id: section.id,
+                sizes: "67vw, (min-width: 768px) 30vw, (min-width: 1024px) 20vw, (min-width: 1280px) 17vw, (min-width: 1440px) 15vw"
+              %}
+            </li>
+          {%- else -%}
+            {%- for i in (1..8) -%}
+              <li class="w-1/6 swiper-slide">
+                {% render 'product-card' %}
+              </li>
+            {%- endfor -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+  </section>
+</featured-collection>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Featured Collection",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "label": "t:sections.featured-collection.settings.collection.label",
+      "id": "collection",
+      "type": "collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": true,
+      "label": "t:sections.featured-collection.settings.enable_quick_buy.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header_mobile.content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-collection.presets.name"
+    }
+  ]
+}
+{% endschema %}

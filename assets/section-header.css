@@ -1,0 +1,21 @@
+:root {
+  --announcement-bar-height: 80px; /* Default to prevent empty value before being set with JS */
+  --header-height: 60px;
+  --screen-less-header: calc(100vh - var(--announcement-bar-height) - var(--header-height));
+  --screen-less-announcement: calc(100vh - var(--announcement-bar-height));
+}
+
+@media screen and (min-width: 640px) {
+  :root {
+    --header-height: 90px;
+  }
+}
+@media screen and (min-width: 768px) {
+  :root {
+    --announcement-bar-height: 40px; /* Default to prevent empty value before being set with JS */
+  }
+
+}
+
+
+

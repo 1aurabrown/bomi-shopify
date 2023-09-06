@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "image-banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/1J1A9506.jpg",
+        "mobile_image": "shopify://shop_images/1J1A9576.jpg"
+      }
+    }
+  },
+  "order": [
+    "image-banner"
+  ]
+}

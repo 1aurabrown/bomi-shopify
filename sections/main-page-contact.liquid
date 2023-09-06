@@ -1,0 +1,60 @@
+{{ 'component-rte.css' | asset_url | stylesheet_tag }}
+{% assign image = page.metafields.custom.image.value %}
+
+<div class="md:grid md:grid-cols-12 md:gap-gutter-sm md:grid-flow-dense padding-x ">
+  <div class="md:col-span-6{% if image %} md:col-start-7{% endif %}">
+    <div class="sticky top-header pt-9 sm:max-w-md mr-auto">
+      <h1 class="uppercase">
+        {{ page.title | escape }}
+      </h1>
+
+      <div class="rte mt-9">{{ page.content }}</div>
+
+      {%- form 'contact', id: 'ContactForm', class: 'isolate my-10' -%}
+
+          {%- if form.posted_successfully? -%}
+            <div tabindex="-1" autofocus>{{ 'templates.contact.form.post_success' | t }}</div>
+          {%- elsif form.errors -%}
+            <div class="mb-8 md:mb-10 text-center">
+              <h2 role="alert" tabindex="-1" autofocus>{{ 'templates.contact.form.error_heading' | t }}</h2>
+              <div>
+                {{ form.errors | default_errors }}
+              </div>
+            </div>
+          {%- endif -%}
+
+          <div class="space-y-10 mt-5">
+            <div class="space-y-4">
+              <div class="md:flex space-y-4 md:space-y-0">
+                <div class="name md:flex-1 md:mr-2">
+                  <input class="border placeholder-black h-7 py-1 px-2 bg-transparent w-full" placeholder="Name" type="text" name="contact[name]" />
+                </div>
+
+                <div class="email md:flex-1">
+                  <input
+                    class="border placeholder-black h-7 py-1 px-2 bg-transparent w-full"
+                    aria-required="true"
+                    required
+                    placeholder="Email"
+                    type="email"
+                    name="contact[email]" />
+                </div>
+
+              </div>
+              <div class="message">
+                <textarea class="w-full placeholder-black border py-1 px-2 bg-transparent" placeholder="Message" name="contact[body]"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="submit mt-8">
+            <button type="submit" class="button w-full"><span>Send</span></button>
+          </div>
+        {% endform %}
+    </div>
+  </div>
+  {% if image %}
+    <div class="w-full block mt-9 md:col-span-5 md:col-start-1 row-start-1">
+      {% render 'image', image: image, use_padding: true, sizes: "(min-width: 768px) 50vw, 0vw ", wrapper_class: 'col-span-5' %}
+    </div>
+  {% endif %}
+</div>

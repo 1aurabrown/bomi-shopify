@@ -1,0 +1,79 @@
+{
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "76561e00-7c67-4322-987f-30e4a470a036": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "79f1b88f-520b-4a38-a943-780dbec529db": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "9b92fe32-3c10-4fd6-9402-90a2f23d95bf": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "variant-picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "sizing_text": "Sizing",
+            "sizing_page": "sizing"
+          }
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "inventory_threshold": 10,
+            "show_inventory_quantity": false,
+            "preorder_text": "Ships in 5-6 weeks",
+            "show_in_stock": false,
+            "show_low_stock": false,
+            "show_preorder": true,
+            "show_out_of_stock": false
+          }
+        },
+        "0e537071-9aef-4e17-8465-bc367332db5d": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        }
+      },
+      "block_order": [
+        "76561e00-7c67-4322-987f-30e4a470a036",
+        "79f1b88f-520b-4a38-a943-780dbec529db",
+        "9b92fe32-3c10-4fd6-9402-90a2f23d95bf",
+        "variant-picker",
+        "inventory",
+        "0e537071-9aef-4e17-8465-bc367332db5d"
+      ],
+      "settings": {
+        "constrain_to_viewport": true,
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "More Rodi",
+        "collection": "all",
+        "enable_quick_add": true
+      }
+    }
+  },
+  "order": [
+    "main-product",
+    "featured-collection"
+  ]
+}

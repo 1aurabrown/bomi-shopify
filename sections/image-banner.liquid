@@ -1,0 +1,54 @@
+<div class="mb-25 lg:mb-35">
+
+  {% if section.settings.image %}
+    <div class="md:mx-47 {% if section.settings.mobile_image %} hidden md:block {% endif %}">
+      {% render 'image',
+        image: section.settings.image,
+        preload: true,
+        use_padding: false,
+        class: 'w-full min-h-screen-less-announcement md:max-h-[100vh] md:ml-auto relative z-10',
+        fit: 'cover',
+        sizes: '100vh',
+      %}
+    </div>
+  {% endif %}
+
+  {% if section.settings.mobile_image %}
+    <div class="w-full {% if section.settings.image %} md:hidden {% endif %}">
+      {% render 'image',
+        image: section.settings.mobile_image,
+        preload: true,
+        use_padding: false,
+        class: 'w-full min-h-screen-less-announcement md:max-h-[100vh] md:ml-auto relative z-10',
+        fit: 'cover',
+        sizes: '100vw',
+      %}
+    </div>
+  {% endif %}
+
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "label": "Image",
+      "id": "image",
+      "type": "image_picker"
+    },
+    {
+      "label": "Mobile Image",
+      "id": "mobile_image",
+      "type": "image_picker"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "category": "Homepage"
+    }
+  ]
+}
+{% endschema %}

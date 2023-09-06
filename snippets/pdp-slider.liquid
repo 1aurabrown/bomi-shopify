@@ -1,0 +1,38 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+<script type="application/javascript">
+  loadDynamicScriptTag("https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js", function() { document.dispatchEvent(new Event('swiperLoaded')); })
+  loadDynamicScriptTag("{{ 'product-form.js' | asset_url }}")
+</script>
+
+{%- if product.images.size > 1 -%}
+  <script src="{{ 'component-pdp-slider.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<pdp-slider id="MediaGallery-{{ section.id }}" role="region" aria-label="{{ 'products.product.media.gallery_viewer' | t }}" class="padding-x md:pr-0 block">
+  <div id="GalleryStatus-{{ section.id }}" class="sr-only" role="status"></div>
+  <div {% if product.media.size > 1 %} data-slider {% endif %} class="pdp-swiper overflow-hidden pdp-slider relative" id="GalleryViewer-{{ section.id }}">
+    <div class="pdp-prev focus-visible:ring-inset w-18 flex items-center justify-center">{% render 'icon-arrow-small', class: 'absolute top-1/2 left-padding-sm -translate-y-1/2 -rotate-180 w-2 lg:w-3' %}</div>
+    <div class="pdp-next focus-visible:ring-inset w-18 flex items-center justify-center">{% render 'icon-arrow-small', class: 'absolute top-1/2 right-padding-sm -translate-y-1/2 w-2 lg:w-3' %}</div>
+
+    <ul class="flex swiper-wrapper" role="list">
+      {%- for image in product.images -%}
+        <li  id="Slide-{{ section.id }}-{{ image.id }}" data-media-position="{{ forloop.index0 }}" class="swiper-slide w-full block relative">
+          <div class="pb-[100%]">
+            {% render 'image', image: image,
+              class: 'absolute inset-0 w-full h-full',
+              use_padding: false,
+              preload: true,
+              fit: 'cover',
+              sizes: "100vw, (min-width: 768px) 50vw"
+            %}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+  </div>
+</pdp-slider>
+

@@ -1,0 +1,59 @@
+featured-collection {
+  --swiper-navigation-color: #333;
+  --swiper-theme-color: #333;
+  --swiper-navigation-size: 35px;
+}
+.collection-prev {
+  left: 0;
+}
+
+.collection-next {
+  right: 0;
+}
+
+.collection-prev,
+.collection-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  --padding: 20px;
+  padding-top: calc((100% - 160px))
+}
+
+@media screen and (min-width: 640px) {
+  .collection-prev,
+  .collection-next {
+    padding-top: calc((100% - 180px) / 3)
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .collection-prev,
+  .collection-next {
+    padding-top: calc((100% - 200px) / 4)
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .collection-prev {
+    left: 0;
+  }
+
+  .collection-next {
+    right: 0;
+  }
+  .collection-prev,
+  .collection-next {
+    padding-top: calc((100% - 240px ) / 5)
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .collection-prev,
+  .collection-next {
+    padding-top: calc((100% - 260px ) / 6)
+  }
+}

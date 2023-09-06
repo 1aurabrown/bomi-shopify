@@ -1,0 +1,41 @@
+<div class="mt-9 mb-25 lg:mb-35 padding-x">
+  <ul role="list" class="space-y-25">
+    {%- for block in section.blocks -%}
+      {%- assign collection = block.settings.collection -%}
+      {%- if collection != blank -%}
+        <li>
+          <h2 class="mb-6 md:mb-9  uppercase">
+            <a class="animate-arrow inline-flex items-center" href="{{ collection.url }}">
+              <span class="mr-1">Shop All</span> {% render 'icon-arrow' %}</a>
+          </h2>
+          {% render 'collection-grid', title: collection.title, collection: collection, limit: 4, show_image: block.settings.show_image %}
+        </li>
+      {%- endif %}
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-list-collections.name",
+  "tag": "section",
+  "blocks": [
+    {
+      "name": "Collection",
+      "type": "collection",
+      "settings": [
+        {
+          "type": "collection",
+          "label": "Collection",
+          "id": "collection"
+        },
+        {
+          "type": "checkbox",
+          "label": "Show Collection Image",
+          "id": "show_image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

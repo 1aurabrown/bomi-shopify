@@ -1,0 +1,7 @@
+<section class="padding-x">
+	{% paginate collection.products by 2 %}
+	  <h2 class="mt-9 mb-6 md:mb-9 uppercase">{{ collection.title }}</h2>
+		{% render 'collection-grid', show_image: true %}
+		{% render 'pagination' %}
+	{% endpaginate %}
+</section>

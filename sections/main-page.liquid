@@ -1,0 +1,27 @@
+{{ 'component-rte.css' | asset_url | stylesheet_tag }}
+{% assign image = page.metafields.custom.image.value %}
+
+<div class="md:grid md:grid-cols-12 md:gap-gutter-sm md:grid-flow-dense padding-x ">
+  <div class="md:col-span-6{% if image %} md:col-start-7{% endif %}">
+    <div class="sticky top-header pt-9 sm:max-w-md mr-auto">
+      <h1 class="uppercase">
+        {{ page.title | escape }}
+      </h1>
+
+      <div class="rte mt-9">{{ page.content }}</div>
+    </div>
+  </div>
+  {% if image %}
+    <div class="w-full block mt-9 md:col-span-5 md:col-start-1 row-start-1">
+      {% render 'image', image: image, use_padding: true, sizes: "(min-width: 768px) 50vw, 0vw ", wrapper_class: 'col-span-5' %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "page"
+}
+{% endschema %}

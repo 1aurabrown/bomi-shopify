@@ -1,0 +1,66 @@
+
+{% if image %}
+  {% liquid
+    assign alt = alt | default: image.alt | escape
+    assign class = class | default: ''
+    assign class = class | append: ' bg-no-repeat bg-center motion-reduce'
+
+    assign widths = widths | default: '180, 360, 450, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, ' | append: image.width
+    assign fit = fit | default: 'contain'
+    assign placeholder_width =  180
+    assign width = width | default: image.width
+    assign height = height | default: image.height
+
+    if fit == 'contain'
+      assign class = class | append: ' object-contain bg-contain'
+    elsif fit == 'cover'
+      assign class = class | append: ' object-cover bg-cover'
+    endif
+
+    if preload
+      assign loading = 'eager'
+    else
+      assign loading = 'lazy'
+    endif
+
+    if use_padding != false
+      assign class = class | append: ' absolute inset-0'
+    endif
+  %}
+
+  {% comment %}
+    If image is marked as preload (above the fold) load low-res image placeholder as background image. We don't do this on other images (which will be lazy-loaded) to reduce network requests.
+  {% endcomment %}
+
+  {%- if preload -%}
+    {%- capture style -%}
+      background-image: url('{{ image | image_url: width: placeholder_width }}');
+    {%- endcapture -%}
+    {%- assign onload = 'this.style.removeProperty("background-image");' -%}
+  {%- endif -%}
+
+  {% if use_padding != false %}
+    <div class="relative {{ wrapper_class }}">
+      <div class="keep-empty" style="padding-bottom: {{ 1.00 | divided_by: image.aspect_ratio | times: 100.00 | append: '%' }} ">
+  {% endif %}
+
+      {{ image | image_url: width: image.width | image_tag:
+        loading: loading,
+        preload: preload,
+        id: id,
+        style: style,
+        class: class,
+        sizes: sizes,
+        widths: widths,
+        width: width,
+        height: height,
+        onload: onload,
+        alt: alt
+      }}
+
+  {% if use_padding != false %}
+      </div>
+    </div>
+  {% endif %}
+
+{% endif %}
