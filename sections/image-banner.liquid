@@ -1,31 +1,48 @@
-<div class="mb-25 lg:mb-35">
+{% liquid
+  assign text = section.settings.text | default: section.settings.url.object.title
+%}
+<div class="mb-25 lg:mb-35 padding-x md:grid md:grid-cols-3">
+  <div class="w-full md:col-start-2">
+    {% if section.settings.url != blank %}
+      <a class="section" class="block" href="{{ section.settings.url }}" title="{{ text }}">
+    {% endif %}
 
-  {% if section.settings.image %}
-    <div class="md:mx-47 {% if section.settings.mobile_image %} hidden md:block {% endif %}">
-      {% render 'image',
-        image: section.settings.image,
-        preload: true,
-        use_padding: false,
-        class: 'w-full min-h-screen-less-announcement md:max-h-[100vh] md:ml-auto relative z-10',
-        fit: 'cover',
-        sizes: '100vh',
-      %}
-    </div>
-  {% endif %}
+      <figure>
+        {% if section.settings.image %}
+          {% capture class %}
+              w-full{% if section.settings.mobile_image %} hidden md:block{% endif %}
+          {% endcapture %}
+          {% render 'image',
+            image: section.settings.image,
+            preload: true,
+            use_padding: false,
+            class: class,
+            fit: 'cover',
+            sizes: '(min-width: 768px) 33vw, 100vw',
+          %}
+        {% endif %}
 
-  {% if section.settings.mobile_image %}
-    <div class="w-full {% if section.settings.image %} md:hidden {% endif %}">
-      {% render 'image',
-        image: section.settings.mobile_image,
-        preload: true,
-        use_padding: false,
-        class: 'w-full min-h-screen-less-announcement md:max-h-[100vh] md:ml-auto relative z-10',
-        fit: 'cover',
-        sizes: '100vw',
-      %}
-    </div>
-  {% endif %}
+        {% if section.settings.mobile_image %}
+          {% capture class %}
+            w-full{% if section.settings.image %} md:hidden{% endif %}
+          {% endcapture %}
+          {% render 'image',
+            image: section.settings.mobile_image,
+            preload: true,
+            use_padding: false,
+            class: class,
+            fit: 'cover',
+            sizes: '(min-width: 768px) 33vw, 100vw',
+          %}
+        {% endif %}
 
+        <figcaption class="block uppercase hover:underline mt-[10px]">{{ text }}</figcaption>
+      </figure>
+
+    {% if section.settings.url != blank %}
+      </a>
+    {% endif %}
+  </div>
 </div>
 
 {% schema %}
@@ -42,6 +59,17 @@
       "label": "Mobile Image",
       "id": "mobile_image",
       "type": "image_picker"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "info": "Defaults to linked object's title."
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Link"
     }
   ],
   "presets": [

@@ -261,6 +261,47 @@ deferred-media {
   display: block;
 }
 
+/* Header menu drawer */
+.header__icon--menu .icon {
+  display: block;
+  position: absolute;
+  opacity: 1;
+  transition: opacity 150ms ease;
+}
+
+details:not([open]) > .header__icon--menu .icon-close,
+details[open] > .header__icon--menu .icon-hamburger {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.js details[open]:not(.menu-opening) > .header__icon--menu .icon-close {
+  visibility: hidden;
+}
+
+.js details[open]:not(.menu-opening) > .header__icon--menu .icon-hamburger {
+  visibility: visible;
+  opacity: 1;
+}
+
+.js details > .header__submenu {
+  opacity: 0;
+  transform: translateY(-1.5rem);
+}
+
+details[open] > .header__submenu {
+  animation: animateMenuOpen var(--duration-default) ease;
+  animation-fill-mode: forwards;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion) {
+  details[open] > .header__submenu {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* component-modal */
 .modal__toggle {
@@ -306,8 +347,8 @@ deferred-media {
 }
 
 .modal__close-button .icon {
-  width: 1.7rem;
-  height: 1.7rem;
+  width: .75rem;
+  height: .75rem;
 }
 
 .modal__content {
@@ -443,12 +484,6 @@ deferred-media {
   height: 100%;
   position: relative;
   transition-property: transform;
-}
-
-#cursor {
-  transition-property: background-color, border-color, transform;
-  transition-duration: 200ms;
-  z-index: 10000000;
 }
 
 #footer-klaviyo * {

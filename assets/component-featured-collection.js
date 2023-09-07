@@ -14,17 +14,6 @@ if (!customElements.get('featured-collection')) {
           nextEl: '.collection-next',
           prevEl: '.collection-prev',
         },
-        on: {
-          touchMove: function(swiper, event) {
-            updateCursor(event)
-          },
-          touchStart: function(swiper, event) {
-            clickCursor(event)
-          },
-          touchEnd: function(swiper, event) {
-            releaseCursor(event)
-          }
-        },
         breakpoints: {
           640: {
             spaceBetween: 10,

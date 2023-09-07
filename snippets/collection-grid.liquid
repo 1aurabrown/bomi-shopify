@@ -1,5 +1,5 @@
 <div class="collection-grid">
-  <div class="grid grid-cols-2 grid-flow-dense md:grid-cols-12 gap-x-gutter-sm gap-y-10">
+  <div class="grid grid-cols-2 grid-flow-dense md:grid-cols-12 gap-y-10">
 
     {% for product in collection.products limit: limit %}
       {%- render 'product-card', class: "md:col-span-4 lg:col-span-3", collection: collection, section: section, card_product: product -%}

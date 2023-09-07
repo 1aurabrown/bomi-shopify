@@ -24,6 +24,20 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    {% comment %} {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
+      {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
+      <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%} {% endcomment %}
+
+    {%- if settings.predictive_search_enabled -%}
+      <link
+        rel="stylesheet"
+        href="{{ 'component-predictive-search.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+    {%- endif -%}
+
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
@@ -52,7 +66,7 @@
     </script>
   </head>
 
-  <body class="custom-cursor template-{{ template.name }}{% if template.suffix != blank %} template-{{ template.name }}--{{template.suffix }}{% endif %}">
+  <body class="template-{{ template.name }}{% if template.suffix != blank %} template-{{ template.name }}--{{template.suffix }}{% endif %}">
 
     <a class="skip-to-content-link visually-hidden sr-only" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
@@ -103,8 +117,6 @@
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       }
     </script>
-
-    {% render 'cursor' %}
 
   </body>
 </html>

@@ -9,13 +9,6 @@
     font-smooth: always;
   }
 
-  body.custom-cursor,
-  body.custom-cursor *,
-  body.custom-cursor button,
-  body.custom-cursor [role=button] {
-    cursor: none;
-  }
-
   *:focus {
     @apply focus;
   }
@@ -79,7 +72,7 @@
   }
 
   .padding-x {
-    @apply px-gutter-sm md:px-padding-sm;
+    @apply px-5;
   }
 }
 
@@ -140,7 +133,7 @@
   }
 
   body {
-    @apply text-base tracking-normal leading-normal font-figtree;
+    @apply text-base tracking-normal leading-normal font-union;
   }
 
   strong, b {

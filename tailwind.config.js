@@ -2,8 +2,6 @@
 const spacing = {
   // Theme-specific spacing
   // Add here
-  'padding-sm': '1.25rem',
-  'gutter-sm': '0.625rem',
   'announcement': 'var(--announcement-bar-height)',
   'header': 'var(--header-height)',
   'screen-less-header': 'var(--screen-less-header)',
@@ -14,6 +12,7 @@ const spacing = {
   // Relative to current font size
   '3rel': '0.75em',
   '6rel': '1.5em',
+  'gutter': '10px',
    // fractions
   '1/2': 100.0 * 1/2 + '%',
   '1/3': 100.0 * 1/3 + '%',
@@ -80,10 +79,10 @@ module.exports = {
       sm: "0.75rem"
     },
     fontFamily: {
-      figtree: ['Figtree', 'sans-serif']
+      union: ['Union', 'sans-serif']
     },
     letterSpacing: {
-      wide: "0.04em",
+      wide: "0.05em",
       normal: "normal",
     },
     lineHeight: {
@@ -91,6 +90,11 @@ module.exports = {
       normal: "normal"
     },
     extend: {
+      gridTemplateColumns: {
+        // Complex site-specific column configuration
+        'header': '1fr auto 1fr',
+        '24': 'repeat(24, minmax(0, 1fr))',
+      },
       screens: {
         'hoverable': { 'raw': '(hover: hover)' }
       },

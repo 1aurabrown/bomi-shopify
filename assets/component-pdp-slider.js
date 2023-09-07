@@ -13,17 +13,6 @@ if (!customElements.get('pdp-slider')) {
         navigation: {
           nextEl: '.pdp-next',
           prevEl: '.pdp-prev',
-        },
-        on: {
-          touchMove: function(swiper, event) {
-            updateCursor(event)
-          },
-          touchStart: function(swiper, event) {
-            clickCursor(event)
-          },
-          touchEnd: function(swiper, event) {
-            releaseCursor(event)
-          }
         }
       }
     }

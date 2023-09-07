@@ -1,0 +1,137 @@
+<div class="homepage-items block relative mb-6 md:mb-9">
+  <div class="homepage-items__images padding-x pt-13 md:pt-15 grid grid-cols-1 grid-cols-6 md:grid-cols-24 grid-flow-dense gap-y-40 md:gap-y-0 gap-x-gutter">
+    {% for block in section.blocks %}
+      {% capture sizes %}(min-width: 768px) {{ block.settings.desktop_width }}vw, {{ block.settings.mobile_width }}vw{% endcapture %}
+
+      {% liquid
+        if block.settings.image
+          assign image = block.settings.image
+        else
+          assign image = block.settings.url.object.featured_image
+        endif
+        assign text = block.settings.text | default: block.settings.url.object.title
+        assign max_margin = 100 | minus: block.settings.desktop_width
+      %}
+
+      <div class="homepage-items__block" data-index="{{ forloop.index }}">
+        <style>
+
+           {% liquid
+              assign desktop_span_max = 24 | minus: block.settings.desktop_col_start | plus: 1
+              assign mobile_span_max = 6 | minus: block.settings.mobile_col_start | plus: 1
+          %}
+           .homepage-items__block[data-index="{{ forloop.index }}"] {
+              grid-column: {% if block.settings.desktop_col_start > 0 %}{{ block.settings.mobile_col_start }}{% else %}auto{% endif %} / span {{ block.settings.mobile_col_span | at_most: mobile_span_max }};
+            }
+          @media screen and (min-width: 768px) {
+            .homepage-items__block[data-index="{{ forloop.index }}"] {
+              grid-column: {% if block.settings.desktop_col_start > 0 %}{{ block.settings.desktop_col_start }}{% else %}auto{% endif %} / span {{ block.settings.desktop_col_span | at_most: desktop_span_max }};
+              grid-row: {% if block.settings.desktop_row_start > 0 %}{{ block.settings.desktop_row_start }}{% else %}auto{% endif %} / span 6;
+            }
+          }
+        </style>
+        {% if block.settings.url != blank %}
+          <a class="block" href="{{ block.settings.url }}" title="{{ text }}">
+        {% endif %}
+          <figure class="w-full">
+            {% render 'image', image: image, wrapper_class: "w-full", class: "w-full", padding_bottom: true, sizes: sizes %}
+            <figcaption class="block uppercase hover:underline mt-[10px]">{{ text }}</figcaption>
+          </figure>
+
+        {% if block.settings.url != blank %}
+          </a>
+        {% endif %}
+      </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Homepage Items",
+  "tag": "section",
+  "max_blocks": 9,
+  "enabled_on": {
+    "templates": [
+      "index"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Defaults to linked object's image."
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "info": "Defaults to linked object's title."
+        },
+        {
+          "type": "range",
+          "id": "desktop_row_start",
+          "label": "Desktop Row Start",
+          "min": 0,
+          "max": 35,
+          "step": 1,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_col_start",
+          "label": "Desktop Column Start",
+          "min": 0,
+          "max": 21,
+          "step": 1,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_col_span",
+          "label": "Desktop Column Span",
+          "min": 4,
+          "max": 10,
+          "step": 1,
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "mobile_col_start",
+          "label": "Mobile Column Start",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "mobile_col_span",
+          "label": "Mobile Column Span",
+          "min": 3,
+          "max": 6,
+          "step": 1,
+          "default": 6
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homepage Items"
+    }
+  ]
+}
+{% endschema %}

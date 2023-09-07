@@ -14,8 +14,8 @@
 <pdp-slider id="MediaGallery-{{ section.id }}" role="region" aria-label="{{ 'products.product.media.gallery_viewer' | t }}" class="padding-x md:pr-0 block">
   <div id="GalleryStatus-{{ section.id }}" class="sr-only" role="status"></div>
   <div {% if product.media.size > 1 %} data-slider {% endif %} class="pdp-swiper overflow-hidden pdp-slider relative" id="GalleryViewer-{{ section.id }}">
-    <div class="pdp-prev focus-visible:ring-inset w-18 flex items-center justify-center">{% render 'icon-arrow-small', class: 'absolute top-1/2 left-padding-sm -translate-y-1/2 -rotate-180 w-2 lg:w-3' %}</div>
-    <div class="pdp-next focus-visible:ring-inset w-18 flex items-center justify-center">{% render 'icon-arrow-small', class: 'absolute top-1/2 right-padding-sm -translate-y-1/2 w-2 lg:w-3' %}</div>
+    <div class="pdp-prev focus-visible:ring-inset w-18 flex items-center justify-center">{% render 'icon-arrow-small', class: 'absolute top-1/2 left-5 -translate-y-1/2 -rotate-180 w-2 lg:w-3' %}</div>
+    <div class="pdp-next focus-visible:ring-inset w-18 flex items-center justify-center">{% render 'icon-arrow-small', class: 'absolute top-1/2 right-5 -translate-y-1/2 w-2 lg:w-3' %}</div>
 
     <ul class="flex swiper-wrapper" role="list">
       {%- for image in product.images -%}

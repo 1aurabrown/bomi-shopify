@@ -1,8 +1,7 @@
-<a href="{{ routes.cart_url }}" class="text-link hover:underline uppercase{% if template == 'cart' %} underline{% endif %}" {% if link.current %}aria-current="page"{% endif %} role="button" >
-  Cart
+<a href="{{ routes.cart_url }}" class="text-link hover:underline uppercase{% if template == 'cart' %} underline{% endif %}" {% if link.current %}aria-current="page"{% endif %} id="cart-icon-bubble" role="button" >
+  <span class="hidden md:inline">Cart</span>
   <span id="cart-icon-bubble" class="text-center h4-b md:h2-b" >
     {% render 'cart-icon-bubble' %}
   </span>
-  <span class="sr-only">{{ 'templates.cart.cart' | t }}</span>
 </a>
 

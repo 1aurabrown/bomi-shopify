@@ -10,9 +10,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "menu": "main-menu",
-          "fullbleed_desktop": false,
-          "fullbleed_mobile": false
+          "menu": "main-menu"
         }
       },
       "footer": {
@@ -27,6 +25,7 @@
       }
     },
     "content_for_index": [
+
     ]
   }
 }

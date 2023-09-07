@@ -1,7 +1,7 @@
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {% assign image = page.metafields.custom.image.value %}
 
-<div class="md:grid md:grid-cols-12 md:gap-gutter-sm md:grid-flow-dense padding-x ">
+<div class="md:grid md:grid-cols-12 md:grid-flow-dense padding-x ">
   <div class="md:col-span-6{% if image %} md:col-start-7{% endif %}">
     <div class="sticky top-header pt-9 sm:max-w-md mr-auto">
       <h1 class="uppercase">
