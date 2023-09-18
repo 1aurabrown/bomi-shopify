@@ -55,8 +55,7 @@
   {%- endfor -%}
 
   <div class="article-template__back element-margin-top center">
-    <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
-      <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+    <a href="{{ blog.url }}" class="article-template__link link">
       {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
     </a>
   </div>

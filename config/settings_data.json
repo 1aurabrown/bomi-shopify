@@ -1,25 +1,11 @@
 {
   "current": {
+    "favicon": "shopify:\/\/shop_images\/Frame_2.svg",
     "show_cart_note": true,
     "sections": {
-      "announcement-bar": {
-        "type": "announcement-bar",
-        "settings": {
-        }
-      },
-      "header": {
-        "type": "header",
-        "settings": {
-          "menu": "main-menu"
-        }
-      },
       "footer": {
         "type": "footer",
         "settings": {
-          "bg_color": "",
-          "newsletter_enable": true,
-          "newsletter_html": "",
-          "show_social": true,
           "menu": "footer"
         }
       }

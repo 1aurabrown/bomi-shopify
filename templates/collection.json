@@ -1,12 +1,17 @@
 {
   "sections": {
+    "header": {
+      "type": "main-collection-header"
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
+        "menu": "main-menu"
       }
     }
   },
   "order": [
+    "header",
     "product-grid"
   ]
 }

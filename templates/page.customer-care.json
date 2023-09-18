@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page-customer-care",
+      "settings": {
+        "contact": "",
+        "menu_heading": "Customer Care",
+        "menu": "customer-care"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

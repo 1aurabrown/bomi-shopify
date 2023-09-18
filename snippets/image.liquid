@@ -1,4 +1,3 @@
-
 {% if image %}
   {% liquid
     assign alt = alt | default: image.alt | escape
@@ -24,9 +23,10 @@
     endif
 
     if use_padding != false
-      assign class = class | append: ' absolute inset-0'
+      assign class = class | append: ' absolute inset-0 w-full h-full'
     endif
   %}
+
 
   {% comment %}
     If image is marked as preload (above the fold) load low-res image placeholder as background image. We don't do this on other images (which will be lazy-loaded) to reduce network requests.
@@ -41,7 +41,7 @@
 
   {% if use_padding != false %}
     <div class="relative {{ wrapper_class }}">
-      <div class="keep-empty" style="padding-bottom: {{ 1.00 | divided_by: image.aspect_ratio | times: 100.00 | append: '%' }} ">
+      <div style="padding-bottom: {{ 1.00 | divided_by: image.aspect_ratio | times: 100.00 | append: '%' }} ">
   {% endif %}
 
       {{ image | image_url: width: image.width | image_tag:

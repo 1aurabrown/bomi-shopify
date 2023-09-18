@@ -1,7 +1,7 @@
 {% liquid
   assign text = section.settings.text | default: section.settings.url.object.title
 %}
-<div class="mb-25 lg:mb-35 padding-x md:grid md:grid-cols-3">
+<div class="pt-15 mb-25 lg:mb-35 padding-x md:grid md:grid-cols-3">
   <div class="w-full md:col-start-2">
     {% if section.settings.url != blank %}
       <a class="section" class="block" href="{{ section.settings.url }}" title="{{ text }}">
@@ -36,7 +36,7 @@
           %}
         {% endif %}
 
-        <figcaption class="block uppercase hover:underline mt-[10px]">{{ text }}</figcaption>
+        <figcaption class="block uppercase hover:underline mt-gutter">{{ text }}</figcaption>
       </figure>
 
     {% if section.settings.url != blank %}
@@ -49,6 +49,11 @@
 {
   "name": "Hero",
   "tag": "section",
+  "enabled_on": {
+    "templates": [
+      "index"
+    ]
+  },
   "settings": [
     {
       "label": "Image",

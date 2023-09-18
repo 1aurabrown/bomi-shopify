@@ -6,6 +6,9 @@ class DetailsDisclosure extends HTMLElement {
 
     this.mainDetailsToggle.addEventListener('focusout', this.onFocusOut.bind(this));
     this.mainDetailsToggle.addEventListener('toggle', this.onToggle.bind(this));
+
+    this.isClosing = false;
+    this.isOpening = false;
   }
 
   onFocusOut() {
@@ -17,9 +20,19 @@ class DetailsDisclosure extends HTMLElement {
   onToggle() {
     if (!this.animations) this.animations = this.content.getAnimations();
 
-    if (this.mainDetailsToggle.hasAttribute('open')) {
+    if (this.mainDetailsToggle.open) {
+      this.mainDetailsToggle.classList.remove('is-closing')
+      this.mainDetailsToggle.classList.add('is-opening')
+      setTimeout(function() {
+        this.mainDetailsToggle.classList.remove('is-opening')
+      }.bind(this), 1000)
       this.animations.forEach((animation) => animation.play());
     } else {
+      this.mainDetailsToggle.classList.remove('is-opening')
+      this.mainDetailsToggle.classList.add('is-closing')
+      setTimeout(function() {
+        this.mainDetailsToggle.classList.remove('is-closing')
+      }.bind(this), 1000)
       this.animations.forEach((animation) => animation.cancel());
     }
   }
@@ -42,6 +55,19 @@ class HeaderMenu extends DetailsDisclosure {
     if (!this.header) return;
     this.header.preventHide = this.mainDetailsToggle.open;
 
+    if (this.mainDetailsToggle.open) {
+      this.mainDetailsToggle.classList.remove('is-closing')
+      this.mainDetailsToggle.classList.add('is-opening')
+      setTimeout(function() {
+        this.mainDetailsToggle.classList.remove('is-opening')
+      }.bind(this), 1000)
+    } else {
+      this.mainDetailsToggle.classList.remove('is-opening')
+      this.mainDetailsToggle.classList.add('is-closing')
+      setTimeout(function() {
+        this.mainDetailsToggle.classList.remove('is-closing')
+      }.bind(this), 1000)
+    }
     if (document.documentElement.style.getPropertyValue('--header-bottom-position-desktop') !== '') return;
     document.documentElement.style.setProperty(
       '--header-bottom-position-desktop',

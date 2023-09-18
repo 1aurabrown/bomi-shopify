@@ -4,11 +4,17 @@
       {%- assign collection = block.settings.collection -%}
       {%- if collection != blank -%}
         <li>
-          <h2 class="mb-6 md:mb-9  uppercase">
-            <a class="animate-arrow inline-flex items-center" href="{{ collection.url }}">
-              <span class="mr-1">Shop All</span> {% render 'icon-arrow' %}</a>
-          </h2>
-          {% render 'collection-grid', title: collection.title, collection: collection, limit: 4, show_image: block.settings.show_image %}
+          <div class="grid grid-cols-4 grid-flow-dense md:grid-cols-4 gap-x-gutter gap-y-10">
+            <h2 class="mb-6 md:mb-9">
+              <a class="text-link uppercase" href="{{ collection.url }}">{{ collection.title }}</a>
+              <div class="rte">
+                {{ collection.description }}
+              </div>
+            </h2>
+            {% for product in collection.products limit: 3 %}
+              {%- render 'card-product', collection: collection, section: section, card_product: product -%}
+            {% endfor %}
+          </div>
         </li>
       {%- endif %}
     {%- endfor -%}

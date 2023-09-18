@@ -76,11 +76,11 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-    {% section 'announcement-bar' %}
     <div class="header-wrapper sticky top-0 z-30">
-      {% section 'header' %}
+      {% sections 'header-group' %}
     </div>
-    <main id="MainContent" class="relative z-10 bg-white min-h-screen-less-header content-for-layout focus-none w-full" role="main" tabindex="-1">
+    
+    <main id="MainContent" class="relative z-10 grow content-for-layout focus-none w-full" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 

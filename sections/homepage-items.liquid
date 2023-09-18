@@ -1,5 +1,5 @@
 <div class="homepage-items block relative mb-6 md:mb-9">
-  <div class="homepage-items__images padding-x pt-13 md:pt-15 grid grid-cols-1 grid-cols-6 md:grid-cols-24 grid-flow-dense gap-y-40 md:gap-y-0 gap-x-gutter">
+  <div class="homepage-items__images padding-x pt-13 md:pt-15 grid grid-cols-6 md:grid-cols-24 grid-flow-dense gap-y-40 md:gap-y-0 gap-x-gutter">
     {% for block in section.blocks %}
       {% capture sizes %}(min-width: 768px) {{ block.settings.desktop_width }}vw, {{ block.settings.mobile_width }}vw{% endcapture %}
 
@@ -35,7 +35,7 @@
         {% endif %}
           <figure class="w-full">
             {% render 'image', image: image, wrapper_class: "w-full", class: "w-full", padding_bottom: true, sizes: sizes %}
-            <figcaption class="block uppercase hover:underline mt-[10px]">{{ text }}</figcaption>
+            <figcaption class="block uppercase hover:underline mt-gutter">{{ text }}</figcaption>
           </figure>
 
         {% if block.settings.url != blank %}

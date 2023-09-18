@@ -9,6 +9,17 @@
     font-smooth: always;
   }
 
+  :root {
+    --announcement-bar-height: 80px; /* Default to prevent empty value before being set with JS */
+    --header-height: 60px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    :root {
+      --announcement-bar-height: 40px; /* Default to prevent empty value before being set with JS */
+    }
+  }
+
   *:focus {
     @apply focus;
   }
@@ -22,7 +33,11 @@
   }
 
   html, body {
-    @apply bg-white text-black;
+    @apply w-full h-full bg-white text-black tracking-normal;
+  }
+
+  body {
+    @apply flex flex-col justify-stretch items-stretch;
   }
 
   input[type='radio']:focus + label {
@@ -35,14 +50,6 @@
 
   input[type='radio']:focus-visible + label {
     @apply focus;
-  }
-
-  .rte {
-    @apply leading-body;
-  }
-
-  .rte a {
-    @apply text-link;
   }
 
   .product-card__image-wrapper .product-card__image:last-child:not(:first-child) {
@@ -78,45 +85,26 @@
 
 @layer components {
   .button {
-    @apply z-0 relative text-center text-black px-4 py-1 flex items-center justify-center uppercase h-7 w-full transition-colors duration-200;
+    @apply text-center tracking-normal font-union flex justify-center items-center bg-white text-black px-4 py-1 border border-black h-9 w-full transition-colors duration-200;
   }
 
   .button:disabled,
   .button[aria-disabled='true'],
   .button.disabled {
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: 0.4;
   }
 
-  .button::before {
-    content: '';
-    z-index: -1;
-    @apply border-black border absolute transition-all duration-200 inset-0 bg-white;
-  }
-
-  .button:hover {
-    @apply text-white;
-  }
-
-  .button:hover::before {
-    @apply inset-y-[2px] -inset-x-1 md:-inset-x-3 bg-black;
+  .button:hover, .button:focus {
+    @apply text-white bg-black;
   }
 
   .button--reverse {
-    @apply text-white;
-  }
-
-
-  .button--reverse::before {
-    @apply bg-black;
+    @apply text-white bg-black;
   }
 
   .button--reverse:hover {
-    @apply text-black;
-  }
-
-  .button--reverse:hover::before {
-    @apply bg-white;
+    @apply text-black bg-white;
   }
 
   .text-link {
@@ -133,15 +121,11 @@
   }
 
   body {
-    @apply text-base tracking-normal leading-normal font-union;
+    @apply text-base tracking-normal font-union;
   }
 
   strong, b {
     @apply font-semibold;
-  }
-
-  main {
-    @apply min-h-screen-less-header
   }
 
   .shopify-challenge__container {
@@ -181,6 +165,14 @@
     @apply text-link;
   }
 
+  .nav-link-current {
+    @apply text-black/100 relative;
+  }
+  .nav-link-current::before {
+    content: '•';
+    @apply absolute -left-2;
+  }
+
   /* Policy Pages */
 
   body .shopify-policy__container {
@@ -200,11 +192,15 @@
   }
 
   .rte a {
-    @apply text-link underline hover:no-underline;
+    @apply text-link;
   }
 
-  .rte p {
-    @apply my-4;
+  .rte *:empty {
+    display: none;
+  }
+
+  .rte p, .rte ul, .rte ol, .rte table, .rte blockquote {
+    @apply my-text-line mx-0;
   }
 
   .rte h1 {
@@ -245,4 +241,62 @@
   .rte > :last-child {
     margin-bottom: 0;
   }
+}
+
+body .shopify-pc__banner__dialog {
+  @apply padding-x py-3;
+  border-top: 1px solid black;
+  box-shadow: none;
+}
+body .shopify-pc__banner__btns,
+body .shopify-pc__prefs__header-actions {
+  justify-content: flex-end;
+  @apply space-x-10
+}
+
+body .shopify-pc__banner__dialog button,
+body .shopify-pc__prefs__header-actions button {
+  flex-basis: auto;
+  margin: 0 0 0 0;
+  border: none;
+  text-decoration: none;
+  padding: 0 0 0 0;
+  @apply hover:underline;
+}
+
+body .shopify-pc__prefs__header-close {
+  top: 30px;
+}
+
+body .shopify-pc__banner__dialog button.shopify-pc__banner__btn-manage-prefs {
+  /* text-decoration: none; */
+  /* @apply hover:no-underline; */
+}
+
+body .shopify-pc__banner__dialog button.shopify-pc__banner__btn-accept,
+body .shopify-pc__banner__dialog button.shopify-pc__banner__btn-decline {
+  border: none;
+}
+
+body .shopify-pc__banner__dialog button.shopify-pc__banner__btn-accept,
+body .shopify-pc__banner__dialog button.shopify-pc__banner__btn-decline,
+body .shopify-pc__prefs__header-actions button {
+  @apply font-normal uppercase;
+}
+
+#shopify-pc__banner ~ #shopify-section-footer {
+  @apply pb-9;
+}
+
+/* PDP */
+.product-form__input input[type='radio'] + label {
+  @apply text-black/40 inline-block text-center relative;
+}
+
+.product-form__input input[type='radio']:checked + label {
+  @apply text-black;
+}
+
+.product-form__input input[type='radio']:checked + label .value {
+  @apply underline;
 }

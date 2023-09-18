@@ -23,11 +23,19 @@
   if settings.currency_code_enabled
     assign money_price = price | money_with_currency
   endif
-
-  if target == product and product.price_varies
-    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
-  endif
 -%}
+
+{% if target == product and product.price_varies %}
+  {% capture money_price %}
+    {{ product.price_min | money }} - {{ product.price_max | money }}
+  {% endcapture %}
+{% endif %}
+
+{%- if product.tags contains 'final sale' -%}
+  {%- capture money_price -%}
+    {{ money_price }}&nbsp;&nbsp;<span class="uppercase">&nbsp;(Final Sale)</span>
+  {%- endcapture -%}
+{%- endif -%}
 
 <div class="price
   {%- if price_class %} {{ price_class }}{% endif -%}

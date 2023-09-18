@@ -1,0 +1,108 @@
+{{ 'component-rte.css' | asset_url | stylesheet_tag }}
+
+<ul class="sm:hidden padding-x">
+  {% for collection in section.settings.collection_list %}
+    <li><h2><a href="{{ collection.url }}" data-index="{{ forloop.index }}">{{ collection.title }}</a></h2></li>
+  {% endfor %}
+</ul>
+
+<div class="md:pt-[5vw]">
+  <page-collections class="h-full hidden sm:grid grid-cols-2 md:grid-cols-12 sm:gap-gutter padding-x items-start">
+    <ul class="lg:col-start-3 md:col-span-2 collections-page__buttons-list">
+      {% for collection in section.settings.collection_list %}
+          <li><h2><a href="{{ collection.url }}" class="collections-page__button" data-index="{{ forloop.index }}">{{ collection.title }}</a></h2></li>
+      {% endfor %}
+    </ul>
+
+    <div class="hidden md:block md:col-start-4 md:col-span-4 lg:col-start-5 lg:col-span-3">
+      {% for collection in section.settings.collection_list %}
+        <div class="collections-page__description rte" style="display:none" data-index="{{ forloop.index }}">{{ collection.description }}</div>
+      {% endfor %}
+    </div>
+
+    <div class="md:col-start-9 md:col-span-4">
+      {% for collection in section.settings.collection_list %}
+        <div class="collections-page__image" style="display:none" data-index="{{ forloop.index }}">{% render 'image', image: collection.image %}</div>
+      {% endfor %}
+    </div>
+  </page-collections>
+</div>
+
+{% javascript %}
+if (!customElements.get('page-collections')) {
+  class PageCollections extends HTMLElement {
+    constructor() {
+      super();
+      this.currentIndex = -1;
+      this.buttonsList = this.querySelector('.collections-page__buttons-list')
+      this.buttons = this.querySelectorAll('.collections-page__button')
+      this.descriptions = this.querySelectorAll('.collections-page__description')
+      this.images = this.querySelectorAll('.collections-page__image')
+      this.buttons.forEach(button => {
+        button.addEventListener('mouseenter', this.buttonHovered.bind(this))
+        button.addEventListener('focus', this.buttonHovered.bind(this))
+      })
+      this.buttonsList.addEventListener('mouseleave', this.listBlurred.bind(this))
+      this.buttonsList.addEventListener('focusout', this.listBlurred.bind(this))
+    }
+
+    listBlurred(e) {
+      this.buttonsList.classList.remove('text-black/40')
+      this.currentIndex = null
+      this.update()
+    }
+
+    buttonHovered(e) {
+      this.buttonsList.classList.add('text-black/40')
+      this.currentIndex = parseInt(e.target.dataset.index)
+      this.update()
+    }
+
+    update() {
+      this.buttons.forEach(button => {
+        if (button.dataset.index == this.currentIndex) {
+          button.classList.add('nav-link-current')
+        } else {
+          button.classList.remove('nav-link-current')
+        }
+      })
+
+      this.descriptions.forEach(description => {
+        if (description.dataset.index == this.currentIndex) {
+          description.style.display = 'block'
+        } else {
+          description.style.display = 'none'
+        }
+      })
+
+      this.images.forEach(image => {
+        if (image.dataset.index == this.currentIndex) {
+          image.style.display = 'block'
+        } else {
+          image.style.display = 'none'
+        }
+      })
+    }
+
+  }
+  customElements.define('page-collections', PageCollections);
+}
+
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Collections",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "Collections"
+    }
+  ]
+}
+{% endschema %}

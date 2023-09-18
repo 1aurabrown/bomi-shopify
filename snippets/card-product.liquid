@@ -17,6 +17,7 @@
 							image: image,
 					    preload: true,
 					    fit: 'cover',
+							aspect_ratio: true,
 					    sizes: sizes,
 					    use_padding: false,
 					    class: 'product-card__image absolute inset-0 w-full h-full'
@@ -25,19 +26,29 @@
 				  {% endif %}
 			  {% endfor %}
 			</div>
+
+			{% unless card_product.available %}<span class="absolute top-3 right-3 p-3 z-10 uppercase border-black border rounded-[50%] block">{{ 'products.product.sold_out' | t }}</span>{% endunless %}
+
 			<a class="absolute inset-0 z-10 block" tabindex="-1" aria-hidden="true" title="{{ card_product.title }}" href="{{ card_product.url | within: collection }}"></a>
 		</div>
 
 		<div class="relative">
-			<a class="absolute inset-0 z-10" title="{{ card_product.title }}" href="{{ card_product.url | within: collection }}"></a>
-			{% if card_product.metafields.descriptors.title %}
-				<h3 class="mt-4 uppercase product-card--title">{{ card_product.metafields.descriptors.title }}</h3>
-	    {% if card_product.metafields.descriptors.subtitle %}
-	       <p class="mt-1">{{ card_product.metafields.descriptors.subtitle }}</p>{% endif %}
-			{% else %}
-				<h3 class="mt-4 uppercase product-card--title">{{ card_product.title }}</h3>
+			
+			{% if card_product.vendor != blank %}
+				{% capture handle %}{{ card_product.vendor | handleize }}{% endcapture %}
+				{% assign vendor_collection = collections[handle]%}
+				<p class="mt-1 text-black/40 product-card--vendor">
+					{% if vendor_collection != blank %}<a class="hover:underline" href="{{ vendor_collection.url }}">{% endif %}
+						{{ card_product.vendor }}
+					{% if vendor_collection != blank %}</a>{% endif %}
+				</p>
 			{% endif %}
-			<p class="mt-4">{% render 'price', product: card_product %}</p>
+			
+			<div class="sm:flex relative hover:underline">
+				<a class="absolute inset-0 z-10" title="{{ card_product.title }}" href="{{ card_product.url | within: collection }}"></a>
+				<h3 class="product-card--title block mr-4">{{ card_product.title }}</h3>
+				{% render 'price', product: card_product, use_variant: false %}
+		</div>
 		</div>
 	{% else %}
 

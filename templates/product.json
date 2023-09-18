@@ -21,9 +21,7 @@
         "variant-picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button",
-            "sizing_text": "Sizing",
-            "sizing_page": "sizing"
+            "picker_type": "button"
           }
         },
         "inventory": {
@@ -43,6 +41,30 @@
           "settings": {
             "show_dynamic_checkout": false
           }
+        },
+        "0a02c292-a3b2-49b9-824f-072fe10dc9f7": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Details",
+            "content": "<p>{{ product.metafields.custom.details | metafield_tag }}<\/p>",
+            "page": ""
+          }
+        },
+        "71ea0195-a1b2-45fe-bf6e-4567ed57ad86": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Care",
+            "content": "<p>{{ product.metafields.descriptors.care_guide | metafield_tag }}<\/p>",
+            "page": ""
+          }
+        },
+        "d5c6c7ad-82fd-4cab-bfa7-3952b0885290": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -51,7 +73,10 @@
         "9b92fe32-3c10-4fd6-9402-90a2f23d95bf",
         "variant-picker",
         "inventory",
-        "0e537071-9aef-4e17-8465-bc367332db5d"
+        "0e537071-9aef-4e17-8465-bc367332db5d",
+        "0a02c292-a3b2-49b9-824f-072fe10dc9f7",
+        "71ea0195-a1b2-45fe-bf6e-4567ed57ad86",
+        "d5c6c7ad-82fd-4cab-bfa7-3952b0885290"
       ],
       "settings": {
         "constrain_to_viewport": true,
@@ -63,17 +88,16 @@
         "enable_video_looping": false
       }
     },
-    "featured-collection": {
-      "type": "featured-collection",
+    "related-products": {
+      "type": "related-products",
       "settings": {
-        "heading": "More BOMI",
-        "collection": "all",
-        "enable_quick_add": true
+        "heading": "Related Products",
+        "products_to_show": 4
       }
     }
   },
   "order": [
     "main-product",
-    "featured-collection"
+    "related-products"
   ]
 }

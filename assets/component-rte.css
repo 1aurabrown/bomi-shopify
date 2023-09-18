@@ -12,10 +12,6 @@
   margin-bottom: 0;
 }
 
-.rte p, .rte ul, .rte ol, .rte table, .rte blockquote {
-  margin: 0.625em 0;
-}
-
 .rte table {
   table-layout: fixed;
 }

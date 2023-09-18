@@ -11,7 +11,7 @@
   {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, show_pickup_availability: true %}
 {% endcomment %}
 
-<div class="mt-4" {{ block.shopify_attributes }}>
+<div class="mt-6 mb-8" {{ block.shopify_attributes }}>
   {%- if product != blank -%}
     <product-form class="product-form">
       <div class="product-form__error-message-wrapper" role="alert" hidden>
@@ -58,20 +58,20 @@
             id = "ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button inline-flex items-center"
+            class="product-form__submit button inline-flex justify-center items-center relative"
             href="{{ collection.url }}"
             {% if selected_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
           >
-            <span class="mr-1 uppercase">
+            <span>
               {%- if selected_variant.available == false or quantity_rule_soldout -%}
                 {{ 'products.product.sold_out' | t }}
               {%- else -%}
                 {{ 'products.product.add_to_cart' | t }}
               {%- endif -%}
             </span>
-            <div class="loading-overlay__spinner hidden">
+            <div class="loading-overlay__spinner hidden absolute inset-0">
               <svg
                 aria-hidden="true"
                 focusable="false"

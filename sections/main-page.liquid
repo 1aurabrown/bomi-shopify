@@ -1,19 +1,18 @@
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {% assign image = page.metafields.custom.image.value %}
 
-<div class="md:grid md:grid-cols-12 md:grid-flow-dense padding-x ">
-  <div class="md:col-span-6{% if image %} md:col-start-7{% endif %}">
-    <div class="sticky top-header pt-9 sm:max-w-md mr-auto">
-      <h1 class="uppercase">
-        {{ page.title | escape }}
-      </h1>
+<div class="grid grid-cols-3 md:grid-cols-24 md:grid-flow-dense gap-x-gutter gap-y-10 padding-x ">
+  <div class="col-span-2 md:col-span-8{% if image %} md:col-start-[17]{% endif %}">
+  <h1 class="visually-hidden uppercase">
+    {{ page.title | escape }}
+  </h1>
 
-      <div class="rte mt-9">{{ page.content }}</div>
-    </div>
+    <div class="rte">{{ page.content }}</div>
+    {% if section.settings.content != blank %}<div class="uppercase">{{ section.settings.contact }}</div>{% endif %}
   </div>
   {% if image %}
-    <div class="w-full block mt-9 md:col-span-5 md:col-start-1 row-start-1">
-      {% render 'image', image: image, use_padding: true, sizes: "(min-width: 768px) 50vw, 0vw ", wrapper_class: 'col-span-5' %}
+    <div class="w-full col-span-3 md:col-end-[16] md:col-start-1">
+      {% render 'image', image: image, use_padding: true, sizes: "(min-width: 768px) 66vw, 100vw " %}
     </div>
   {% endif %}
 </div>
@@ -22,6 +21,13 @@
 {
   "name": "t:sections.main-page.name",
   "tag": "section",
-  "class": "page"
+  "class": "page",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "contact",
+      "label": "Contact Info"
+    }
+  ]
 }
 {% endschema %}

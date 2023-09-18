@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="{{ 'section-header.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -11,16 +10,15 @@
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="{{ 'component-loading-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
-{%- if section.settings.menu_type_desktop == 'mega' -%}
-  <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-  <noscript>{{ 'component-mega-menu.css' | asset_url | stylesheet_tag }}</noscript>
-{%- endif -%}
+
+<link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-mega-menu.css' | asset_url | stylesheet_tag }}</noscript>
+
 
 {%- if section.settings.enable_country_selector or section.settings.enable_language_selector -%}
   {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
 {%- endif -%}
 
-{{ 'section-header.css' | asset_url | stylesheet_tag }}
 {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
 {{ 'component-cart.css' | asset_url | stylesheet_tag }}
 {{ 'component-totals.css' | asset_url | stylesheet_tag }}
@@ -98,149 +96,120 @@
 -%}
 
 
-<div class="header-wrapper">
-  <header class="header h-header padding-x py-4 z-20 drawer-menu{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
-
-
-    <div class="grid grid-cols-header">
+<div class="header-wrapper h-header pb-3">
+  <header class="header h-full bg-white padding-x z-20 grid grid-cols-header items-center drawer-menu{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
 
     {%- liquid
       if section.settings.menu != blank
         render 'header-drawer'
       endif
     -%}
-      <nav class="hidden md:block">
-        <ul class="flex md:space-x-10 lg:space-x-20" role="list">
-          {%- if section.settings.menu != blank -%}
-            {%- for link in section.settings.menu.links -%}
-              <li>
-                <a title="{{ link.title }}" href="{{ link.url }}" class="text-link hover:underline uppercase{% if link.current or link.active or link.child_active%} underline{% endif %}" {% if link.current %}aria-current="page"{% endif %}>
-                  <span>{{ link.title | escape }}</span>
-                </a>
-              </li>
-            {%- endfor -%}
-          {%- endif -%}
-          {%- if shop.customer_accounts_enabled -%}
-            <li>
-              <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="text-link hover:underline uppercase{% if link.current or link.active %} underline{% endif %}" {% if link.current %}aria-current="page"{% endif %}>
-              {% render 'icon-account' %}
-                <span class="sr-only">
-                  {%- liquid
-                    if customer
-                      echo 'customer.account_fallback' | t
-                    else
-                      echo 'customer.log_in' | t
-                    endif
-                  -%}
-                </span>
-              </a>
-            </li>
-          {%- endif -%}
-        </ul>
-      </nav>
 
-      {%- if request.page_type == 'index' -%}
-        <h1>
-      {%- endif -%}
-          <a href="{{ routes.root_url }}" title="{{ shop.name }}" class="block ">
-            {% render 'logo.svg', class: 'w-20 sm:w-[9.375rem]' %}
+    {%- if section.settings.menu != blank -%}
+      {% render 'header-mega-menu' %}
+    {%- endif -%}
+
+    {%- if request.page_type == 'index' -%}
+      <h1>
+    {%- endif -%}
+        <a href="{{ routes.root_url }}" title="{{ shop.name }}" class="block ">
+          {% render 'logo.svg', class: 'w-20 sm:w-[9.375rem]' %}
+        </a>
+    {%- if request.page_type == 'index' -%}
+      </h1>
+    {%- endif -%}
+
+    <div>
+      <div class="flex md:space-x-10 lg:space-x-20 justify-end header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
+
+        <div class="desktop-localization-wrapper hidden md:block">
+          {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+            <noscript class="small-hide medium-hide">
+              {%- form 'localization', id: 'HeaderCountryMobileFormNoScript', class: 'localization-form' -%}
+                <div class="localization-form__select">
+                  <h2 class="visually-hidden" id="HeaderCountryMobileLabelNoScript">{{ 'localization.country_label' | t }}</h2>
+                  <select class="localization-selector link" name="country_code" aria-labelledby="HeaderCountryMobileLabelNoScript">
+                    {%- for country in localization.available_countries -%}
+                      <option value="{{ country.iso_code }}" {%- if country.iso_code == localization.country.iso_code %} selected{% endif %}>
+                        {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+                      </option>
+                    {%- endfor -%}
+                  </select>
+                  {% render 'icon-caret' %}
+                </div>
+                <button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
+              {%- endform -%}
+            </noscript>
+
+            <localization-form class="small-hide medium-hide no-js-hidden">
+              {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
+                <div>
+                  <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
+                  {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
+                </div>
+              {%- endform -%}
+            </localization-form>
+          {% endif %}
+
+          {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+            <noscript class="small-hide medium-hide">
+              {%- form 'localization', id: 'HeaderLanguageMobileFormNoScript', class: 'localization-form' -%}
+                <div class="localization-form__select">
+                  <h2 class="visually-hidden" id="HeaderLanguageMobileLabelNoScript">{{ 'localization.language_label' | t }}</h2>
+                  <select class="localization-selector link" name="locale_code" aria-labelledby="HeaderLanguageMobileLabelNoScript">
+                    {%- for language in localization.available_languages -%}
+                      <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
+                        {{ language.endonym_name | capitalize }}
+                      </option>
+                    {%- endfor -%}
+                  </select>
+                  {% render 'icon-caret' %}
+                </div>
+                <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
+              {%- endform -%}
+            </noscript>
+
+            <localization-form class="small-hide medium-hide no-js-hidden">
+              {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+                <div>
+                  <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+                  {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
+                </div>
+              {%- endform -%}
+            </localization-form>
+          {%- endif -%}
+        </div>
+
+        {%- if shop.customer_accounts_enabled -%}
+          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset hidden md:block">
+            {% render 'icon-account' %}
+            <span class="visually-hidden">
+              {%- liquid
+                if customer
+                  echo 'customer.account_fallback' | t
+                else
+                  echo 'customer.log_in' | t
+                endif
+              -%}
+            </span>
           </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
-
-      <div>
-        <div class="flex md:space-x-10 lg:space-x-20 justify-end header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-
-          <div class="desktop-localization-wrapper hidden md:block">
-            {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-              <noscript class="small-hide medium-hide">
-                {%- form 'localization', id: 'HeaderCountryMobileFormNoScript', class: 'localization-form' -%}
-                  <div class="localization-form__select">
-                    <h2 class="visually-hidden" id="HeaderCountryMobileLabelNoScript">{{ 'localization.country_label' | t }}</h2>
-                    <select class="localization-selector link" name="country_code" aria-labelledby="HeaderCountryMobileLabelNoScript">
-                      {%- for country in localization.available_countries -%}
-                        <option value="{{ country.iso_code }}" {%- if country.iso_code == localization.country.iso_code %} selected{% endif %}>
-                          {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
-                        </option>
-                      {%- endfor -%}
-                    </select>
-                    {% render 'icon-caret' %}
-                  </div>
-                  <button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
-                {%- endform -%}
-              </noscript>
-
-              <localization-form class="small-hide medium-hide no-js-hidden">
-                {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
-                  <div>
-                    <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                    {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
-                  </div>
-                {%- endform -%}
-              </localization-form>
-            {% endif %}
-
-            {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-              <noscript class="small-hide medium-hide">
-                {%- form 'localization', id: 'HeaderLanguageMobileFormNoScript', class: 'localization-form' -%}
-                  <div class="localization-form__select">
-                    <h2 class="visually-hidden" id="HeaderLanguageMobileLabelNoScript">{{ 'localization.language_label' | t }}</h2>
-                    <select class="localization-selector link" name="locale_code" aria-labelledby="HeaderLanguageMobileLabelNoScript">
-                      {%- for language in localization.available_languages -%}
-                        <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
-                          {{ language.endonym_name | capitalize }}
-                        </option>
-                      {%- endfor -%}
-                    </select>
-                    {% render 'icon-caret' %}
-                  </div>
-                  <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
-                {%- endform -%}
-              </noscript>
-
-              <localization-form class="small-hide medium-hide no-js-hidden">
-                {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
-                  <div>
-                    <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
-                    {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
-                  </div>
-                {%- endform -%}
-              </localization-form>
-            {%- endif -%}
-          </div>
-
-          {%- if shop.customer_accounts_enabled -%}
-            <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset hidden md:block">
-              {% render 'icon-account' %}
-              <span class="visually-hidden">
-                {%- liquid
-                  if customer
-                    echo 'customer.account_fallback' | t
-                  else
-                    echo 'customer.log_in' | t
-                  endif
-                -%}
-              </span>
-            </a>
-          {%- endif -%}
+        {%- endif -%}
 
 
-          {%- for block in section.blocks -%}
-            {%- case block.type -%}
-              {%- when '@app' -%}
-                {% render block %}
-            {%- endcase -%}
-          {%- endfor -%}
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+          {%- endcase -%}
+        {%- endfor -%}
 
 
-          <div class="uppercase hidden md:block">
-            {% render 'header-search', input_id: 'Search-In-Modal' %}
-          </div>
+        <div class="uppercase hidden md:block">
+          {% render 'header-search', input_id: 'Search-In-Modal' %}
+        </div>
 
-          <div>
-            {%- render 'cart-button' -%}
-          </div>
+        <div>
+          {%- render 'cart-button' -%}
         </div>
       </div>
     </div>

@@ -61,8 +61,8 @@
         class="disabled"
       {% endif %}
     >
-    <label class="mt-1 mr-1" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-      {{ value -}}
+    <label class="cursor-pointer" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+      <span class="value">{{ value -}}</span>{% unless forloop.last %},{% endunless%}
       <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
     </label>
   {%- elsif block.settings.picker_type == 'dropdown' -%}

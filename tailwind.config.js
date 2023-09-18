@@ -4,8 +4,7 @@ const spacing = {
   // Add here
   'announcement': 'var(--announcement-bar-height)',
   'header': 'var(--header-height)',
-  'screen-less-header': 'var(--screen-less-header)',
-  'screen-less-announcement': 'var(--screen-less-announcement)',
+  
   // General spacing
   // Add more granular measurements as needed
   'thin': '.125rem',
@@ -13,6 +12,7 @@ const spacing = {
   '3rel': '0.75em',
   '6rel': '1.5em',
   'gutter': '10px',
+  'text-line': '1.5em',
    // fractions
   '1/2': 100.0 * 1/2 + '%',
   '1/3': 100.0 * 1/3 + '%',
@@ -69,13 +69,13 @@ module.exports = {
   theme: {
     colors: {
       'transparent': 'transparent',
-      'white': '#FDFBF9',
-      'black': "#212121",
+      'white': '#FFFFFF',
+      'black': "#000000",
       'current': 'currentColor',
       'red': '#b3322c',
     },
     fontSize: {
-      base: "0.8125rem",
+      base: "0.75rem",
       sm: "0.75rem"
     },
     fontFamily: {
@@ -83,11 +83,7 @@ module.exports = {
     },
     letterSpacing: {
       wide: "0.05em",
-      normal: "normal",
-    },
-    lineHeight: {
-      body: "1.7em",
-      normal: "normal"
+      normal: "0.02em",
     },
     extend: {
       gridTemplateColumns: {

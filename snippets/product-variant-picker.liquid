@@ -14,7 +14,7 @@
   {%- if block.settings.picker_type == 'button' -%}
     <variant-radios
       id="variant-radios-{{ section.id }}"
-      class="no-js-hidden my-6 flex items-end justify-start"
+      class="no-js-hidden my-4 flex items-end justify-start"
       data-section="{{ section.id }}"
       data-url="{{ product.url }}"
       {% if update_url == false %}
@@ -24,18 +24,11 @@
     >
       {%- for option in product.options_with_values -%}
         <fieldset class="js product-form__input">
-          <legend class="form__label">{{ option.name }}</legend>
+          <legend class="form__label">{{ option.name }}:</legend>
           <div class="flex justify-between">
             {% render 'product-variant-options', product: product, selected_variant: selected_variant, option: option, block: block %}
-            {% if block.settings.sizing_page != blank %}
-              {% if option.name contains 'Size' or option.name contains 'size' %}
-                {% render 'product-sizing-button', block: block %}
-              {% endif %}
-            {% endif %}
           </div>
         </fieldset>
-
-
 
       {%- endfor -%}
       <script type="application/json">
@@ -45,7 +38,7 @@
   {%- else -%}
     <variant-selects
       id="variant-selects-{{ section.id }}"
-      class="no-js-hidden"
+      class="my-4 no-js-hidden"
       data-section="{{ section.id }}"
       data-url="{{ product.url }}"
       {% if update_url == false %}
@@ -70,12 +63,6 @@
             {% render 'icon-caret' %}
           </div>
         </div>
-
-        {% if block.settings.sizing_page != blank %}
-          {% if option.name contains 'Size' or option.name contains 'size' %}
-            {% render 'product-sizing-button', block: block %}
-          {% endif %}
-        {% endif %}
 
       {%- endfor -%}
 

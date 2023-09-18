@@ -1020,8 +1020,8 @@ class ProductRecommendations extends HTMLElement {
       observer.unobserve(this);
 
       fetch(this.dataset.url)
-        .then(response => response.text())
-        .then(text => {
+        .then((response) => response.text())
+        .then((text) => {
           const html = document.createElement('div');
           html.innerHTML = text;
           const recommendations = html.querySelector('product-recommendations');
@@ -1038,14 +1038,13 @@ class ProductRecommendations extends HTMLElement {
             this.classList.add('product-recommendations--loaded');
           }
         })
-        .catch(e => {
+        .catch((e) => {
           console.error(e);
         });
-    }
+    };
 
-    new IntersectionObserver(handleIntersection.bind(this), {rootMargin: '0px 0px 400px 0px'}).observe(this);
+    new IntersectionObserver(handleIntersection.bind(this), { rootMargin: '0px 0px 400px 0px' }).observe(this);
   }
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
-

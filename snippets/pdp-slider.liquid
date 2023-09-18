@@ -1,38 +1,47 @@
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
 <script type="application/javascript">
   loadDynamicScriptTag("https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js", function() { document.dispatchEvent(new Event('swiperLoaded')); })
   loadDynamicScriptTag("{{ 'product-form.js' | asset_url }}")
 </script>
 
-{%- if product.images.size > 1 -%}
-  <script src="{{ 'component-pdp-slider.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
+<script src="{{ 'component-pdp-slider.js' | asset_url }}" defer="defer"></script>
 
-<pdp-slider id="MediaGallery-{{ section.id }}" role="region" aria-label="{{ 'products.product.media.gallery_viewer' | t }}" class="padding-x md:pr-0 block">
-  <div id="GalleryStatus-{{ section.id }}" class="sr-only" role="status"></div>
-  <div {% if product.media.size > 1 %} data-slider {% endif %} class="pdp-swiper overflow-hidden pdp-slider relative" id="GalleryViewer-{{ section.id }}">
-    <div class="pdp-prev focus-visible:ring-inset w-18 flex items-center justify-center">{% render 'icon-arrow-small', class: 'absolute top-1/2 left-5 -translate-y-1/2 -rotate-180 w-2 lg:w-3' %}</div>
-    <div class="pdp-next focus-visible:ring-inset w-18 flex items-center justify-center">{% render 'icon-arrow-small', class: 'absolute top-1/2 right-5 -translate-y-1/2 w-2 lg:w-3' %}</div>
+{% if product.media.size > 0 %}
+  <pdp-slider id="MediaGallery-{{ section.id }}" role="region" aria-label="{{ 'products.product.media.gallery_viewer' | t }}" class="block pdp-slider">
+    <div id="GalleryStatus-{{ section.id }}" class="sr-only" role="status"></div>
+    <div data-slider class="pdp-swiper overflow-hidden relative" id="GalleryViewer-{{ section.id }}">
+      <div class="pdp-prev focus-visible:ring-inset flex items-center justify-center w-10 h-10 sm:w-15 sm:h-15 xl:w-25 xl:h-25">{% render 'icon-arrow', class: 'rotate-180 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5' %}</div>
+      <div class="pdp-next focus-visible:ring-inset flex items-center justify-center w-10 h-10 sm:w-15 sm:h-15 xl:w-25 xl:h-25">{% render 'icon-arrow', class: 'w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5' %}</div>
 
-    <ul class="flex swiper-wrapper" role="list">
-      {%- for image in product.images -%}
-        <li  id="Slide-{{ section.id }}-{{ image.id }}" data-media-position="{{ forloop.index0 }}" class="swiper-slide w-full block relative">
-          <div class="pb-[100%]">
+      <div class="swiper-pagination flex items-center justify-center lg:hidden"></div>
+      
+      <ul class="flex swiper-wrapper" role="list">
+        {%- for image in product.images -%}
+          <li id="Slide-{{ section.id }}-{{ image.id }}" data-media-position="{{ forloop.index0 }}" class="swiper-slide">
             {% render 'image', image: image,
-              class: 'absolute inset-0 w-full h-full',
-              use_padding: false,
               preload: true,
               fit: 'cover',
-              sizes: "100vw, (min-width: 768px) 50vw"
+              sizes: "100vw, (min-width: 768px) 42vw"
             %}
-          </div>
-        </li>
-      {%- endfor -%}
-    </ul>
+          </li>
+        {%- endfor -%}
+      </ul>
 
-  </div>
-</pdp-slider>
-
+    </div>
+    <div class="pdp-slider__thumbs hidden lg:block mt-gutter">
+      <ul class="flex swiper-wrapper" role="list">
+        {%- for image in product.images -%}
+          <li id="Slide-{{ section.id }}-{{ image.id }}" data-media-position="{{ forloop.index0 }}" class="relative swiper-slide">
+            {% render 'image', image: image,
+              preload: true,
+              fit: 'cover',
+              sizes: "100px"
+            %}
+            <button class="block appearance-none inset-0 absolute" type="button" aria-label="Slide {{ forloop.index }}"></button>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </pdp-slider>
+{% endif %}

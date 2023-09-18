@@ -1,0 +1,75 @@
+{{ 'component-rte.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign page_policy = null
+  capture policy_url
+    echo page.url | replace: '/pages/', '/policies/'
+  endcapture
+  for policy in shop.policies
+    if policy.url == policy_url
+      assign page_policy = policy
+    endif
+  endfor
+%}
+
+<div class="grid sm:grid-cols-12 grid-flow-dense gap-x-gutter gap-y-10 padding-x">
+  <div class="sm:col-span-3 lg:col-start-3 lg:col-span-2">
+    <div class="sticky top-header md:pt-[5vw]">
+      {% comment %} <div>
+        {% if section.settings.menu_heading %}
+          <h2 class="uppercase mb-text-line">{{ section.settings.menu_heading }} </h2>
+        {% endif %}
+      </div> {% endcomment %}
+      <div>
+        <ul rol="navigation">
+          {% for link in section.settings.menu.links %}
+            <li>
+              <a href="{{ link.url }}" class="{% if link.current %}nav-link-current{% endif %}" {% if link.current %} aria-current="page" {% endif %}>
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sm:col-span-9 md:col-span-6 lg:col-start-5 lg:col-end-9 md:pt-[5vw]">
+    <h1 class="uppercase mb-text-line">
+      {{ page.title | escape }}
+    </h1>
+
+    <div class="rte">
+      {% if page_policy %}
+        {{ page_policy.body }}
+      {% else %}
+        {{ page.content }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page with Navigation Menu",
+  "tag": "section",
+  "class": "page",
+  "enabled_on": {
+    "templates": [
+      "page"
+    ]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "menu_heading",
+      "label": "Menu Heading"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
+    }
+  ]
+}
+{% endschema %}

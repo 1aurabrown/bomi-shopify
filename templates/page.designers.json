@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "designers": {
+      "type": "main-page-designers",
+      "settings": {
+        "collection_list": [
+          "astier-de-villatte",
+          "la-soufflerie",
+          "marisha-falkovich"
+        ]
+      }
+    }
+  },
+  "order": [
+    "designers"
+  ]
+}
