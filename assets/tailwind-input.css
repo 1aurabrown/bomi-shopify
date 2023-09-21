@@ -219,18 +219,18 @@
   }
 
   .rte h4 {
-    @apply text-sm uppercase;
+    @apply uppercase;
     margin-top: 2em;
   }
 
 
   .rte h5 {
-    @apply text-sm uppercase;
+    @apply uppercase;
     margin-top: 2em;
   }
 
   .rte h6 {
-    @apply text-sm underline;
+    @apply underline;
     margin-top: 2em;
   }
 

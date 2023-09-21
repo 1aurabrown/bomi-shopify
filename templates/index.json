@@ -4,6 +4,7 @@
       "type": "image-banner",
       "settings": {
         "image": "shopify:\/\/shop_images\/landingpage_pic_1.jpg",
+        "desktop_col_span": 4,
         "text": "Shop New Collection",
         "url": "shopify:\/\/collections"
       }
