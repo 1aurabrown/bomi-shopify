@@ -21,6 +21,7 @@
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'bis-form.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
 
   <a class="skip-to-content-link sr-only" href="#ProductInfo-{{ section.id }}">
@@ -667,6 +668,13 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "back_in_stock_enabled",
+          "default": false,
+          "label": "Show Back In Stock Form",
+          "info": "Enables Back In Stock form for out-of-stock items. Uncheck this if you uninstall the Back In Stock app."
         }
       ]
     },

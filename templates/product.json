@@ -56,7 +56,8 @@
         "0e537071-9aef-4e17-8465-bc367332db5d": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": false
+            "show_dynamic_checkout": false,
+            "back_in_stock_enabled": true
           }
         },
         "0a02c292-a3b2-49b9-824f-072fe10dc9f7": {

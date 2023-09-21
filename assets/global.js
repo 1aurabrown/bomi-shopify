@@ -910,14 +910,17 @@ class VariantSelects extends HTMLElement {
       .then((responseText) => {
         // prevent unnecessary ui changes from abandoned selections
         if (this.currentVariant.id !== requestedVariantId) return;
-
         const html = new DOMParser().parseFromString(responseText, 'text/html')
+
         const destination = document.getElementById(`price-${this.dataset.section}`);
         const source = html.getElementById(`price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+        const buyButtonsWrapperSource = html.getElementById(`buy-buttons-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+        const buyButtonsWrapperDestination = document.getElementById(`buy-buttons-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
         const skuSource = html.getElementById(`Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
         const skuDestination = document.getElementById(`Sku-${this.dataset.section}`);
         const inventorySource = html.getElementById(`Inventory-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
         const inventoryDestination = document.getElementById(`Inventory-${this.dataset.section}`);
+
 
         if (source && destination) destination.innerHTML = source.innerHTML;
         if (inventorySource && inventoryDestination) inventoryDestination.innerHTML = inventorySource.innerHTML;
@@ -932,9 +935,7 @@ class VariantSelects extends HTMLElement {
 
         if (inventoryDestination) inventoryDestination.classList.toggle('visibility-hidden', inventorySource.innerText === '');
 
-        const addButtonUpdated = html.getElementById(`ProductSubmitButton-${sectionId}`);
-        this.toggleAddButton(addButtonUpdated ? addButtonUpdated.hasAttribute('disabled') : true, addButtonUpdated.innerText.trim());
-
+        buyButtonsWrapperDestination.innerHTML = buyButtonsWrapperSource.innerHTML
         publish(PUB_SUB_EVENTS.variantChange, {data: {
           sectionId,
           html,
@@ -945,20 +946,29 @@ class VariantSelects extends HTMLElement {
 
   toggleAddButton(disable = true, text, modifyClass = true) {
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
-    if (!productForm) return;
-    const addButton = productForm.querySelector('[name="add"]');
-    const addButtonText = productForm.querySelector('[name="add"] > span');
-    if (!addButton) return;
+    const bisForm = document.getElementById(`bis-form-${this.dataset.section}`);
+    if (productForm) {
+      let addButton = productForm.querySelector('[name="add"]');
+      let addButtonText = productForm.querySelector('[name="add"] > span');
+      if (!addButton) return;
 
-    if (disable) {
-      addButton.setAttribute('disabled', 'disabled');
-      if (text) addButtonText.textContent = text;
-    } else {
-      addButton.removeAttribute('disabled');
-      if (text) addButtonText.textContent = text;
+      if (disable) {
+        addButton.setAttribute('disabled', 'disabled');
+        if (text) addButtonText.textContent = text;
+      } else {
+        addButton.removeAttribute('disabled');
+        if (text) addButtonText.textContent = text;
+      }
+
+      if (!modifyClass) return;
+    } else if (bisForm) {
+      let bisSubmitButton = bisForm.querySelector('[type="submit"]');
+      if (disable) {
+        bisSubmitButton.setAttribute('disabled', 'disabled');
+      } else {
+        bisSubmitButton.removeAttribute('disabled');
+      }
     }
-
-    if (!modifyClass) return;
   }
 
   setUnavailable() {
