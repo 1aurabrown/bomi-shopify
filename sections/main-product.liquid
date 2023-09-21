@@ -48,7 +48,9 @@
               <p class="product__text rte"{{ block.shopify_attributes }}>
                 {{- block.settings.text -}}
               </p>
-            {%- when 'title' -%}
+            {%- when 'breadcrumbs' -%}
+              {% if collection %}<div class="mb-text-line">{% render 'breadcrumbs', menu: block.settings.menu %}</div>{% endif %}
+            {%- when 'vendor' -%}
               {% if product.vendor != blank %}
                 {% capture handle %}{{ product.vendor | handleize }}{% endcapture %}
                 {% assign vendor_collection = collections[handle]%}
@@ -58,11 +60,12 @@
                   {% if vendor_collection != blank %}</a>{% endif %}
                 </p>
               {% endif %}
+            {%- when 'title' -%}
               <div class="product__title" {{ block.shopify_attributes }}>
                 <h1>{{ product.title }}</h1>
               </div>
             {%- when 'price' -%}
-              <div class="no-js-hidden my-text-line" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+              <div class="no-js-hidden my-text-line flex space-x-3" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'price',
                   product: product,
                   selected_variant: selected_variant,
@@ -70,6 +73,7 @@
                   show_badges: true,
                   price_class: 'price--large'
                 -%}
+                {%- if product.tags contains 'final sale' -%}<span class="uppercase">(Final Sale)</span>{%- endif -%}
               </div>
               <div {{ block.shopify_attributes }}>
                 {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
@@ -383,6 +387,8 @@
                   <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
                 {%- endif -%}
               </product-recommendations>
+            {%- when 'alternate_sizes' -%}
+              {%- render 'product-alternate-sizes', product: product, block: block %}
             {%- when 'icon-with-text' -%}
               {% render 'icon-with-text',
                 block: block
@@ -528,6 +534,24 @@
       "limit": 1
     },
     {
+      "type": "vendor",
+      "name": "Vendor",
+      "limit": 1
+    },
+    {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "main-menu",
+          "label": "t:sections.header.settings.menu.label"
+        }
+      ]
+    },
+    {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
       "limit": 1
@@ -594,6 +618,20 @@
       "type": "quantity_selector",
       "name": "t:sections.main-product.blocks.quantity_selector.name",
       "limit": 1
+    },
+    {
+      "type": "alternate_sizes",
+      "name": "Alternate Sizes",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Size:",
+          "info": "Block appears if product has alternate sizes configured in metafields."
+        }
+      ]
     },
     {
       "type": "variant_picker",

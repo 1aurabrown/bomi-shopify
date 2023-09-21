@@ -12,7 +12,7 @@ const spacing = {
   '3rel': '0.75em',
   '6rel': '1.5em',
   'gutter': '10px',
-  'text-line': '1.5em',
+  'text-line': '1rem',
    // fractions
   '1/2': 100.0 * 1/2 + '%',
   '1/3': 100.0 * 1/3 + '%',
@@ -62,28 +62,27 @@ for (let i = 0; i < 101; i++) {
 
 module.exports = {
   content: [
-    "./assets/*.{js, css, svg}",
-    "./**/*.liquid"
+    './assets/*.{js, css, svg}',
+    './**/*.liquid'
   ],
   plugins: [],
   theme: {
     colors: {
       'transparent': 'transparent',
       'white': '#FFFFFF',
-      'black': "#000000",
+      'black': '#000000',
       'current': 'currentColor',
       'red': '#b3322c',
     },
     fontSize: {
-      base: "0.75rem",
-      sm: "0.75rem"
+      base: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],
     },
     fontFamily: {
       union: ['Union', 'sans-serif']
     },
     letterSpacing: {
-      wide: "0.05em",
-      normal: "0.02em",
+      wide: '0.05em',
+      normal: '0.02em',
     },
     extend: {
       gridTemplateColumns: {

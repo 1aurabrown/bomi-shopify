@@ -1,8 +1,27 @@
+{% comment %}
+csspurge whitelist
+md:col-start-1
+md:col-start-2
+md:col-start-3
+md:col-start-4
+md:col-start-5
+
+md:col-end-9
+md:col-end-10
+md:col-end-11
+md:col-end-12
+md:col-end-13
+{% endcomment %}
+
 {% liquid
   assign text = section.settings.text | default: section.settings.url.object.title
+  assign half_width = section.settings.desktop_col_span | divided_by: 2
+  assign start = 6 | minus: half_width | plus: 1
+  assign end = 6 | plus: half_width | plus: 1
 %}
-<div class="pt-15 mb-25 lg:mb-35 padding-x md:grid md:grid-cols-3">
-  <div class="w-full md:col-start-2">
+
+<div class="pt-15 mb-25 lg:mb-35 padding-x md:grid md:grid-cols-12">
+  <div class="w-full md:col-start-{{ start }} md:col-end-{{ end }}">
     {% if section.settings.url != blank %}
       <a class="section" class="block" href="{{ section.settings.url }}" title="{{ text }}">
     {% endif %}
@@ -64,6 +83,15 @@
       "label": "Mobile Image",
       "id": "mobile_image",
       "type": "image_picker"
+    },
+    {
+      "type": "range",
+      "id": "desktop_col_span",
+      "label": "Desktop Column Span",
+      "min": 4,
+      "max": 12,
+      "step": 2,
+      "default": 8
     },
     {
       "type": "text",

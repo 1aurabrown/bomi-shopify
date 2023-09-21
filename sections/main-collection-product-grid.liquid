@@ -1,7 +1,7 @@
 
 <section class="padding-x">
 	{% paginate collection.products by 12 %}
-    <div class="grid grid-cols-2 grid-flow-dense md:grid-cols-3 gap-x-gutter gap-y-6">
+    <div class="grid grid-cols-2 grid-flow-dense md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-6">
       {% for product in collection.products %}
         {%- render 'card-product', collection: collection, section: section, card_product: product -%}
       {% endfor %}
@@ -9,18 +9,3 @@
 		{% render 'pagination', paginate: paginate %}
 	{% endpaginate %}
 </section>
-
-{% schema %}
-{
-  "name": "Collection Product Grid",
-  "class": "section-collection-product-grid",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
-    }
-  ]
-}
-{% endschema %}

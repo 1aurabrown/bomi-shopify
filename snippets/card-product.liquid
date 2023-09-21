@@ -11,20 +11,25 @@
 			    use_padding: true
 			  %}
 
+				{% assign secondary_image = card_product.images[1] %}
 			  {% for image in card_product.images %}
 					{% if image.alt contains 'hover' %}
-						{% render 'image',
-							image: image,
-					    preload: true,
-					    fit: 'cover',
-							aspect_ratio: true,
-					    sizes: sizes,
-					    use_padding: false,
-					    class: 'product-card__image absolute inset-0 w-full h-full'
-					  %}
-					  {% break %}
-				  {% endif %}
-			  {% endfor %}
+						{% assign secondary_image = image %}
+						{% break %}
+					{% endif %}
+				{% endfor %}
+
+				{% if secondary_image %}
+					{% render 'image',
+						image: secondary_image,
+				    preload: true,
+				    fit: 'cover',
+						aspect_ratio: true,
+				    sizes: sizes,
+				    use_padding: false,
+				    class: 'product-card__image absolute inset-0 w-full h-full'
+				  %}
+				{% endif %}
 			</div>
 
 			{% unless card_product.available %}<span class="absolute top-3 right-3 p-3 z-10 uppercase border-black border rounded-[50%] block">{{ 'products.product.sold_out' | t }}</span>{% endunless %}
@@ -44,10 +49,8 @@
 				</p>
 			{% endif %}
 			
-			<div class="sm:flex relative hover:underline">
-				<a class="absolute inset-0 z-10" title="{{ card_product.title }}" href="{{ card_product.url | within: collection }}"></a>
-				<h3 class="product-card--title block mr-4">{{ card_product.title }}</h3>
-				{% render 'price', product: card_product, use_variant: false %}
+			<div class="flex space-x-3">
+				<h3 class="product-card--title"><a class="text-link" title="{{ card_product.title }}" href="{{ card_product.url | within: collection }}">{{ card_product.title }}</a></h3>{%- render 'price', product: card_product, use_variant: false -%}
 		</div>
 		</div>
 	{% else %}

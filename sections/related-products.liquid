@@ -1,35 +1,28 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{% assign related_products = product.metafields.shopify--discovery--product_recommendation.related_products.value %}
+{% if related_products != blank %}
+  {{ 'component-card.css' | asset_url | stylesheet_tag }}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<div class="padding-x mt-9">
-  <product-recommendations
-    class="block related-products overflow-hidden w-full"
-    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
-  >
-    {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="uppercase mb-gutter">
-        {{ section.settings.heading }}
-      </h2>
-      <ul
-        class="w-full -mb-5 md:mb-0 pb-5 md:pb-0 overflow-x-scroll snap-x snap-mandatory flex md:grid md:grid-flow-dense md:grid-cols-4 space-x-gutter md:space-x-0 md:gap-x-gutter"
-        role="list"
-      >
-        {% for recommendation in recommendations.products %}
-          <li class="grid__item snap-normal snap-start w-[calc(50%-5px)] md:w-auto grow-0 shrink-0 md:pr-0">
-            {% render 'card-product',
-              card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              image_shape: section.settings.image_shape,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating
-            %}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </product-recommendations>
-</div>
+  <div class="padding-x mt-12">
+    <div class="block related-products overflow-hidden w-full">
+        <h2 class="uppercase mb-gutter">
+          {{ section.settings.heading }}
+        </h2>
+        <ul
+          class="w-full -mb-5 md:mb-0 pb-5 md:pb-0 overflow-x-scroll snap-x snap-mandatory flex md:grid md:grid-flow-dense md:grid-cols-4 space-x-gutter md:space-x-0 md:gap-x-gutter"
+          role="list"
+        >
+          {% for recommendation in related_products %}
+            <li class="grid__item snap-normal snap-start w-[calc(50%-5px)] md:w-auto grow-0 shrink-0 md:pr-0">
+              {% render 'card-product',
+                card_product: recommendation
+              %}
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+  </div>
+{% endif %}
 
 {% schema %}
   {

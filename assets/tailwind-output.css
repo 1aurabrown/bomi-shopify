@@ -545,6 +545,7 @@ html {
 body {
   font-family: Union, sans-serif;
   font-size: 0.75rem;
+  line-height: 1rem;
   letter-spacing: 0.02em;
 }
 
@@ -710,8 +711,8 @@ body .shopify-policy__body {
 }
 
 .rte p, .rte ul, .rte ol, .rte table, .rte blockquote {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   margin-left: 0rem;
   margin-right: 0rem;
 }
@@ -734,21 +735,18 @@ body .shopify-policy__body {
 }
 
 .rte h4 {
-  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 2em;
 }
 
 .rte h5 {
-  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 2em;
 }
 
 .rte h6 {
-  font-size: 0.75rem;
   text-decoration-line: underline;
   margin-top: 2em;
 }
@@ -1096,8 +1094,8 @@ body .shopify-policy__body {
 }
 
 .my-text-line {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .-mb-5 {
@@ -1137,15 +1135,11 @@ body .shopify-policy__body {
 }
 
 .mb-text-line {
-  margin-bottom: 1.5em;
+  margin-bottom: 1rem;
 }
 
 .mr-1 {
   margin-right: 0.25rem;
-}
-
-.mr-4 {
-  margin-right: 1rem;
 }
 
 .mt-1 {
@@ -1189,7 +1183,7 @@ body .shopify-policy__body {
 }
 
 .mt-text-line {
-  margin-top: 1.5em;
+  margin-top: 1rem;
 }
 
 .block {
@@ -1565,7 +1559,7 @@ body .shopify-policy__body {
 }
 
 .pb-text-line {
-  padding-bottom: 1.5em;
+  padding-bottom: 1rem;
 }
 
 .pt-13 {
@@ -1813,10 +1807,6 @@ body .shopify-pc__prefs__header-actions button {
     grid-column: span 9 / span 9;
   }
 
-  .sm\:flex {
-    display: flex;
-  }
-
   .sm\:grid {
     display: grid;
   }
@@ -1883,6 +1873,10 @@ body .shopify-pc__prefs__header-actions button {
     grid-column-start: 2;
   }
 
+  .md\:col-start-3 {
+    grid-column-start: 3;
+  }
+
   .md\:col-start-4 {
     grid-column-start: 4;
   }
@@ -1899,6 +1893,10 @@ body .shopify-pc__prefs__header-actions button {
     grid-column-start: 17;
   }
 
+  .md\:col-start-6 {
+    grid-column-start: 6;
+  }
+
   .md\:col-end-13 {
     grid-column-end: 13;
   }
@@ -1911,8 +1909,32 @@ body .shopify-pc__prefs__header-actions button {
     grid-column-end: 6;
   }
 
+  .md\:col-end-7 {
+    grid-column-end: 7;
+  }
+
+  .md\:col-end-8 {
+    grid-column-end: 8;
+  }
+
+  .md\:col-end-9 {
+    grid-column-end: 9;
+  }
+
   .md\:col-end-\[16\] {
     grid-column-end: 16;
+  }
+
+  .md\:col-end-10 {
+    grid-column-end: 10;
+  }
+
+  .md\:col-end-11 {
+    grid-column-end: 11;
+  }
+
+  .md\:col-end-12 {
+    grid-column-end: 12;
   }
 
   .md\:mb-0 {
@@ -2108,6 +2130,10 @@ body .shopify-pc__prefs__header-actions button {
 
   .lg\:grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .lg\:grid-cols-6 {
