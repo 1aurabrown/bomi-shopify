@@ -45,34 +45,59 @@ class DetailsDisclosure extends HTMLElement {
 
 customElements.define('details-disclosure', DetailsDisclosure);
 
-class HeaderMenu extends DetailsDisclosure {
+class HeaderMenu extends HTMLElement {
   constructor() {
     super();
-    this.header = document.querySelector('.header-wrapper');
+    this.mainDetailsToggle = this.querySelector('details');
+    this.summary = this.mainDetailsToggle.querySelector('summary')
+    this.content = this.summary.nextElementSibling;
+
+    this.summary.addEventListener('keyup', this.onKeyUp.bind(this));
+    this.summary.addEventListener('click', this.onClick.bind(this));
+    this.summary.addEventListener('mouseenter', this.open.bind(this));
+
+    this.mainDetailsToggle.addEventListener('focusout', this.onFocusOut.bind(this));
+    this.mainDetailsToggle.addEventListener('mouseleave', this.close.bind(this));
   }
 
-  onToggle() {
-    if (!this.header) return;
-    this.header.preventHide = this.mainDetailsToggle.open;
-
-    if (this.mainDetailsToggle.open) {
-      this.mainDetailsToggle.classList.remove('is-closing')
-      this.mainDetailsToggle.classList.add('is-opening')
-      setTimeout(function() {
-        this.mainDetailsToggle.classList.remove('is-opening')
-      }.bind(this), 1000)
-    } else {
-      this.mainDetailsToggle.classList.remove('is-opening')
-      this.mainDetailsToggle.classList.add('is-closing')
-      setTimeout(function() {
-        this.mainDetailsToggle.classList.remove('is-closing')
-      }.bind(this), 1000)
+  onKeyUp(e) {
+    if (e.keyCode === 13 || e.keyCode === 32) {
+      if (this.mainDetailsToggle.open) {
+        this.close()
+      } else {
+        this.open()
+      }
     }
-    if (document.documentElement.style.getPropertyValue('--header-bottom-position-desktop') !== '') return;
-    document.documentElement.style.setProperty(
-      '--header-bottom-position-desktop',
-      `${Math.floor(this.header.getBoundingClientRect().bottom)}px`
-    );
+  }
+
+  onClick(e) {
+    e.preventDefault();
+  }
+
+  onFocusOut() {
+    setTimeout(() => {
+      if (!this.contains(document.activeElement)) this.close();
+    });
+  }
+
+  open() {
+    this.mainDetailsToggle.querySelector('summary').setAttribute('aria-expanded', true);
+    if (!this.animations) this.animations = this.content.getAnimations();
+    this.mainDetailsToggle.setAttribute('open', 'open')
+    setTimeout(function() {
+      this.mainDetailsToggle.classList.add('open')
+    }.bind(this), 1);
+    this.animations.forEach((animation) => animation.play());
+  }
+
+  close() {
+    if (!this.animations) this.animations = this.content.getAnimations();
+    this.mainDetailsToggle.classList.remove('open')
+    this.mainDetailsToggle.querySelector('summary').setAttribute('aria-expanded', false);
+    setTimeout(function() {
+      this.mainDetailsToggle.removeAttribute('open');
+    }.bind(this), 100)
+    this.animations.forEach((animation) => animation.cancel());
   }
 }
 
