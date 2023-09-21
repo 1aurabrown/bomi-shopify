@@ -11,84 +11,111 @@
   {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, show_pickup_availability: true %}
 {% endcomment %}
 
-<div class="mt-6 mb-8" {{ block.shopify_attributes }}>
+{% liquid
+  assign show_add_button = true
+  if block.settings.back_in_stock_enabled
+    unless selected_variant.available
+      assign show_add_button = false
+    endunless
+  endif
+%}
+<div id="buy-buttons-{{ section.id }}" class="mt-6 mb-8" {{ block.shopify_attributes }}>
   {%- if product != blank -%}
-    <product-form class="product-form">
-      <div class="product-form__error-message-wrapper" role="alert" hidden>
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          class="icon icon-error"
-          viewBox="0 0 13 13"
-        >
-          <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
-          <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
-          <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
-          <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
-        </svg>
-        <span class="product-form__error-message"></span>
-      </div>
+    {%- if show_add_button -%}
+      <product-form class="product-form">
+        <div class="product-form__error-message-wrapper" role="alert" hidden>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            class="icon icon-error"
+            viewBox="0 0 13 13"
+          >
+            <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+            <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+            <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+            <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+          </svg>
+          <span class="product-form__error-message"></span>
+        </div>
 
-      {%- form 'product',
-        product,
-        id: product_form_id,
-        class: 'form',
-        novalidate: 'novalidate',
-        data-type: 'add-to-cart-form'
-      -%}
-        <input
-          type="hidden"
-          name="id"
-          value="{{ selected_variant.id }}"
-          disabled
-          class="product-variant-id"
-        >
-        <div class="product-form__buttons">
-          {%- liquid
-            assign check_against_inventory = true
-            if selected_variant.inventory_management != 'shopify' or selected_variant.inventory_policy == 'continue'
-              assign check_against_inventory = false
-            endif
+        {%- form 'product',
+          product,
+          id: product_form_id,
+          class: 'form',
+          novalidate: 'novalidate',
+          data-type: 'add-to-cart-form'
+        -%}
+          <input
+            type="hidden"
+            name="id"
+            value="{{ selected_variant.id }}"
+            disabled
+            class="product-variant-id"
+          >
+          <div class="product-form__buttons">
+            {%- liquid
+              assign check_against_inventory = true
+              if selected_variant.inventory_management != 'shopify' or selected_variant.inventory_policy == 'continue'
+                assign check_against_inventory = false
+              endif
 
-            if selected_variant.quantity_rule.min > selected_variant.inventory_quantity and check_against_inventory
-              assign quantity_rule_soldout = true
-            endif
-          -%}
+              if selected_variant.quantity_rule.min > selected_variant.inventory_quantity and check_against_inventory
+                assign quantity_rule_soldout = true
+              endif
+            -%}
+            <button
+              id = "ProductSubmitButton-{{ section_id }}"
+              type="submit"
+              name="add"
+              class="product-form__submit button inline-flex justify-center items-center relative"
+              href="{{ collection.url }}"
+              {% if selected_variant.available == false or quantity_rule_soldout %}
+                disabled
+              {% endif %}
+            >
+              <span>
+                {%- if selected_variant.available == false or quantity_rule_soldout -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- else -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- endif -%}
+              </span>
+              <div class="loading-overlay__spinner hidden absolute inset-0">
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="spinner"
+                  viewBox="0 0 66 66"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                </svg>
+              </div>
+            </button>
+            {%- if block.settings.show_dynamic_checkout -%}
+              {{ form | payment_button }}
+            {%- endif -%}
+          </div>
+        {%- endform -%}
+      </product-form>
+    {%- else -%}
+      <bis-form id="bis-form-{{ section.id }}"class="block">
+        <form action="#">
+          <input type="hidden" name="variantId" id="bis-variantId" value="{{ selected_variant.id }}" disabled />
+          <input type="hidden" name="productId" id="bis-productId" value="{{ product.id }}" disabled />
+          <label for="bis-email" class="sr-only">Email</label>
+          <input id="bis-email" class="block w-full grow border-black border-b focus:ring-0" name="email" type="email" placeholder="Email Address"></input>
           <button
-            id = "ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button inline-flex justify-center items-center relative"
-            href="{{ collection.url }}"
-            {% if selected_variant.available == false or quantity_rule_soldout %}
-              disabled
-            {% endif %}
+            class="block mt-3 w-full product-form__submit button button--full-width button--primary"
           >
-            <span>
-              {%- if selected_variant.available == false or quantity_rule_soldout -%}
-                {{ 'products.product.sold_out' | t }}
-              {%- else -%}
-                {{ 'products.product.add_to_cart' | t }}
-              {%- endif -%}
-            </span>
-            <div class="loading-overlay__spinner hidden absolute inset-0">
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                class="spinner"
-                viewBox="0 0 66 66"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-              </svg>
-            </div>
+            Notify me when back in stock
           </button>
-          {%- if block.settings.show_dynamic_checkout -%}
-            {{ form | payment_button }}
-          {%- endif -%}
-        </div>
-      {%- endform -%}
-    </product-form>
+          <div class="mt-3" id="bis-message"></div>
+        </form>
+      </bis-form>
+    {%- endif -%}
   {%- else -%}
     <div class="product-form">
       <div class="product-form__buttons form">
