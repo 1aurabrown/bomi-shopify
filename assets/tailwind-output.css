@@ -1138,6 +1138,10 @@ body .shopify-policy__body {
   margin-bottom: 1rem;
 }
 
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
 .mr-1 {
   margin-right: 0.25rem;
 }
@@ -1188,10 +1192,6 @@ body .shopify-policy__body {
 
 .block {
   display: block;
-}
-
-.\!block {
-  display: block !important;
 }
 
 .inline-block {
@@ -1272,6 +1272,11 @@ body .shopify-policy__body {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[max-content\] {
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .max-w-screen-lg {
@@ -1381,6 +1386,10 @@ body .shopify-policy__body {
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .items-start {
   align-items: flex-start;
 }
@@ -1452,6 +1461,18 @@ body .shopify-policy__body {
   --tw-space-y-reverse: 0;
   margin-top: calc(6.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(6.25rem * var(--tw-space-y-reverse));
+}
+
+.space-x-text-line > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-text-line > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
 .overflow-hidden {
@@ -1608,6 +1629,14 @@ body .shopify-policy__body {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.leading-base {
+  line-height: 1em;
+}
+
+.leading-menu {
+  line-height: 1.8333;
 }
 
 .tracking-normal {
@@ -1863,6 +1892,10 @@ body .shopify-pc__prefs__header-actions button {
 }
 
 @media (min-width: 768px) {
+  .md\:visible {
+    visibility: visible;
+  }
+
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -2017,6 +2050,10 @@ body .shopify-pc__prefs__header-actions button {
 
   .md\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .md\:gap-5 {

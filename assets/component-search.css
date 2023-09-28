@@ -1,6 +1,13 @@
-.header__search .search-modal.modal__content {
-  position: static;
+.header__search {
+  position: relative;
+}
 
+.header__search .search-modal.modal__content {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: unset;
+  bottom: unset;
 }
 
 .header__search .search-modal__close-button.modal__close-button {
@@ -10,14 +17,6 @@
 .header__search .search-modal__close-button.modal__close-button .icon {
   width: 0.625rem;
   height: 0.625rem;
-}
-
-.header__search .search-modal.modal__content {
-  position: static
-}
-
-.header__search details[open=true] summary {
-  display: none;
 }
 
 .search__input.field__input {
@@ -83,21 +82,6 @@
   background-color: inherit;
 }
 
-.search__button:hover .icon,
-.reset__button:hover .icon {
-  transform: scale(1.07);
-}
-
-.search__button .icon {
-  height: 1.8rem;
-  width: 1.8rem;
-}
-
-.reset__button .icon.icon-close {
-  height: 1.8rem;
-  width: 1.8rem;
-  stroke-width: 0.1rem;
-}
 
 /* Remove extra spacing for search inputs in Safari */
 input::-webkit-search-decoration {

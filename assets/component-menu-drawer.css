@@ -52,10 +52,6 @@ details[open].menu-opening > .menu-drawer__submenu {
   visibility: visible;
 }
 
-.js .menu-drawer__navigation .submenu-open {
-  visibility: hidden; /* hide menus from screen readers when hidden by submenu */
-}
-
 @media screen and (min-width: 750px) {
   .menu-drawer {
     width: 100%;
@@ -83,9 +79,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__inner-submenu {
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+
 }
 
 .no-js .menu-drawer__navigation {
@@ -215,4 +209,20 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer .list-social__link {
+}
+
+/* Mobile nav */
+
+.header-drawer__child-details > summary:after {
+  content: '+';
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.header-drawer__child-details[open] > summary > span {
+  text-decoration: underline;
+}
+
+.header-drawer__child-details[open] > summary:after {
+  content: '–';
 }

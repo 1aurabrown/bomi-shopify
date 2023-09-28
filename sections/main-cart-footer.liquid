@@ -12,7 +12,7 @@
           <div class="mt-6 cart-gift-wrap__gift-message{% unless cart.attributes['gift-wrap'] == 'Yes' %} hidden{% endunless %}">
             <label class="uppercase" for="Gift-message">Gift Message</label>
             <textarea
-              class="h-20 mt-3 bg-white border placeholder-black leading-body tracking-normal p-2 w-full"
+              class="h-20 mt-3 bg-white border placeholder-black leading-base tracking-normal p-2 w-full"
               form="cart"
               id="Gift-message"
               name="attributes[gift-message]">{{ cart.attributes.gift-message }}</textarea>
@@ -23,7 +23,7 @@
           <cart-note class="block cart__note mt-6 md:mt-9">
             <label for="Cart-note" class="uppercase">{{ 'sections.cart.note' | t }}</label>
             <textarea
-              class="h-20 mt-3 bg-white border placeholder-black leading-body tracking-normal p-2 w-full"
+              class="h-20 mt-3 bg-white border placeholder-black leading-base tracking-normal p-2 w-full"
               name="note"
               form="cart"
               id="Cart-note">{{ cart.note }}</textarea>

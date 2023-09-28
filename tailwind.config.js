@@ -84,6 +84,10 @@ module.exports = {
       wide: '0.05em',
       normal: '0.02em',
     },
+    lineHeight: {
+      base: '1em',
+      menu: '1.8333'
+    },
     extend: {
       gridTemplateColumns: {
         // Complex site-specific column configuration
