@@ -14,59 +14,10 @@
 
 <script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
 
-<style>
-  .template-search__header {
-    margin-bottom: 3rem;
-  }
-
-  .template-search__search {
-    margin: 0 auto 3.5rem;
-    max-width: 74.1rem;
-  }
-
-  .template-search__search .search {
-    margin-top: 3rem;
-  }
-
-  .template-search--empty {
-    padding-bottom: 18rem;
-  }
-
-  @media screen and (min-width: 750px) {
-    .template-search__header {
-      margin-bottom: 5rem;
-    }
-  }
-
-  .search__button .icon {
-    height: 1.8rem;
-  }
-</style>
-
-{%- liquid
-  assign sort_by = search.sort_by | default: search.default_sort_by
-  assign terms = search.terms | escape
-  assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
--%}
-
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
 {% paginate search.results by 24 %}
   <div class="padding-x template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
-    <div class="template-search__header page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      <h1 class="h2 center">
+    <div class="template-search__header space-y-text-line page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      <h1 class="visually-hidden">
         {%- if search.performed -%}
           {{- 'templates.search.title' | t -}}
         {%- else -%}
@@ -80,7 +31,7 @@
             <main-search>
               <form action="{{ routes.search_url }}" method="get" role="search" class="search">
                 <div class="field">
-                  <input class="search__input field__input"
+                  <input class="search__input field__input focus:ring-0"
                     id="{{ input_id }}"
                     type="search"
                     name="q"
@@ -101,7 +52,6 @@
                   >
                   <label class="field__label visually-hidden" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
                   <input type="hidden" name="options[prefix]" value="last">
-
                   {%- if settings.predictive_search_enabled -%}
                     <div class="predictive-search predictive-search--search-template" tabindex="-1" data-predictive-search>
                       <div class="predictive-search__loading-state">
@@ -114,14 +64,9 @@
                     <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
                   {%- endif -%}
 
-                 {% comment %} <button type="reset" class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}" aria-label="{{ 'general.search.reset' | t }}">
-                    <svg class="icon icon-close" aria-hidden="true" focusable="false">
-                      <use xlink:href="#icon-reset">
-                    </svg>
-                  </button> {% endcomment %}
                   <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
-                    <span class="icon icon-search" aria-hidden="true" focusable="false">
-                      {{ 'general.search.search' | t }}
+                    <span class="uppercase icon icon-search" aria-hidden="true" focusable="false">
+                      {%- render 'icon-search' -%}
                     </span>
                   </button>
                 </div>
@@ -145,7 +90,7 @@
     </div>
     {%- if search.performed -%}
       {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' and search.filters != empty -%}
-        <facet-filters-form class="facets facets-vertical-sort page-width small-hide no-js-hidden">
+        <facet-filters-form class="facets facets-vertical-sort page-width hidden md:block no-js-hidden">
           <form class="facets-vertical-form" id="FacetSortForm">
             <div class="facet-filters sorting caption">
               <div class="facet-filters__field">
@@ -210,7 +155,7 @@
           {%- else -%}
             <div class="template-search__results collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}" id="product-grid" data-id="{{ section.id }}">
               <div class="loading-overlay gradient"></div>
-              <ul class="grid product-grid  grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop" role="list">
+              <ul class="grid md:grid-cols-2 lg:grid-cols-4 gap-gutter" role="list">
                 {%- for item in search.results -%}
                   {% assign lazy_load = false %}
                   {%- if forloop.index > 2 -%}

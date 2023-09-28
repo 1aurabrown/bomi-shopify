@@ -88,6 +88,11 @@ class HeaderMenu extends HTMLElement {
       this.mainDetailsToggle.classList.add('open')
     }.bind(this), 1);
     this.animations.forEach((animation) => animation.play());
+
+    trapFocus(
+      this.content,
+      this.content.querySelector('a')
+    );
   }
 
   close() {
