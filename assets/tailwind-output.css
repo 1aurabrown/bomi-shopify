@@ -1083,6 +1083,42 @@ body .shopify-policy__body {
   grid-column: span 3 / span 3;
 }
 
+.col-span-5 {
+  grid-column: span 5 / span 5;
+}
+
+.col-start-8 {
+  grid-column-start: 8;
+}
+
+.col-start-5 {
+  grid-column-start: 5;
+}
+
+.col-start-1 {
+  grid-column-start: 1;
+}
+
+.col-start-6 {
+  grid-column-start: 6;
+}
+
+.col-end-13 {
+  grid-column-end: 13;
+}
+
+.col-end-7 {
+  grid-column-end: 7;
+}
+
+.col-end-6 {
+  grid-column-end: 6;
+}
+
+.col-end-8 {
+  grid-column-end: 8;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1287,6 +1323,16 @@ body .shopify-policy__body {
   max-width: 20rem;
 }
 
+.max-w-\[max-content\] {
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+.max-w-\[min-content\] {
+  max-width: -moz-min-content;
+  max-width: min-content;
+}
+
 .flex-shrink {
   flex-shrink: 1;
 }
@@ -1374,12 +1420,16 @@ body .shopify-policy__body {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
-.grid-cols-header {
-  grid-template-columns: 1fr auto 1fr;
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -1802,7 +1852,8 @@ body .shopify-pc__prefs__header-actions button {
   position: relative;
   display: inline-block;
   text-align: center;
-  color: rgb(0 0 0 / 0.4);
+  --tw-text-opacity: 1;
+  color: rgb(153 153 153 / var(--tw-text-opacity));
 }
 
 .product-form__input input[type='radio']:checked + label {
@@ -1814,12 +1865,33 @@ body .shopify-pc__prefs__header-actions button {
   text-decoration-line: underline;
 }
 
+.hover\:nav-link-current:hover {
+  position: relative;
+  color: rgb(0 0 0 / 1);
+}
+
+.hover\:nav-link-current:hover::before {
+  content: '•';
+  position: absolute;
+  left: -0.5rem;
+}
+
 .autofill\:bg-transparent:-webkit-autofill {
   background-color: transparent;
 }
 
 .autofill\:bg-transparent:autofill {
   background-color: transparent;
+}
+
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.hover\:text-gray:hover {
+  --tw-text-opacity: 1;
+  color: rgb(153 153 153 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {

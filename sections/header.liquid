@@ -97,7 +97,7 @@
 
 
 <div class="header-wrapper h-header pb-3">
-  <header class="header relative h-full bg-white padding-x grid grid-cols-header items-center drawer-menu{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
+  <header class="header relative h-full bg-white padding-x grid grid-cols-12 items-center drawer-menu{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
 
     {%- liquid
       if section.settings.menu != blank
@@ -109,17 +109,18 @@
       {% render 'header-mega-menu' %}
     {%- endif -%}
 
-    {%- if request.page_type == 'index' -%}
-      <h1>
-    {%- endif -%}
-        <a href="{{ routes.root_url }}" title="{{ shop.name }}" class="block ">
-          {% render 'logo.svg', class: 'w-20 sm:w-[9.375rem]' %}
-        </a>
-    {%- if request.page_type == 'index' -%}
-      </h1>
-    {%- endif -%}
-
-    <div>
+    <div class="col-start-6 col-span-2 flex items-center justify-center">
+      {%- if request.page_type == 'index' -%}
+        <h1>
+      {%- endif -%}
+          <a href="{{ routes.root_url }}" title="{{ shop.name }}" class="block ">
+            {% render 'logo.svg', class: 'w-20 sm:w-[9.375rem]' %}
+          </a>
+      {%- if request.page_type == 'index' -%}
+        </h1>
+      {%- endif -%}
+    </div>
+    <div class="col-start-8 col-end-13">
       <div class="flex md:space-x-10 lg:space-x-20 justify-end header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
 
         <div class="desktop-localization-wrapper hidden md:block">

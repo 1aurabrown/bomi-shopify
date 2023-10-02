@@ -294,7 +294,7 @@ body .shopify-pc__prefs__header-actions button {
 
 /* PDP */
 .product-form__input input[type='radio'] + label {
-  @apply text-black/40 inline-block text-center relative;
+  @apply text-gray inline-block text-center relative;
 }
 
 .product-form__input input[type='radio']:checked + label {

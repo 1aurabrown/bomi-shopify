@@ -71,6 +71,7 @@ module.exports = {
       'transparent': 'transparent',
       'white': '#FFFFFF',
       'black': '#000000',
+      'gray': '#999999',
       'current': 'currentColor',
       'red': '#b3322c',
     },
@@ -91,7 +92,6 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         // Complex site-specific column configuration
-        'header': '1fr auto 1fr',
         '24': 'repeat(24, minmax(0, 1fr))',
       },
       screens: {
