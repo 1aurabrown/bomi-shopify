@@ -1,26 +1,30 @@
-<nav class="header__inline-menu hidden md:block">
-  <ul class="list-menu list-menu--inline flex md:space-x-10 lg:space-x-20" role="list">
+<nav class="header__inline-menu hidden md:block col-start-1 col-span-5">
+  <ul class="list-menu list-menu--inline grid grid-cols-5 gap-gutter" role="list">
 		 {%- for link in section.settings.menu.links limit: 5-%}
 		  <li>
 
 		  	{%- if link.links != blank -%}
           <header-menu>
-            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
-              <summary
+            <div id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu max-w-[max-content]">
+              <button
                 id="HeaderMenu-{{ link.handle }}"
                 class="relative header__menu-item list-menu__item link focus-inset uppercase hover:underline"
               >
-                <span
-                  {%- if link.active or link.child_active %}
-                    class="underline"
+                <a
+                  href="{{ link.url }}"
+                  title="{{- link.title | escape -}}"
+                  class="{%- if link.active or link.child_active %}underline{%- endif -%}"
+                  click="console.log('inline link click')"
+                  {% if link.current %}
+                    aria-current="page"
                   {% endif %}
                 >
                   {{- link.title | escape -}}
-                </span>
-              </summary>
+                </a>
+              </button>
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
-                class="padding-x pt-3 pb-10 bg-white mega-menu__content motion-reduce global-settings-popup"
+                class="padding-x pt-3 pb-10 bg-white mega-menu__content motion-reduce global-settings-popup focus:ring-0"
                 tabindex="-1"
               >
                 <ul
@@ -40,13 +44,13 @@
                         {{ childlink.title | escape }}
                       </a>
                       {%- if childlink.links != blank -%}
-                        <ul class="mt-2 list-unstyled" role="list">
+                        <ul class="hover:text-gray mt-2 list-unstyled" role="list">
                           {%- for grandchildlink in childlink.links -%}
                             <li>
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
                                 href="{{ grandchildlink.url }}"
-                                class="mega-menu__link text-link link{% if grandchildlink.active %} nav-link-current{% endif %}"
+                                class="mega-menu__link hover:text-black hover:nav-link-current link{% if grandchildlink.active %} nav-link-current{% endif %}"
                                 {% if grandchildlink.current %}
                                   aria-current="page"
                                 {% endif %}
@@ -61,7 +65,7 @@
                   {%- endfor -%}
                 </ul>
               </div>
-            </details>
+            </div>
           </header-menu>
         {%- else -%}
 

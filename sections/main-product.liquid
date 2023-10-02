@@ -32,7 +32,7 @@
     <div class="product__media-wrapper md:col-start-5 lg:col-start-4 xl:col-start-3 md:col-end-13">
       {% render 'pdp-slider' %}
     </div>
-    <div class="md:col-start-1 md:col-end-5 lg:col-end-4 xl:col-end-3 mt-3 md:mt-0">
+    <div class="md:col-start-1 md:col-end-5 lg:col-end-4 xl:col-end-3 mt-3 md:mt-0 md:pr-4">
       <product-info
         id="ProductInfo-{{ section.id }}"
         data-section="{{ section.id }}"
@@ -55,7 +55,7 @@
               {% if product.vendor != blank %}
                 {% capture handle %}{{ product.vendor | handleize }}{% endcapture %}
                 {% assign vendor_collection = collections[handle]%}
-                <p class="text-black/40 product-card--vendor">
+                <p class="text-gray product-card--vendor">
                   {% if vendor_collection != blank %}<a class="hover:underline" href="{{ vendor_collection.url }}">{% endif %}
                     {{ product.vendor }}
                   {% if vendor_collection != blank %}</a>{% endif %}

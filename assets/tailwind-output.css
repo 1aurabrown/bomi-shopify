@@ -706,10 +706,6 @@ body .shopify-policy__body {
   text-decoration-line: underline;
 }
 
-.rte *:empty {
-  display: none;
-}
-
 .rte p, .rte ul, .rte ol, .rte table, .rte blockquote {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -1083,6 +1079,26 @@ body .shopify-policy__body {
   grid-column: span 3 / span 3;
 }
 
+.col-span-5 {
+  grid-column: span 5 / span 5;
+}
+
+.col-start-1 {
+  grid-column-start: 1;
+}
+
+.col-start-6 {
+  grid-column-start: 6;
+}
+
+.col-start-8 {
+  grid-column-start: 8;
+}
+
+.col-end-13 {
+  grid-column-end: 13;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1100,6 +1116,10 @@ body .shopify-policy__body {
 
 .-mb-5 {
   margin-bottom: -1.25rem;
+}
+
+.-ml-gutter {
+  margin-left: -10px;
 }
 
 .mb-15 {
@@ -1246,6 +1266,10 @@ body .shopify-policy__body {
   height: var(--header-height);
 }
 
+.w-1\/5 {
+  width: 20%;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -1270,13 +1294,18 @@ body .shopify-policy__body {
   width: calc(50% - 5px);
 }
 
+.w-\[max-content\] {
+  width: -moz-max-content;
+  width: max-content;
+}
+
 .w-full {
   width: 100%;
 }
 
-.w-\[max-content\] {
-  width: -moz-max-content;
-  width: max-content;
+.max-w-\[max-content\] {
+  max-width: -moz-max-content;
+  max-width: max-content;
 }
 
 .max-w-screen-lg {
@@ -1362,6 +1391,10 @@ body .shopify-policy__body {
   grid-auto-flow: row dense;
 }
 
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -1374,12 +1407,12 @@ body .shopify-policy__body {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.grid-cols-6 {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-.grid-cols-header {
-  grid-template-columns: 1fr auto 1fr;
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -1461,12 +1494,6 @@ body .shopify-policy__body {
   --tw-space-y-reverse: 0;
   margin-top: calc(6.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(6.25rem * var(--tw-space-y-reverse));
-}
-
-.space-x-text-line > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-y-text-line > :not([hidden]) ~ :not([hidden]) {
@@ -1591,6 +1618,10 @@ body .shopify-policy__body {
   padding-bottom: 1rem;
 }
 
+.pl-gutter {
+  padding-left: 10px;
+}
+
 .pt-13 {
   padding-top: 3.25rem;
 }
@@ -1623,6 +1654,12 @@ body .shopify-policy__body {
   vertical-align: middle;
 }
 
+.text-small {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.02em;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -1650,6 +1687,11 @@ body .shopify-policy__body {
 
 .text-black\/40 {
   color: rgb(0 0 0 / 0.4);
+}
+
+.text-gray {
+  --tw-text-opacity: 1;
+  color: rgb(153 153 153 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -1753,8 +1795,13 @@ body .shopify-pc__prefs__header-actions {
 body .shopify-pc__banner__btns > :not([hidden]) ~ :not([hidden]),
 body .shopify-pc__prefs__header-actions > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
-  margin-right: calc(2.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+body .shopify-pc__banner__btns {
+  min-width: -moz-max-content;
+  min-width: max-content;
 }
 
 body .shopify-pc__banner__dialog button,
@@ -1803,7 +1850,8 @@ body .shopify-pc__prefs__header-actions button {
   position: relative;
   display: inline-block;
   text-align: center;
-  color: rgb(0 0 0 / 0.4);
+  --tw-text-opacity: 1;
+  color: rgb(153 153 153 / var(--tw-text-opacity));
 }
 
 .product-form__input input[type='radio']:checked + label {
@@ -1815,12 +1863,33 @@ body .shopify-pc__prefs__header-actions button {
   text-decoration-line: underline;
 }
 
+.hover\:nav-link-current:hover {
+  position: relative;
+  color: rgb(0 0 0 / 1);
+}
+
+.hover\:nav-link-current:hover::before {
+  content: '•';
+  position: absolute;
+  left: -0.5rem;
+}
+
 .autofill\:bg-transparent:-webkit-autofill {
   background-color: transparent;
 }
 
 .autofill\:bg-transparent:autofill {
   background-color: transparent;
+}
+
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.hover\:text-gray:hover {
+  --tw-text-opacity: 1;
+  color: rgb(153 153 153 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {
@@ -1892,10 +1961,6 @@ body .shopify-pc__prefs__header-actions button {
 }
 
 @media (min-width: 768px) {
-  .md\:visible {
-    visibility: visible;
-  }
-
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -2036,6 +2101,10 @@ body .shopify-pc__prefs__header-actions button {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .md\:grid-cols-24 {
     grid-template-columns: repeat(24, minmax(0, 1fr));
   }
@@ -2050,10 +2119,6 @@ body .shopify-pc__prefs__header-actions button {
 
   .md\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .md\:gap-5 {
@@ -2079,12 +2144,6 @@ body .shopify-pc__prefs__header-actions button {
     margin-left: calc(0rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
-  .md\:space-x-10 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(2.5rem * var(--tw-space-x-reverse));
-    margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-
   .md\:pb-0 {
     padding-bottom: 0rem;
   }
@@ -2095,6 +2154,10 @@ body .shopify-pc__prefs__header-actions button {
 
   .md\:pr-0 {
     padding-right: 0rem;
+  }
+
+  .md\:pr-4 {
+    padding-right: 1rem;
   }
 
   .md\:pt-15 {
@@ -2123,6 +2186,10 @@ body .shopify-pc__prefs__header-actions button {
     grid-column: span 3 / span 3;
   }
 
+  .lg\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+
   .lg\:col-start-3 {
     grid-column-start: 3;
   }
@@ -2133,6 +2200,10 @@ body .shopify-pc__prefs__header-actions button {
 
   .lg\:col-start-5 {
     grid-column-start: 5;
+  }
+
+  .lg\:col-start-\[17\] {
+    grid-column-start: 17;
   }
 
   .lg\:col-end-4 {
@@ -2177,12 +2248,6 @@ body .shopify-pc__prefs__header-actions button {
 
   .lg\:grid-cols-6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
-  .lg\:space-x-20 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(5rem * var(--tw-space-x-reverse));
-    margin-left: calc(5rem * calc(1 - var(--tw-space-x-reverse)));
   }
 }
 

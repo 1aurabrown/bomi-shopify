@@ -195,10 +195,6 @@
     @apply text-link;
   }
 
-  .rte *:empty {
-    display: none;
-  }
-
   .rte p, .rte ul, .rte ol, .rte table, .rte blockquote {
     @apply my-text-line mx-0;
   }
@@ -251,7 +247,11 @@ body .shopify-pc__banner__dialog {
 body .shopify-pc__banner__btns,
 body .shopify-pc__prefs__header-actions {
   justify-content: flex-end;
-  @apply space-x-10
+  @apply space-x-6
+}
+
+body .shopify-pc__banner__btns {
+  min-width: max-content;
 }
 
 body .shopify-pc__banner__dialog button,
@@ -290,7 +290,7 @@ body .shopify-pc__prefs__header-actions button {
 
 /* PDP */
 .product-form__input input[type='radio'] + label {
-  @apply text-black/40 inline-block text-center relative;
+  @apply text-gray inline-block text-center relative;
 }
 
 .product-form__input input[type='radio']:checked + label {

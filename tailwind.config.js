@@ -71,11 +71,13 @@ module.exports = {
       'transparent': 'transparent',
       'white': '#FFFFFF',
       'black': '#000000',
+      'gray': '#999999',
       'current': 'currentColor',
       'red': '#b3322c',
     },
     fontSize: {
       base: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],
+      small: ['0.6875rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],
     },
     fontFamily: {
       union: ['Union', 'sans-serif']
@@ -91,7 +93,6 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         // Complex site-specific column configuration
-        'header': '1fr auto 1fr',
         '24': 'repeat(24, minmax(0, 1fr))',
       },
       screens: {

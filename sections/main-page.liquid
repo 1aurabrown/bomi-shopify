@@ -2,7 +2,7 @@
 {% assign image = page.metafields.custom.image.value %}
 
 <div class="grid grid-cols-3 md:grid-cols-24 md:grid-flow-dense gap-x-gutter gap-y-10 padding-x ">
-  <div class="col-span-2 md:col-span-8{% if image %} md:col-start-[17]{% endif %}">
+  <div class="col-span-2 md:col-span-8 lg:col-span-6{% if image %} md:col-start-[17] lg:col-start-[17]{% endif %}">
   <h1 class="visually-hidden uppercase">
     {{ page.title | escape }}
   </h1>
