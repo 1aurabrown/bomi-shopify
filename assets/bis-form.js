@@ -13,7 +13,6 @@ if (!customElements.get('bis-form')) {
 
     onSubmitHandler(e) {
       e.preventDefault()
-      debugger
       this.messageEl.innerHTML = '';
       this.form.disabled = true;
 
