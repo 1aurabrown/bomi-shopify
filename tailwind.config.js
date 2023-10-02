@@ -77,6 +77,7 @@ module.exports = {
     },
     fontSize: {
       base: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],
+      small: ['0.6875rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],
     },
     fontFamily: {
       union: ['Union', 'sans-serif']
