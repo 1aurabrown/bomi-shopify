@@ -1688,6 +1688,11 @@ body .shopify-policy__body {
   color: rgb(0 0 0 / 0.4);
 }
 
+.text-gray {
+  --tw-text-opacity: 1;
+  color: rgb(153 153 153 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -2123,6 +2128,10 @@ body .shopify-pc__prefs__header-actions button {
     gap: 10px;
   }
 
+  .md\:gap-6 {
+    gap: 1.5rem;
+  }
+
   .md\:gap-x-gutter {
     -moz-column-gap: 10px;
          column-gap: 10px;
@@ -2166,6 +2175,10 @@ body .shopify-pc__prefs__header-actions button {
 
   .md\:pt-\[5vw\] {
     padding-top: 5vw;
+  }
+
+  .md\:pr-4 {
+    padding-right: 1rem;
   }
 }
 
