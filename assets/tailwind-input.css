@@ -254,6 +254,10 @@ body .shopify-pc__prefs__header-actions {
   @apply space-x-10
 }
 
+body .shopify-pc__banner__btns {
+  min-width: max-content;
+}
+
 body .shopify-pc__banner__dialog button,
 body .shopify-pc__prefs__header-actions button {
   flex-basis: auto;
