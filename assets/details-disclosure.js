@@ -49,7 +49,6 @@ class HeaderMenu extends HTMLElement {
   constructor() {
     super();
     this.mainDetailsToggle = this.querySelector('.mega-menu');
-    console.log(this.mainDetailsToggle)
     this.summary = this.mainDetailsToggle.querySelector('button')
     this.summaryLink = this.summary.querySelector('a')
 
@@ -88,12 +87,10 @@ class HeaderMenu extends HTMLElement {
   }
 
   onClick(e) {
-    console.log('summary click')
     e.preventDefault();
   }
 
   onLinkClick(e) {
-    console.log('link click')
     e.stopPropagation();
   }
 
@@ -106,7 +103,6 @@ class HeaderMenu extends HTMLElement {
   }
 
   open(e, focusEl) {
-    debugger
     this.summary.setAttribute('aria-expanded', true);
     this.mainDetailsToggle.classList.add('open')
 
