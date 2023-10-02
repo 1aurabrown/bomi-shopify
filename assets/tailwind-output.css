@@ -1747,8 +1747,8 @@ body .shopify-pc__prefs__header-actions {
 body .shopify-pc__banner__btns > :not([hidden]) ~ :not([hidden]),
 body .shopify-pc__prefs__header-actions > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
-  margin-right: calc(2.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 body .shopify-pc__banner__btns {

@@ -251,7 +251,7 @@ body .shopify-pc__banner__dialog {
 body .shopify-pc__banner__btns,
 body .shopify-pc__prefs__header-actions {
   justify-content: flex-end;
-  @apply space-x-10
+  @apply space-x-6
 }
 
 body .shopify-pc__banner__btns {
