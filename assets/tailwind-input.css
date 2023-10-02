@@ -195,10 +195,6 @@
     @apply text-link;
   }
 
-  .rte *:empty {
-    display: none;
-  }
-
   .rte p, .rte ul, .rte ol, .rte table, .rte blockquote {
     @apply my-text-line mx-0;
   }
