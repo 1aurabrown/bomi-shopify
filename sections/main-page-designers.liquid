@@ -47,13 +47,13 @@ if (!customElements.get('page-collections')) {
     }
 
     listBlurred(e) {
-      this.buttonsList.classList.remove('text-black/40')
+      this.buttonsList.classList.remove('text-gray')
       this.currentIndex = null
       this.update()
     }
 
     buttonHovered(e) {
-      this.buttonsList.classList.add('text-black/40')
+      this.buttonsList.classList.add('text-gray')
       this.currentIndex = parseInt(e.target.dataset.index)
       this.update()
     }

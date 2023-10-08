@@ -5,7 +5,7 @@
 
 		  	{%- if link.links != blank -%}
           <header-menu>
-            <div id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu max-w-[max-content]">
+            <div id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu static max-w-[max-content]">
               <button
                 id="HeaderMenu-{{ link.handle }}"
                 class="relative header__menu-item list-menu__item link focus-inset uppercase hover:underline"
@@ -24,7 +24,7 @@
               </button>
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
-                class="padding-x pt-3 pb-10 bg-white mega-menu__content motion-reduce global-settings-popup focus:ring-0"
+                class="hidden padding-x pt-3 pb-10 w-full left-0 right-0 overflow-y-auto top-full absolute bg-white mega-menu__content motion-reduce global-settings-popup focus:ring-0"
                 tabindex="-1"
               >
                 <ul

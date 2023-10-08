@@ -35,10 +35,10 @@
             "picker_type": "button"
           }
         },
-        "0d592dd0-bbd9-4faf-bc97-4f60016d2d41": {
-          "type": "alternate_sizes",
+        "da08f30a-b406-423b-b3b6-3cffacfc5292": {
+          "type": "complementary",
           "settings": {
-            "heading": "Size:"
+            "heading": "Complementary Products"
           }
         },
         "inventory": {
@@ -92,7 +92,7 @@
         "79f1b88f-520b-4a38-a943-780dbec529db",
         "9b92fe32-3c10-4fd6-9402-90a2f23d95bf",
         "variant-picker",
-        "0d592dd0-bbd9-4faf-bc97-4f60016d2d41",
+        "da08f30a-b406-423b-b3b6-3cffacfc5292",
         "inventory",
         "0e537071-9aef-4e17-8465-bc367332db5d",
         "0a02c292-a3b2-49b9-824f-072fe10dc9f7",

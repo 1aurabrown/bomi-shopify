@@ -481,17 +481,12 @@ video {
   --tw-ring-offset-width: 1px;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
+body {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   letter-spacing: 0.02em;
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -1059,6 +1054,18 @@ body .shopify-policy__body {
   top: var(--header-height);
 }
 
+.left-0 {
+  left: 0rem;
+}
+
+.right-0 {
+  right: 0rem;
+}
+
+.top-full {
+  top: 100%;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -1504,6 +1511,10 @@ body .shopify-policy__body {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .overflow-x-scroll {

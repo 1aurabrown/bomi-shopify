@@ -42,7 +42,7 @@
 			{% if card_product.vendor != blank %}
 				{% capture handle %}{{ card_product.vendor | handleize }}{% endcapture %}
 				{% assign vendor_collection = collections[handle]%}
-				<p class="mt-1 text-black/40 product-card--vendor">
+				<p class="mt-1 text-gray product-card--vendor">
 					{% if vendor_collection != blank %}<a class="hover:underline" href="{{ vendor_collection.url }}">{% endif %}
 						{{ card_product.vendor }}
 					{% if vendor_collection != blank %}</a>{% endif %}
