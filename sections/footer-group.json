@@ -1,0 +1,21 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "header",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "menu": "footer"
+      }
+    },
+    "email-popup": {
+      "type": "email-popup",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "footer",
+    "email-popup"
+  ]
+}

@@ -1,0 +1,88 @@
+<email-popup id="newsletter" data-delay="{{ 5000 }}" class="w-0 h-0">
+  {% form 'customer', class: 'newsletter-form' %}
+
+    <div class="fixed bottom-0 w-full left-0 md:left-auto md:w-1/6 right-0 bottom-0 email-popup z-20 email-popup__slider {% unless form.errors or form.posted_successfully? %} translate-y-full {% endunless %} focus-within:translate-y-0 p-5 duration-200 transition-transform">
+
+      <div class="border-black border bg-white p-4 relative">
+        <button type="button" class="absolute right-4 top-4 block email-popup__close">{% render 'icon-close', class: "w-3 h-3" %}</button>
+
+        <h5 class="uppercase">{{ section.settings.heading }}</h5>
+
+        <div class="mb-22 mt-18">{{ section.settings.body }}</div>
+
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="field">
+          <label class="sr-only" for="NewsletterForm--{{ section.id }}">
+            {{ 'newsletter.label' | t }}
+          </label>
+          <input
+            id="NewsletterForm--{{ section.id }}"
+            type="email"
+            name="contact[email]"
+            class="block w-full border-b border-b-black focus:ring-0"
+            value="{{ form.email }}"
+            aria-required="true"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            {% if form.errors %}
+              aria-invalid="true"
+              aria-describedby="Newsletter-error--{{ section.id }}"
+            {% elsif form.posted_successfully? %}
+              aria-describedby="Newsletter-success--{{ section.id }}"
+            {% endif %}
+            placeholder="{{ 'newsletter.label' | t }}"
+            required
+          >
+          <button
+            type="submit"
+            class="mt-text-line button w-full"
+            name="commit"
+            id="Subscribe"
+            aria-label="{{ 'newsletter.button_label' | t }}"
+          >
+            Subscribe
+          </button>
+          {%- if form.errors -%}
+            <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+              {{- form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email -}}
+            </small>
+          {%- endif -%}
+        </div>
+        {%- if form.posted_successfully? -%}
+          <h3
+            class="mt-text-line newsletter-form__message newsletter-form__message--success form__message"
+            id="Newsletter-success--{{ section.id }}"
+            tabindex="-1"
+          >
+            {{- 'newsletter.success' | t }}
+          </h3>
+        {%- endif -%}
+      </div>
+    </div>
+  {% endform %}
+</email-popup>
+
+
+{% schema %}
+{
+  "name": "Email Popup",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Newsletter",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "body",
+      "default": "Sign up for our newsletter and receive the latest on new arrivals, editorials, and promos.",
+      "label": "Body"
+    }
+  ]
+}
+{% endschema %}
+
+

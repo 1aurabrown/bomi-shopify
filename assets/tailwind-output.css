@@ -2183,6 +2183,10 @@ body .shopify-pc__prefs__header-actions button {
 }
 
 @media (min-width: 768px) {
+  .md\:left-auto {
+    left: auto;
+  }
+
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -2313,6 +2317,10 @@ body .shopify-pc__prefs__header-actions button {
 
   .md\:w-auto {
     width: auto;
+  }
+
+  .md\:w-1\/6 {
+    width: 16.666667%;
   }
 
   .md\:grid-flow-dense {
