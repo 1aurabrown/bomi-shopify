@@ -1,23 +1,7 @@
-.mega-menu {
-  position: static;
-}
-
-.mega-menu__content {
-  left: 0;
-  overflow-y: auto;
-  position: absolute;
-  right: 0;
-  top: 100%;
-}
-
-.header-wrapper--border-bottom .mega-menu__content {
-  border-top: 0;
-}
-
-
 .mega-menu .mega-menu__content {
   display: none;
 }
+
 .mega-menu.open .mega-menu__content {
   display: block;
 }
@@ -44,12 +28,4 @@
 
 .mega-menu.open button::after {
   bottom: -30px;
-}
-
-.mega-menu .mega-menu__list--condensed {
-  display: block;
-}
-
-.mega-menu__list--condensed .mega-menu__link {
-  font-weight: normal;
 }

@@ -76,9 +76,7 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-    <div class="header-wrapper sticky top-0 z-30">
-      {% sections 'header-group' %}
-    </div>
+    {% sections 'header-group' %}
     
     <main id="MainContent" class="relative z-10 grow content-for-layout focus-none w-full" role="main" tabindex="-1">
       {{ content_for_layout }}

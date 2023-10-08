@@ -32,8 +32,8 @@
     @apply focus;
   }
 
-  html, body {
-    @apply w-full h-full bg-white text-black tracking-normal;
+  body {
+    @apply bg-white text-black tracking-normal;
   }
 
   body {
