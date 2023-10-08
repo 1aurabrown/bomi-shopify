@@ -37,13 +37,15 @@ html {
 
 body {
   text-rendering: geometricPrecision;
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  grid-template-columns: 100%;
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
   margin: 0;
 }
 
+.grecaptcha-badge {
+  z-index: 15;
+}
 
 .shopify-challenge__container {
   min-height: 100%;
