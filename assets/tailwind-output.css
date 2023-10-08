@@ -534,7 +534,7 @@ input[type='radio']:focus-visible + label {
 }
 
 html {
-  text-underline-offset: 2px;
+  height: 100%;
 }
 
 body {
@@ -542,6 +542,7 @@ body {
   font-size: 0.75rem;
   line-height: 1rem;
   letter-spacing: 0.02em;
+  text-underline-offset: 2px;
 }
 
 strong, b {
@@ -1038,6 +1039,14 @@ body .shopify-policy__body {
   inset: 0rem;
 }
 
+.left-0 {
+  left: 0rem;
+}
+
+.right-0 {
+  right: 0rem;
+}
+
 .right-3 {
   right: 0.75rem;
 }
@@ -1050,20 +1059,12 @@ body .shopify-policy__body {
   top: 0.75rem;
 }
 
-.top-header {
-  top: var(--header-height);
-}
-
-.left-0 {
-  left: 0rem;
-}
-
-.right-0 {
-  right: 0rem;
-}
-
 .top-full {
   top: 100%;
+}
+
+.top-header {
+  top: var(--header-height);
 }
 
 .z-10 {
@@ -1694,10 +1695,6 @@ body .shopify-policy__body {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.text-black\/40 {
-  color: rgb(0 0 0 / 0.4);
 }
 
 .text-gray {

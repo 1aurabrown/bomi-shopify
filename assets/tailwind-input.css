@@ -117,11 +117,11 @@
 
 @layer base {
   html {
-    @apply underline-offset-2;
+    @apply h-full;
   }
 
   body {
-    @apply text-base tracking-normal font-union;
+    @apply text-base tracking-normal font-union underline-offset-2;
   }
 
   strong, b {

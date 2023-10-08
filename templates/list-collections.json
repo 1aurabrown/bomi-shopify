@@ -1,29 +1,19 @@
 {
   "sections": {
-    "main": {
-      "type": "main-list-collections",
-      "blocks": {
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": "all"
-          }
-        },
-        "collection-2": {
-          "type": "collection",
-          "settings": {
-            "collection": "all",
-            "show_image": true
-          }
-        }
-      },
-      "block_order": [
-        "collection-1",
-        "collection-2"
-      ]
+    "header": {
+      "type": "main-collection-header",
+      "settings": {
+        "menu": "main-menu"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+      }
     }
   },
   "order": [
-    "main"
+    "header",
+    "product-grid"
   ]
 }
