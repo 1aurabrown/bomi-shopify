@@ -3,21 +3,16 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin-top: -1px;
-  margin-bottom: -1px;
-  border: 1px solid black;
   width: fit-content;
 }
 
 .quantity__input {
   color: currentColor;
-  opacity: 0.85;
   text-align: center;
   background-color: transparent;
   border: 0;
   margin: 0;
   width: 2rem;
-  height: 2rem;
   pointer-events: none;
   flex-grow: 1;
   -webkit-appearance: none;
@@ -25,18 +20,23 @@
 }
 
 .quantity__button {
-  flex-shrink: 0;
   border: 0;
   background-color: transparent;
-    display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0;
-  width: 2rem;
+  position: relative;
+}
+
+.quantity__button:after {
+  position: absolute;
+  content: '';
+  display: block;
+  top: -0.5rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
+  right: -0.5rem;
 }
 
 .quantity__button svg {
-  width: .5rem;
   pointer-events: none;
 }
 

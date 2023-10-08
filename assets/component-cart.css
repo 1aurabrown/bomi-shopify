@@ -72,10 +72,6 @@ cart-items {
   pointer-events: none;
 }
 
-.cart__footer > div:only-child {
-  margin-left: auto;
-}
-
 .cart__note {
   height: fit-content;
 }

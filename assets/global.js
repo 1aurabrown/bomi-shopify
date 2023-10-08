@@ -31,8 +31,6 @@ function trapFocus(container, elementToFocus = container) {
 
   removeTrapFocus();
 
-  debugger;
-
   trapFocusHandlers.focusin = (event) => {
     if (
       event.target !== container &&
