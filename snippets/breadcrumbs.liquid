@@ -1,3 +1,7 @@
+{% if template == 'list-collections' %}
+  {% assign collection = collections['all'] %}
+{% endif %}
+
 {% liquid
   assign parent_link = null
   for link in menu.links

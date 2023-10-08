@@ -6,17 +6,19 @@
       <ul class="md:flex items-center justify-between list-none">
         {%- for link in section.settings.menu.links -%}
           <li class="text-link">
-            <a {% if link.current %} aria-current="page" {% endif %} href="{{ link.url }}" class="uppercase text-link whitespace-nowrap">
-              {{ link.title }}
-            </a>
+            {% if link.url == "#newsletter" %}
+              <email-popup-trigger><button class="uppercase text-link whitespace-nowrap">{{ link.title }}</button></email-popup-trigger>
+            {% else %}
+              <a {% if link.current %} aria-current="page" {% endif %} href="{{ link.url }}" class="uppercase text-link whitespace-nowrap">
+                {{ link.title }}
+              </a>
+            {% endif %}
           </li>
         {%- endfor -%}
         
         <li class="text-right uppercase">&copy; {{ 'now' | date: "%Y" }}&nbsp;<a href={{ routes.root_url }} class="text-link">{{ shop.name }}</a></li>
 
       </ul>
-
-
   </div>
 </footer>
 

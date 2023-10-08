@@ -1,3 +1,7 @@
+{% if template == 'list-collections' %}
+  {% assign collection = collections['all'] %}
+{% endif %}
+
 {% if collection.description.size > 0 %}
   {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {% endif %}

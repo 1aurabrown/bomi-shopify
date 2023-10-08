@@ -101,6 +101,8 @@ module.exports = {
       spacing: spacing,
       minHeight: spacing,
       maxHeight: spacing,
+      minWidth: spacing,
+      maxWidth: spacing,
     }
   },
 }

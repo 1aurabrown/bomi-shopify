@@ -31,6 +31,8 @@ function trapFocus(container, elementToFocus = container) {
 
   removeTrapFocus();
 
+  debugger;
+
   trapFocusHandlers.focusin = (event) => {
     if (
       event.target !== container &&
@@ -1060,3 +1062,48 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
+
+class EmailPopup extends HTMLElement {
+  constructor() {
+    super();
+    this.slider = this.querySelector('.email-popup__slider')
+    this.closeButton = this.querySelector('.email-popup__close')
+
+    this.closeButton.addEventListener('click', this.hide.bind(this))
+  }
+
+  show() {
+    this.slider.classList.remove('translate-y-full')
+  }
+
+  hide() {
+    this.slider.classList.add('translate-y-full')
+    localStorage.setItem("emailDismissed", 1);
+    this.closeButton.blur();
+  }
+
+  connectedCallback() {
+    if (parseInt(localStorage.getItem("emailDismissed")) == 1) {
+      return;
+    }
+    setTimeout(this.show.bind(this), parseInt(this.dataset.delay) || 2000)
+  }
+}
+
+customElements.define('email-popup', EmailPopup);
+
+class EmailPopupTrigger extends HTMLElement {
+  constructor() {
+    super();
+    this.emailPopup = document.querySelector('email-popup')
+    if (!this.emailPopup) return;
+
+    this.querySelector('button').addEventListener('click', this.clicked.bind(this))
+  }
+
+  clicked() {
+    this.emailPopup.show()
+  }
+}
+
+customElements.define('email-popup-trigger', EmailPopupTrigger);
