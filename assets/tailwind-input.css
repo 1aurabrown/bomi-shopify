@@ -95,7 +95,7 @@
     opacity: 0.4;
   }
 
-  .button:hover, .button:focus {
+  .button:hover:not(:disabled):not([aria-disabled='true']):not(.disabled), .button:focus:not(:disabled):not([aria-disabled='true']):not(.disabled) {
     @apply text-white bg-black;
   }
 
@@ -103,7 +103,7 @@
     @apply text-white bg-black;
   }
 
-  .button--reverse:hover {
+  .button--reverse:hover:not(:disabled):not([aria-disabled='true']):not(.disabled), .button--reverse:focus:not(:disabled):not([aria-disabled='true']):not(.disabled) {
     @apply text-black bg-white;
   }
 

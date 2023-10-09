@@ -30,10 +30,6 @@ cart-items.is-empty {
   padding: 3rem 0 1rem;
 }
 
-.cart__empty-text {
-  margin: 4.5rem 0 2rem;
-}
-
 .cart__contents > * + * {
   margin-top: 2.5rem;
 }
@@ -48,16 +44,6 @@ cart-items.is-empty {
 
 .cart__login-paragraph a {
   font-size: inherit;
-}
-
-@media screen and (min-width: 990px) {
-  .cart__warnings {
-    padding: 7rem 0 1rem;
-  }
-
-  .cart__empty-text {
-    margin: 0 0 3rem;
-  }
 }
 
 cart-items {
@@ -77,13 +63,8 @@ cart-items {
 }
 
 .cart__note .field__input {
-  height: 100%;
   position: relative;
-  padding: 1rem 2rem;
-}
-
-.cart__note .text-area {
-  resize: vertical;
+  padding: 0.25rem;
 }
 
 .cart__note:after, .cart__note:hover.cart__note:after,
@@ -108,9 +89,6 @@ cart-items {
   width: 100%;
 }
 
-.cart__ctas > *:not(noscript:first-child) + * {
-  margin-top: 1.5rem;
-}
 
 .cart__update-button {
   margin-bottom: 1.75rem;
@@ -121,10 +99,6 @@ cart-items {
   margin: 0 auto;
 }
 
-.cart__blocks > * + * {
-  margin-top: 1.5rem;
-}
-
 .cart__dynamic-checkout-buttons div[role='button'] {
   height: 2rem;
 }
@@ -133,14 +107,6 @@ cart-items {
   display: inline-block;
 }
 
-.tax-note {
-  margin: 1.5rem auto 0;
-  display: block;
-}
-
-.cart__ctas {
-  text-align: center;
-}
 
 @media screen and (min-width: 750px) {
   .cart-note {
@@ -155,37 +121,28 @@ cart-items {
   [data-shopify-buttoncontainer] {
     justify-content: flex-end;
   }
-
-  .cart__ctas {
-    display: flex;
-    gap: 1rem;
-  }
 }
 
 
 /* Custom  */
 
-.cart__footer input[type=checkbox] ~ label {
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-
 .cart__footer input[type=checkbox]:focus-visible ~ label:before {
-  text-decoration: underline;
+  outline: 1px solid black;
 }
 
 .cart__footer input[type=checkbox] ~ label:before {
-  content: '☐';
-  line-height: 1;
-  font-size: 1.5rem;
-  position: absolute;
-  left: 0;
-  top: 40%;
-  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border: 1px solid black;
+  content: '';
+  display: inline-block;
+  line-height: .8;
+  text-align: center;
+  vertical-align: text-bottom;
+  margin-right: .25rem;
 }
 
 
 .cart__footer input[type=checkbox]:checked ~ label:before {
-  content: '☑'
+  content: '✓'
 }

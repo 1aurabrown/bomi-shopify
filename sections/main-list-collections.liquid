@@ -12,7 +12,7 @@
               </div>
             </h2>
             {% for product in collection.products limit: 3 %}
-              {%- render 'card-product', collection: collection, section: section, card_product: product, show_secondary_image: section.settings.show_secondary_image, show_vendor: section.settings.show_vendor, show_rating: section.settings.show_rating -%}
+              {%- render 'card-product', collection: collection, section: section, card_product: product, show_secondary_image: section.settings.show_secondary_image, show_rating: section.settings.show_rating -%}
             {% endfor %}
           </div>
         </li>
@@ -49,12 +49,6 @@
       "id": "show_secondary_image",
       "default": true,
       "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_vendor",
-      "default": true,
-      "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
     },
     {
       "type": "checkbox",

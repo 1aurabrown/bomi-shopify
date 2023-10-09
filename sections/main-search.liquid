@@ -185,11 +185,9 @@
                     {% endif %}>
                     {%- case item.object_type -%}
                       {%- when 'product' -%}
-                        {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%}
                         {% render 'card-product',
                           card_product: item,
                           show_secondary_image: section.settings.show_secondary_image,
-                          show_vendor: section.settings.show_vendor,
                           show_rating: section.settings.show_rating,
                           lazy_load: lazy_load
                         %}
@@ -240,13 +238,6 @@
       "id": "show_secondary_image",
       "default": false,
       "label": "t:sections.main-search.settings.show_secondary_image.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_vendor",
-      "default": true,
-      "label": "t:sections.main-search.settings.show_vendor.label",
-      "info": "t:sections.main-search.settings.show_vendor.info"
     },
     {
       "type": "checkbox",

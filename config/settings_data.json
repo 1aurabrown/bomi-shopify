@@ -1,8 +1,9 @@
 {
   "current": {
     "favicon": "shopify:\/\/shop_images\/Frame_2.svg",
-    "show_cart_note": true,
-
+    "show_cart_note": false,
+    "cart_type": "drawer",
+    "show_vendor": true,
     "content_for_index": [
 
     ]
