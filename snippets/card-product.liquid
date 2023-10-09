@@ -43,7 +43,7 @@
 
 		<div class="relative mt-1 ">
 			
-			{% if show_vendor and card_product.vendor != blank %}
+			{% if card_product.vendor != blank %}
 				{% capture handle %}{{ card_product.vendor | handleize }}{% endcapture %}
 				{% assign vendor_collection = collections[handle]%}
 				<p class="text-gray product-card--vendor">

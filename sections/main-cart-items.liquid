@@ -11,11 +11,11 @@
 {%- endunless -%}
 
 <cart-items class="padding-x {% if cart == empty %}is-empty{% endif %}">
-  <h1 class="uppercase">{{ 'sections.cart.title' | t }}</h1>
+  <h1 class="uppercase{% if cart == empty %} sr-only{% endif %}">{{ 'sections.cart.title' | t }}</h1>
 
   <div class="cart__warnings">
     <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-    <a href="{{ routes.all_products_collection_url }}" class="max-w-xs mx-auto text-link underline hover:no-underline">
+    <a href="{{ routes.all_products_collection_url }}" class="block text-gray text-link mt-text-line">
       {{ 'general.continue_shopping' | t }}
     </a>
 
@@ -54,13 +54,19 @@
                   </td>
 
                   <td class="col-start-4 col-span-6 md:col-span-5 cart-item__details">
-                    {%- if settings.show_vendor -%}
-                      <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
-                    {%- endif -%}
+                    {% if item.product.vendor != blank %}
+                      {% capture handle %}{{ item.product.vendor | handleize }}{% endcapture %}
+                      {% assign vendor_collection = collections[handle]%}
+                      <p class="text-gray product-card--vendor">
+                        {% if vendor_collection != blank %}<a class="hover:underline" href="{{ vendor_collection.url }}">{% endif %}
+                          {{ item.product.vendor }}
+                        {% if vendor_collection != blank %}</a>{% endif %}
+                      </p>
+                    {% endif %}
 
-                    <a href="{{ item.url }}" tite="{{ item.title }}" class="text-link cart-item__name">
-                      <span class="uppercase">{{ item.product.metafields.descriptors.title | default: item.product.title | escape }}</span>
-                    {% if item.product.metafields.descriptors.title != blank and item.product.metafields.descriptors.subtitle != blank %}<span class="block">{{ item.product.metafields.descriptors.subtitle }}</span>{% endif %}
+
+                    <a href="{{ item.url }}" class="text-link cart-item__name">
+                      {{ item.product.title }}
                     </a>
 
                     {%- if item.product.has_only_default_variant == false
@@ -187,10 +193,10 @@
                       >
                         <a
                           href="{{ item.url_to_remove }}"
-                          class=""
+                          class="text-link"
                           aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                         >
-                          &times;
+                          Remove
                         </a>
                       </cart-remove-button>
                     </div>

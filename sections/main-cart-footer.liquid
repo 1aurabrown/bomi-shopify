@@ -12,7 +12,7 @@
           <cart-note class="block cart__note mt-text-line">
             <label for="Cart-note" class="uppercase">{{ 'sections.cart.note' | t }}</label>
             <textarea
-              class="h-20 mt-3 bg-white border placeholder-black leading-base tracking-normal p-2 w-full"
+              class="h-20 mt-3 placeholder-gray bg-white border placeholder-black leading-base tracking-normal p-2 w-full"
               name="note"
               form="cart"
               id="Cart-note">{{ cart.note }}</textarea>
@@ -27,7 +27,7 @@
               {%- when 'subtotal' -%}
                 <div class="js-contents" {{ block.shopify_attributes }}>
                   <div class="totals">
-                    <h2 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h2>
+                    <h2 class="totals__subtotal uppercase">{{ 'sections.cart.subtotal' | t }}</h2>
                     <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
                   </div>
 
@@ -48,27 +48,6 @@
 
                 </div>
               {%- else -%}
-                <div class="cart__ctas" {{ block.shopify_attributes }}>
-                  <noscript>
-                    <button type="submit" class="cart__update-button button" form="cart">
-                      {{ 'sections.cart.update' | t }}
-                    </button>
-                  </noscript>
-
-                  <button
-                    type="submit"
-                    id="checkout"
-                    class="cart__checkout-button button button--reverse"
-                    name="checkout"
-                    {% if cart == empty %}
-                      disabled
-                    {% endif %}
-                    form="cart"
-                  >
-                    {{ 'sections.cart.checkout' | t }}
-                  </button>
-                </div>
-
                 <div class="tax-note rte">
                   {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
                     {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
@@ -80,8 +59,32 @@
                     {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
                   {%- endif -%}
                 </div>
-            {%- endcase -%}
-          {% endfor %}
+                <div class="mt-text-line">
+                  <input {% unless cart == empty %} onchange="this.checked ? document.getElementById('checkout').removeAttribute('disabled') : document.getElementById('checkout').setAttribute('disabled', 'disabled')" {% endunless %} class="sr-only accent-black" id="cart-page-consent" type="checkbox" name="consent"><label for="cart-page-consent">I accept the <a class="text-gray text-link" href="/pages/terms-of-service">Terms of Service.</a></label>
+                </div>
+
+                <div class="cart__ctas" {{ block.shopify_attributes }}>
+                  <noscript>
+                    <button type="submit" class="cart__update-button button mt-text-line" form="cart">
+                      {{ 'sections.cart.update' | t }}
+                    </button>
+                  </noscript>
+
+                  <button
+                    type="submit"
+                    id="checkout"
+                    class="cart__checkout-button button mt-text-line"
+                    name="checkout"
+                    disabled
+                    form="cart"
+                  >
+                    {{ 'sections.cart.checkout' | t }}
+                  </button>
+                </div>
+
+
+              {%- endcase -%}
+            {% endfor %}
 
           <div id="cart-errors"></div>
         </div>
