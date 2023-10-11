@@ -4,17 +4,20 @@
       "type": "main-page-designers",
       "settings": {
         "collection_list": [
-          "akua-object",
           "astier-de-villatte",
-          "la-soufflerie",
           "akua-objects",
-          "new",
-          "lee-jaewon",
-          "hudson-wilder",
+          "baina",
+          "corali",
           "f-miller",
-          "designer-a",
           "frama",
-          "museum-archive"
+          "hudson-wilder",
+          "iaac-crafts",
+          "iko-iko",
+          "kim-dongwan",
+          "lee-jaewon",
+          "leo-costelloe",
+          "museum-archive",
+          "new"
         ]
       }
     }
