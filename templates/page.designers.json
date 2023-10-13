@@ -4,7 +4,6 @@
       "type": "main-page-designers",
       "settings": {
         "collection_list": [
-          "akua-objects",
           "akua-object",
           "baina",
           "corali",
@@ -17,7 +16,7 @@
           "lee-jaewon",
           "leo-costelloe",
           "museum-archive",
-          "new"
+          "pien"
         ]
       }
     }
