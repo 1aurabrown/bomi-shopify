@@ -1,5 +1,16 @@
 {
   "sections": {
+    "0432280d-e4c0-4390-9cfd-e8f1b23998da": {
+      "type": "video",
+      "settings": {
+        "desktop_col_span": 8,
+        "url": "",
+        "enable_video_looping": false,
+        "video": "shopify:\/\/files\/videos\/video.mp4",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "description": ""
+      }
+    },
     "image-banner": {
       "type": "image-banner",
       "settings": {
@@ -104,6 +115,7 @@
     }
   },
   "order": [
+    "0432280d-e4c0-4390-9cfd-e8f1b23998da",
     "image-banner",
     "homepage-items"
   ]
