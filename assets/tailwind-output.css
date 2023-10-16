@@ -1065,6 +1065,10 @@ body .shopify-policy__body {
   top: var(--header-height);
 }
 
+.isolate {
+  isolation: isolate;
+}
+
 .z-10 {
   z-index: 10;
 }
