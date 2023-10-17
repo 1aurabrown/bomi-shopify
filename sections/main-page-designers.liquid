@@ -25,7 +25,7 @@
 
     <div class="md:col-start-9 md:col-span-4">
       {% for collection in collection_list %}
-        <div class="collections-page__image" style="display:none" data-index="{{ forloop.index }}">{% render 'image', image: collection.image %}</div>
+        <div class="collections-page__image" style="display:none" data-index="{{ forloop.index }}">{% render 'image', aspect_ratio: 0.8, fit: 'cover', image: collection.image %}</div>
       {% endfor %}
     </div>
   </page-collections>

@@ -50,7 +50,7 @@
                 {{- block.settings.text -}}
               </p>
             {%- when 'breadcrumbs' -%}
-              {% if collection %}<div class="mb-text-line">{% render 'breadcrumbs', menu: block.settings.menu %}</div>{% endif %}
+              {% if collection %}<div class="mb-text-line">{% render 'product-breadcrumbs', menu: block.settings.menu %}</div>{% endif %}
             {%- when 'vendor' -%}
               {% if product.vendor != blank %}
                 {% capture handle %}{{ product.vendor | handleize }}{% endcapture %}

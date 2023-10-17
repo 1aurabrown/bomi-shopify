@@ -1,15 +1,17 @@
-<div class="text-center flex flex-col mt-35 mb-50 items-center">
-  <h1 class="uppercase">
-    {{ section.settings.heading }}
-  </h1>
-  <p class="text-paragraph mt-9">
-    {{ section.settings.body | newline_to_br }}
-  </p>
-  <p class="mt-6">
-    <a href="{{ routes.collections_url }}" class="underline hover:no-underline">
-    {{ section.settings.cta }}
-    </a>
-  </p>
+<div class="padding-x">
+  <div>
+    <h1 class="uppercase">
+      {{ section.settings.heading }}
+    </h1>
+    <p class="text-paragraph">
+      {{ section.settings.body | newline_to_br }}
+    </p>
+    <p class="mt-text-line">
+      <a href="{{ collections['all'].url }}" class="underline hover:no-underline">
+      {{ section.settings.cta }}
+      </a>
+    </p>
+  </div>
 </div>
 
 
@@ -23,7 +25,7 @@
       "id": "heading",
       "label": "Heading",
       "type": "text",
-      "default": "404 Page not found"
+      "default": "Page not found"
     },
     {
       "id": "body",

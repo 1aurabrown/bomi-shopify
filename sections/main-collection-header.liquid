@@ -11,7 +11,7 @@
     <h1 class="underline">{{ collection.title }}</h1>
     <div class="sm:grid sm:grid-cols-2 md:grid-cols-3 gap-gutter mt-text-line mb-9"><div class="md:col-span-2 lg:col-span-1 rte">{{ collection.description }}</div></div>
   {% else %}
-    {% render 'breadcrumbs', menu: section.settings.menu %}
+    {% render 'collection-breadcrumbs', menu: section.settings.menu %}
   {% endif %}
 </div>
 
