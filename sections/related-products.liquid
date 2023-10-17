@@ -19,6 +19,7 @@
         {% for recommendation in recommendations.products %}
           <li data-collections="{{ recommendation.collections | map: "handle" | join: ',' }}" class="product-recommendations__item grid__item snap-normal snap-start w-[calc(50%-5px)] md:w-auto grow-0 shrink-0 md:pr-0">
             {% render 'card-product',
+              show_secondary_image: true,
               card_product: recommendation
             %}
           </li>
