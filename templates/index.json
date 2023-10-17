@@ -5,7 +5,7 @@
       "settings": {
         "desktop_col_span": 8,
         "url": "",
-        "enable_video_looping": false,
+        "enable_video_looping": true,
         "video": "shopify:\/\/files\/videos\/video.mp4",
         "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
         "description": ""
