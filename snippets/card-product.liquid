@@ -35,8 +35,8 @@
 
 				{% endif %}
 			</div>
-
-			{% unless card_product.available %}<span class="absolute top-3 right-3 p-3 z-10 uppercase border-black border rounded-[50%] block">{{ 'products.product.sold_out' | t }}</span>{% endunless %}
+			{% unless card_product.available %}<span class="absolute top-[10px] right-[11px] uppercase z-10 text-small block">{{ 'products.product.sold_out' | t }}</span>
+{% endunless %}
 
 			<a class="absolute inset-0 z-10 block" tabindex="-1" aria-hidden="true" title="{{ card_product.title }}" href="{{ card_product.url | within: collection }}"></a>
 		</div>

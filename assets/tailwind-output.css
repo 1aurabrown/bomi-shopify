@@ -1065,6 +1065,26 @@ body .shopify-policy__body {
   top: var(--header-height);
 }
 
+.top-2 {
+  top: 0.5rem;
+}
+
+.right-\[0\.6875rem\] {
+  right: 0.6875rem;
+}
+
+.top-\[0\.625rem\] {
+  top: 0.625rem;
+}
+
+.right-\[11px\] {
+  right: 11px;
+}
+
+.top-\[10px\] {
+  top: 10px;
+}
+
 .isolate {
   isolation: isolate;
 }
