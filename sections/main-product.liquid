@@ -54,7 +54,7 @@
             {%- when 'vendor' -%}
               {% if product.vendor != blank %}
                 {% capture handle %}{{ product.vendor | handleize }}{% endcapture %}
-                {% assign vendor_collection = collections[handle]%}
+                {% assign vendor_collection = collections[handle] %}
                 <p class="text-gray product-card--vendor">
                   {% if vendor_collection != blank %}<a class="hover:underline" href="{{ vendor_collection.url }}">{% endif %}
                     {{ product.vendor }}

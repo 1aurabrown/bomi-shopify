@@ -56,7 +56,7 @@
                   <td class="col-start-4 col-span-6 md:col-span-5 cart-item__details">
                     {% if item.product.vendor != blank %}
                       {% capture handle %}{{ item.product.vendor | handleize }}{% endcapture %}
-                      {% assign vendor_collection = collections[handle]%}
+                      {% assign vendor_collection = collections[handle] %}
                       <p class="text-gray product-card--vendor">
                         {% if vendor_collection != blank %}<a class="hover:underline" href="{{ vendor_collection.url }}">{% endif %}
                           {{ item.product.vendor }}
