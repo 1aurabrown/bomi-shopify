@@ -1,28 +1,33 @@
-{% assign related_products = product.metafields.shopify--discovery--product_recommendation.related_products.value %}
-{% if related_products != blank %}
-  {{ 'component-card.css' | asset_url | stylesheet_tag }}
-  {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+<product-recommendations
+  class="isolate"
+  data-collection="{{ collection.handle }}"
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
+  >
   <div class="padding-x mt-12">
     <div class="block related-products overflow-hidden w-full">
-        <h2 class="uppercase mb-gutter">
-          {{ section.settings.heading }}
-        </h2>
-        <ul
-          class="w-full -mb-5 md:mb-0 pb-5 md:pb-0 overflow-x-scroll snap-x snap-mandatory flex md:grid md:grid-flow-dense md:grid-cols-4 space-x-gutter md:space-x-0 md:gap-x-gutter"
-          role="list"
-        >
-          {% for recommendation in related_products %}
-            <li class="grid__item snap-normal snap-start w-[calc(50%-5px)] md:w-auto grow-0 shrink-0 md:pr-0">
-              {% render 'card-product',
-                card_product: recommendation
-              %}
-            </li>
-          {% endfor %}
-        </ul>
+      <h2 class="uppercase mb-gutter">
+        {{ section.settings.heading }}
+      </h2>
+      <ul
+        class="w-full -mb-5 md:mb-0 pb-5 md:pb-0 overflow-x-scroll snap-x snap-mandatory flex md:grid md:grid-flow-dense md:grid-cols-4 space-x-gutter md:space-x-0 md:gap-x-gutter"
+        role="list"
+      >
+        {% for recommendation in recommendations.products %}
+          <li data-collections="{{ recommendation.collections | map: "handle" | join: ',' }}" class="product-recommendations__item grid__item snap-normal snap-start w-[calc(50%-5px)] md:w-auto grow-0 shrink-0 md:pr-0">
+            {% render 'card-product',
+              card_product: recommendation
+            %}
+          </li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
-{% endif %}
+</product-recommendations>
+
 
 {% schema %}
   {

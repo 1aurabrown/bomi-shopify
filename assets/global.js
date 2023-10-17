@@ -1026,6 +1026,7 @@ customElements.define('variant-radios', VariantRadios);
 class ProductRecommendations extends HTMLElement {
   constructor() {
     super();
+    this.collection = this.dataset.collection
   }
 
   connectedCallback() {
@@ -1050,6 +1051,17 @@ class ProductRecommendations extends HTMLElement {
 
           if (html.querySelector('.grid__item')) {
             this.classList.add('product-recommendations--loaded');
+          }
+
+          if (this.collection) {
+            this.querySelectorAll('.product-recommendations__item').forEach(item => {
+              if (!item.dataset.collections.length > 0) return;
+              const collections = item.dataset.collections.split(',')
+              if (collections.indexOf(this.collection) > -1) {
+                const productLink = item.querySelector("[href^='/products/']")
+                productLink.href = productLink.href.replace('/products/', `/collections/${this.collection}/products/`)
+              }
+            })
           }
         })
         .catch((e) => {
