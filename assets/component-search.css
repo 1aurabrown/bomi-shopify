@@ -3,11 +3,11 @@
 }
 
 .header__search .search-modal.modal__content {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left: unset;
-  bottom: unset;
+  justify-content: flex-end;
+}
+
+.header__search details[open] summary {
+  display: none;
 }
 
 .header__search .search-modal__close-button.modal__close-button {
