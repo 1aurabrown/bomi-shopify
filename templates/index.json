@@ -4,8 +4,12 @@
       "type": "video",
       "settings": {
         "desktop_col_span": 8,
+        "heading": "Video",
         "url": "",
         "enable_video_looping": true,
+        "muted": true,
+        "enable_autoplay": true,
+        "show_controls": false,
         "video": "shopify:\/\/files\/videos\/video.mp4",
         "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
         "description": ""
@@ -29,9 +33,9 @@
             "url": "shopify:\/\/products\/copy-of-product-3",
             "image": "shopify:\/\/shop_images\/BOMI_MOODBOARD_012923-2_5.jpg",
             "text": "",
+            "desktop_row_start": 0,
             "desktop_col_start": 1,
             "desktop_col_span": 6,
-            "desktop_margin_top": 50,
             "mobile_col_start": 2,
             "mobile_col_span": 6
           }
@@ -42,9 +46,9 @@
             "url": "shopify:\/\/products\/product-15",
             "image": "shopify:\/\/shop_images\/BOMI_MOODBOARD_012923-2_7-1.jpg",
             "text": "",
+            "desktop_row_start": 0,
             "desktop_col_start": 10,
             "desktop_col_span": 9,
-            "desktop_margin_top": 0,
             "mobile_col_start": 1,
             "mobile_col_span": 4
           }
@@ -55,9 +59,9 @@
             "url": "shopify:\/\/collections",
             "image": "shopify:\/\/shop_images\/BOMI_MOODBOARD_012923-2_3.jpg",
             "text": "Text",
+            "desktop_row_start": 0,
             "desktop_col_start": 20,
             "desktop_col_span": 4,
-            "desktop_margin_top": 190,
             "mobile_col_start": 2,
             "mobile_col_span": 5
           }
@@ -68,9 +72,9 @@
             "url": "shopify:\/\/products\/product-14",
             "image": "shopify:\/\/shop_images\/BOMI_MOODBOARD_012923-2_6.jpg",
             "text": "",
+            "desktop_row_start": 0,
             "desktop_col_start": 8,
             "desktop_col_span": 6,
-            "desktop_margin_top": -10,
             "mobile_col_start": 4,
             "mobile_col_span": 3
           }
@@ -81,9 +85,9 @@
             "url": "shopify:\/\/products\/product-6",
             "image": "shopify:\/\/shop_images\/BOMI_MOODBOARD_012923-2_7-2.jpg",
             "text": "",
+            "desktop_row_start": 0,
             "desktop_col_start": 1,
             "desktop_col_span": 5,
-            "desktop_margin_top": 120,
             "mobile_col_start": 1,
             "mobile_col_span": 6
           }
@@ -94,9 +98,9 @@
             "url": "shopify:\/\/products\/product-7",
             "image": "shopify:\/\/shop_images\/BOMI_MOODBOARD_012923-2_7.jpg",
             "text": "",
+            "desktop_row_start": 0,
             "desktop_col_start": 17,
             "desktop_col_span": 8,
-            "desktop_margin_top": 40,
             "mobile_col_start": 1,
             "mobile_col_span": 6
           }
