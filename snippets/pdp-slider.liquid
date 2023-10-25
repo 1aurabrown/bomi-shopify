@@ -29,7 +29,7 @@
       </ul>
 
     </div>
-    <div class="pdp-slider__thumbs hidden lg:block mt-gutter">
+    <div class="pdp-slider__thumbs hidden mt-gutter{% if product.media.size > 2 %} lg:block{% else %} lg:hidden{% endif %}">
       <ul class="flex swiper-wrapper" role="list">
         {%- for image in product.images -%}
           <li id="Slide-{{ section.id }}-{{ image.id }}" data-media-position="{{ forloop.index0 }}" class="relative swiper-slide">

@@ -50,7 +50,7 @@
                 {{- block.settings.text -}}
               </p>
             {%- when 'breadcrumbs' -%}
-              {% if collection %}<div class="mb-text-line">{% render 'product-breadcrumbs', menu: block.settings.menu %}</div>{% endif %}
+              {% if collection %}{% render 'product-breadcrumbs', menu: block.settings.menu %}{% endif %}
             {%- when 'vendor' -%}
               {% if product.vendor != blank %}
                 {% capture handle %}{{ product.vendor | handleize }}{% endcapture %}
@@ -270,7 +270,7 @@
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, selected_variant: selected_variant, block: block, product_form_id: product_form_id %}
             {%- when 'buy_buttons' -%}
-              {%- render 'buy-buttons', block: block, product: product, selected_variant: selected_variant, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: false -%}
+              {%- render 'buy-buttons', block: block, product: product, selected_variant: selected_variant, product_form_id: product_form_id, show_shipping_taxes: block.settings.show_shipping_taxes, section_id: section.id, show_pickup_availability: false -%}
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 {% liquid
@@ -581,6 +581,13 @@
       "name": "t:sections.main-product.blocks.buy_buttons.name",
       "limit": 1,
       "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_shipping_taxes",
+          "default": true,
+          "label": "Show Shipping / Taxes line",
+          "info": "Text appears if shipping and taxes are included and/or shipping policy is configured."
+        },
         {
           "type": "checkbox",
           "id": "show_dynamic_checkout",
