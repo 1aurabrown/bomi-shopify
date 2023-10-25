@@ -49,7 +49,7 @@
       <div style="padding-bottom: {{ 1.00 | divided_by: aspect_ratio | times: 100.00 | append: '%' }} ">
   {% endif %}
 
-      {{ image | image_url: width: width, height: height | image_tag:
+      {{ image | image_url: width: width | image_tag:
         loading: loading,
         preload: preload,
         id: id,

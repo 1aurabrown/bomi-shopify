@@ -104,18 +104,6 @@
     "name": "t:settings_schema.cart.name",
     "settings": [
       {
-        "type": "select",
-        "id": "cart_type",
-        "options": [
-          {
-            "value": "page",
-            "label": "t:settings_schema.cart.settings.cart_type.page.label"
-          }
-        ],
-        "default": "page",
-        "label": "t:settings_schema.cart.settings.cart_type.label"
-      },
-      {
         "type": "checkbox",
         "id": "show_cart_note",
         "label": "t:settings_schema.cart.settings.show_cart_note.label",
