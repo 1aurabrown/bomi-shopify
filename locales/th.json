@@ -286,7 +286,8 @@
       "login": {
         "title": "มีบัญชีผู้ใช้อยู่แล้วใช่หรือไม่",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">เข้าสู่ระบบ</a>เพื่อชำระเงินให้รวดเร็วยิ่งขึ้น"
-      }
+      },
+      "new_estimated_total": "TODO"
     },
     "footer": {
       "payment": "วิธีการชำระเงิน"

@@ -306,7 +306,8 @@
       "login": {
         "title": "Máte účet?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Přihlaste se</a>, abyste si urychlili proces pokladny."
-      }
+      },
+      "new_estimated_total": "TODO"
     },
     "footer": {
       "payment": "Platební metody"

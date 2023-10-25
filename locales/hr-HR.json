@@ -296,7 +296,8 @@
       "login": {
         "title": "Imate li račun?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Prijavite se</a> za bržu provjeru."
-      }
+      },
+      "new_estimated_total": "TODO"
     },
     "footer": {
       "payment": "Načini plaćanja"

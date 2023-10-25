@@ -286,7 +286,8 @@
       "login": {
         "title": "Имате профил?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Влезте</a> за по-бързо преминаване към плащане."
-      }
+      },
+      "new_estimated_total": "TODO"
     },
     "footer": {
       "payment": "Начини на плащане"

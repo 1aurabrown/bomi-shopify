@@ -286,7 +286,8 @@
       "login": {
         "title": "Bạn đã có tài khoản?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Đăng nhập</a> để thanh toán nhanh hơn."
-      }
+      },
+      "new_estimated_total": "TODO"
     },
     "footer": {
       "payment": "Phương thức thanh toán"

@@ -13,13 +13,15 @@
 
 				{% if show_secondary_image %}
 
-					{% assign secondary_image = card_product.images[1] %}
-				  {% for image in card_product.images %}
-						{% if image.alt contains 'hover' %}
-							{% assign secondary_image = image %}
-							{% break %}
-						{% endif %}
-					{% endfor %}
+					{% liquid
+						assign secondary_image = card_product.images[1]
+					  for image in card_product.images
+							if image.alt contains 'hover'
+								assign secondary_image = image
+								break
+							endif
+						endfor
+					%}
 
 					{% if secondary_image %}
 						{% render 'image',
@@ -44,7 +46,7 @@
 			
 			{% if card_product.vendor != blank %}
 				{% capture handle %}{{ card_product.vendor | handleize }}{% endcapture %}
-				{% assign vendor_collection = collections[handle]%}
+				{% assign vendor_collection = collections[handle] %}
 				<p class="text-gray product-card--vendor">
 					{% if vendor_collection != blank %}<a class="hover:underline" href="{{ vendor_collection.url }}">{% endif %}
 						{{ card_product.vendor }}

@@ -113,7 +113,7 @@
                           <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
                             {% if item.product.vendor != blank %}
                               {% capture handle %}{{ item.product.vendor | handleize }}{% endcapture %}
-                              {% assign vendor_collection = collections[handle]%}
+                              {% assign vendor_collection = collections[handle] %}
                               <p class="text-gray product-card--vendor">
                                 {% if vendor_collection != blank %}<a class="hover:underline" href="{{ vendor_collection.url }}">{% endif %}
                                   {{ item.product.vendor }}
