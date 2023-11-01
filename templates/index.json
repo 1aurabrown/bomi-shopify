@@ -35,6 +35,7 @@
             "text": "",
             "desktop_col_start": 1,
             "desktop_col_span": 6,
+            "desktop_margin_top": 58,
             "mobile_col_start": 2,
             "mobile_col_span": 6
           }
@@ -47,6 +48,7 @@
             "text": "",
             "desktop_col_start": 10,
             "desktop_col_span": 9,
+            "desktop_margin_top": 0,
             "mobile_col_start": 1,
             "mobile_col_span": 4
           }
@@ -59,6 +61,7 @@
             "text": "Text",
             "desktop_col_start": 20,
             "desktop_col_span": 4,
+            "desktop_margin_top": 186,
             "mobile_col_start": 2,
             "mobile_col_span": 5
           }
@@ -71,6 +74,7 @@
             "text": "",
             "desktop_col_start": 8,
             "desktop_col_span": 6,
+            "desktop_margin_top": 0,
             "mobile_col_start": 4,
             "mobile_col_span": 3
           }
@@ -83,6 +87,7 @@
             "text": "",
             "desktop_col_start": 1,
             "desktop_col_span": 5,
+            "desktop_margin_top": 158,
             "mobile_col_start": 1,
             "mobile_col_span": 6
           }
@@ -95,6 +100,7 @@
             "text": "",
             "desktop_col_start": 17,
             "desktop_col_span": 8,
+            "desktop_margin_top": 52,
             "mobile_col_start": 1,
             "mobile_col_span": 6
           }

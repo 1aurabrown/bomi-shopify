@@ -41,14 +41,11 @@
 		</div>
 
 		<div class="relative mt-1 ">
-			
-			{% if card_product.vendor != blank %}
-				{% capture handle %}{{ card_product.vendor | handleize }}{% endcapture %}
-				{% assign vendor_collection = collections[handle]%}
-				<p class="text-gray product-card--vendor">
-					{% if vendor_collection != blank %}<a class="hover:underline" href="{{ vendor_collection.url }}">{% endif %}
-						{{ card_product.vendor }}
-					{% if vendor_collection != blank %}</a>{% endif %}
+			{% if card_product.metafields.custom.designer_collection != blank %}
+				<p class="text-gray product-card--designer">
+					<a class="hover:underline" href="{{ card_product.metafields.custom.designer_collection.value.url }}">
+						{{ card_product.metafields.custom.designer_collection.value.title }}
+					</a>
 				</p>
 			{% endif %}
 			
