@@ -31,33 +31,35 @@
 
 
 {% schema %}
-  {
-    "name": "t:sections.related-products.name",
-    "tag": "section",
-    "class": "section",
-    "enabled_on": {
-      "templates": ["product"]
-    },
-    "settings": [
-      {
-        "type": "paragraph",
-        "content": "t:sections.related-products.settings.paragraph__1.content"
-      },
-      {
-        "type": "inline_richtext",
-        "id": "heading",
-        "default": "Related Products",
-        "label": "t:sections.related-products.settings.heading.label"
-      },
-      {
-        "type": "range",
-        "id": "products_to_show",
-        "min": 2,
-        "max": 10,
-        "step": 1,
-        "default": 4,
-        "label": "t:sections.related-products.settings.products_to_show.label"
-      }
+{
+  "name": "t:sections.related-products.name",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": {
+    "templates": [
+      "product"
     ]
-  }
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.related-products.settings.paragraph__1.content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Related Products",
+      "label": "t:sections.related-products.settings.heading.label"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.related-products.settings.products_to_show.label"
+    }
+  ]
+}
 {% endschema %}

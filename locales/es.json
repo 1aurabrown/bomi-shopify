@@ -296,7 +296,8 @@
       "login": {
         "title": "¿Tienes una cuenta?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Inicia sesión</a> para finalizar tus compras con mayor rapidez."
-      }
+      },
+      "new_estimated_total": "TODO"
     },
     "footer": {
       "payment": "Formas de pago"

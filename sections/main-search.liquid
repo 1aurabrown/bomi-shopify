@@ -14,6 +14,12 @@
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
+{%- liquid
+  assign sort_by = search.sort_by | default: search.default_sort_by
+  assign terms = search.terms | escape
+  assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+-%}
+
 <script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
 
 {% paginate search.results by 24 %}
@@ -33,8 +39,9 @@
             <main-search>
               <form action="{{ routes.search_url }}" method="get" role="search" class="search">
                 <div class="field">
-                  <input class="search__input field__input focus:ring-0"
-                    id="{{ input_id }}"
+                  <input
+                    class="search__input field__input focus:ring-0"
+                    id="Search-In-Template"
                     type="search"
                     name="q"
                     value="{{ search.terms | escape }}"
@@ -52,7 +59,7 @@
                       spellcheck="false"
                     {%- endif -%}
                   >
-                  <label class="field__label visually-hidden" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
+                  <label class="field__label visually-hidden" for="Search-In-Template">{{ 'general.search.search' | t }}</label>
                   <input type="hidden" name="options[prefix]" value="last">
                   {%- if settings.predictive_search_enabled -%}
                     <div class="predictive-search predictive-search--search-template" tabindex="-1" data-predictive-search>

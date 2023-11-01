@@ -286,7 +286,8 @@
       "login": {
         "title": "Έχετε λογαριασμό;",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Συνδεθείτε</a> για ταχύτερη ολοκλήρωση των αγορών σας."
-      }
+      },
+      "new_estimated_total": "TODO"
     },
     "footer": {
       "payment": "Μέθοδοι πληρωμής"

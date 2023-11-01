@@ -1,6 +1,6 @@
 <nav class="header__inline-menu hidden md:block col-start-1 col-span-5">
   <ul class="list-menu list-menu--inline grid grid-cols-5 gap-gutter" role="list">
-		 {%- for link in section.settings.menu.links limit: 5-%}
+		 {%- for link in section.settings.menu.links limit: 5 -%}
 		  <li>
 
 		  	{%- if link.links != blank -%}
@@ -72,7 +72,7 @@
         	 <a
             id="HeaderMenu-{{ link.handle }}"
             href="{{ link.url }}"
-            class="header__menu-item list-menu__item link link--text focus-inset text-link hover:underline uppercase{% if link.current or link.active or link.child_active%} underline{% endif %}"
+            class="header__menu-item list-menu__item link link--text focus-inset text-link hover:underline uppercase{% if link.current or link.active or link.child_active %} underline{% endif %}"
             {% if link.current %}
               aria-current="page"
             {% endif %}

@@ -10,7 +10,7 @@ This snippet is auto generated and will be overwritten.
   _BISConfig.product = {{ product | json }};
 
   {% for variant in product.variants %}
-    _BISConfig.product.variants[{{forloop.index | minus: 1 }}]['inventory_quantity'] = {{ variant.inventory_quantity }};
+    _BISConfig.product.variants[{{ forloop.index | minus: 1 }}]['inventory_quantity'] = {{ variant.inventory_quantity }};
   {% endfor %}
 {% endif %}
 
