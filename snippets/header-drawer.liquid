@@ -25,12 +25,13 @@
                 <li>
                   {%- if link.links != blank -%}
                     <div id="Details-menu-drawer-menu-item-{{ forloop.index }}">
-                      <span
+                      <a
+                        href="{{ link.url }}"
                         id="HeaderDrawer-{{ link.handle }}"
                         class="uppercase list-menu__item link text-link focus-inset"
                       >
                         {{ link.title | escape }}
-                      </span>
+                      </a>
                       <div
                         id="link-{{ link.handle | escape }}"
                         class="gradient motion-reduce"
