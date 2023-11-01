@@ -3,7 +3,6 @@
     "favicon": "shopify:\/\/shop_images\/Frame_2.svg",
     "cart_type": "drawer",
     "show_cart_note": false,
-    "show_vendor": true,
     "content_for_index": [
 
     ]

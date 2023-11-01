@@ -51,14 +51,18 @@
               </p>
             {%- when 'breadcrumbs' -%}
               {% if collection %}<div class="mb-text-line">{% render 'product-breadcrumbs', menu: block.settings.menu %}</div>{% endif %}
+            {%- when 'designer' -%}
+              {% if product.metafields.custom.designer_collection != blank %}
+                <p class="text-gray">
+                  <a class="hover:underline" href="{{ product.metafields.custom.designer_collection.value.url }}">
+                    {{ product.metafields.custom.designer_collection.value.title }}
+                  </a>
+                </p>
+              {% endif %}
             {%- when 'vendor' -%}
               {% if product.vendor != blank %}
-                {% capture handle %}{{ product.vendor | handleize }}{% endcapture %}
-                {% assign vendor_collection = collections[handle]%}
-                <p class="text-gray product-card--vendor">
-                  {% if vendor_collection != blank %}<a class="hover:underline" href="{{ vendor_collection.url }}">{% endif %}
+                <p class="text-gray">
                     {{ product.vendor }}
-                  {% if vendor_collection != blank %}</a>{% endif %}
                 </p>
               {% endif %}
             {%- when 'title' -%}
@@ -398,7 +402,7 @@
       {%- endif %}
       "brand": {
         "@type": "Brand",
-        "name": {{ product.vendor | json }}
+        "name": {{ product.metafields.custom.designer_collection.value.title | json }}
       },
       "offers": [
         {%- for variant in product.variants -%}
@@ -456,6 +460,11 @@
     {
       "type": "vendor",
       "name": "Vendor",
+      "limit": 1
+    },
+    {
+      "type": "designer",
+      "name": "Designer",
       "limit": 1
     },
     {
