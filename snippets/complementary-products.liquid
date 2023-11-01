@@ -8,7 +8,7 @@
     <div class="">
       {%- for alternate_product in complementary_products -%}
         {%- if alternate_product == product -%}
-          <span class="underline">{{ product.metafields.custom.complementary_products_link_text }}</span>{% unless forloop.last %}, {% endunless %}
+          <span class="underline">{{ product.metafields.custom.complementary_products_link_text  }}</span>{% unless forloop.last %}, {% endunless %}
         {%- else -%}
           <span class="text-gray">
            <a class="text-link" href="{{ alternate_product.url }}" title="{{ alternate_product.title }}">{{ alternate_product.metafields.custom.complementary_products_link_text }}</a>{% unless forloop.last %}, {% endunless %}</span>

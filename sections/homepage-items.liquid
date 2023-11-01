@@ -10,6 +10,7 @@
           assign image = block.settings.url.object.featured_image
         endif
         assign text = block.settings.text | default: block.settings.url.object.title
+        assign max_margin = 100 | minus: block.settings.desktop_width
       %}
 
       <div class="homepage-items__block" data-index="{{ forloop.index }}">

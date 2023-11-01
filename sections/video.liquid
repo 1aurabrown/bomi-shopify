@@ -193,7 +193,7 @@ md:col-end-13
       {% endif %}
     </div>
     {%- unless section.settings.heading == blank -%}
-      <div class="block uppercase mt-gutter {% if section.settings.url != blank %} hover:underline{% endif %}">{{ text }}</div>
+      <div class="block uppercase mt-gutter {% if section.settings.url != blank%} hover:underline{% endif %}">{{ text }}</div>
     {%- endunless -%}
 
     {% if section.settings.url != blank %}
@@ -204,106 +204,100 @@ md:col-end-13
 
 {% schema %}
 {
-  "name": "t:sections.video.name",
-  "tag": "section",
-  "class": "section",
-  "disabled_on": {
-    "groups": [
-      "header",
-      "footer"
-    ]
+"name": "t:sections.video.name",
+"tag": "section",
+"class": "section",
+"disabled_on": {
+  "groups": ["header", "footer"]
+},
+"settings": [
+  {
+    "type": "range",
+    "id": "desktop_col_span",
+    "label": "Desktop Column Span",
+    "min": 4,
+    "max": 12,
+    "step": 2,
+    "default": 8
   },
-  "settings": [
-    {
-      "type": "range",
-      "id": "desktop_col_span",
-      "label": "Desktop Column Span",
-      "min": 4,
-      "max": 12,
-      "step": 2,
-      "default": 8
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "default": "Video",
-      "label": "Text"
-    },
-    {
-      "type": "url",
-      "id": "url",
-      "label": "Link"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_video_looping",
-      "label": "t:sections.video.settings.enable_video_looping.label",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "muted",
-      "label": "Enable Chromeless",
-      "default": true,
-      "info": "Hides controls, autoplays, and mutes video."
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_autoplay",
-      "label": "Enable Autoplay",
-      "default": true,
-      "info": "Requires that the video is also muted"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_controls",
-      "label": "Show Controls",
-      "default": false
-    },
-    {
-      "type": "header",
-      "content": "t:sections.video.settings.header__1.content"
-    },
-    {
-      "type": "video",
-      "id": "video",
-      "label": "t:sections.video.settings.video.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.video.settings.header__2.content"
-    },
-    {
-      "type": "paragraph",
-      "content": "t:sections.video.settings.paragraph.content"
-    },
-    {
-      "type": "video_url",
-      "id": "video_url",
-      "accept": [
-        "youtube",
-        "vimeo"
-      ],
-      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-      "label": "t:sections.video.settings.video_url.label",
-      "info": "t:sections.video.settings.video_url.info"
-    },
-    {
-      "type": "image_picker",
-      "id": "cover_image",
-      "label": "t:sections.video.settings.cover_image.label"
-    },
-    {
-      "type": "text",
-      "id": "description",
-      "label": "t:sections.video.settings.description.label",
-      "info": "t:sections.video.settings.description.info"
-    }
-  ],
-  "presets": [
-    {
-      "name": "t:sections.video.presets.name"
-    }
-  ]
+  {
+    "type": "text",
+    "id": "heading",
+    "default": "Video",
+    "label": "Text"
+  },
+  {
+    "type": "url",
+    "id": "url",
+    "label": "Link"
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_video_looping",
+    "label": "t:sections.video.settings.enable_video_looping.label",
+    "default": false
+  },
+  {
+    "type": "checkbox",
+    "id": "muted",
+    "label": "Enable Chromeless",
+    "default": true,
+    "info": "Hides controls, autoplays, and mutes video."
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_autoplay",
+    "label": "Enable Autoplay",
+    "default": true,
+    "info": "Requires that the video is also muted"
+  },
+  {
+    "type": "checkbox",
+    "id": "show_controls",
+    "label": "Show Controls",
+    "default": false
+  },
+  {
+    "type": "header",
+    "content": "t:sections.video.settings.header__1.content"
+  },
+  {
+    "type": "video",
+    "id": "video",
+    "label": "t:sections.video.settings.video.label"
+  },
+  {
+    "type": "header",
+    "content": "t:sections.video.settings.header__2.content"
+  },
+  {
+    "type": "paragraph",
+    "content": "t:sections.video.settings.paragraph.content"
+  },
+  {
+    "type": "video_url",
+    "id": "video_url",
+    "accept": ["youtube", "vimeo"],
+    "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+    "label": "t:sections.video.settings.video_url.label",
+    "info": "t:sections.video.settings.video_url.info"
+  },
+  {
+    "type": "image_picker",
+    "id": "cover_image",
+    "label": "t:sections.video.settings.cover_image.label"
+  },
+  {
+    "type": "text",
+    "id": "description",
+    "label": "t:sections.video.settings.description.label",
+    "info": "t:sections.video.settings.description.info"
+  }
+],
+"presets": [
+  {
+    "name": "t:sections.video.presets.name"
+  }
+]
 }
 {% endschema %}

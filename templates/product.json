@@ -10,7 +10,7 @@
           }
         },
         "ab19b2bf-cbc7-430d-a503-5095c80c7e8f": {
-          "type": "vendor",
+          "type": "designer",
           "settings": {
           }
         },
@@ -64,7 +64,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Details",
-            "content": "<p>{{ product.metafields.custom.details | metafield_tag }}</p>",
+            "content": "<p>{{ product.metafields.custom.details | metafield_tag }}<\/p>",
             "page": ""
           }
         },
@@ -72,7 +72,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Care",
-            "content": "<p>{{ product.metafields.descriptors.care_guide | metafield_tag }}</p>",
+            "content": "<p>{{ product.metafields.descriptors.care_guide | metafield_tag }}<\/p>",
             "page": ""
           }
         },
@@ -81,7 +81,7 @@
           "disabled": true,
           "settings": {
             "heading": "Shipping & Returns",
-            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>",
             "page": ""
           }
         }

@@ -13,7 +13,7 @@
         {{ section.settings.heading }}
       </h2>
       <ul
-        class="w-full -mb-5 md:mb-0 pb-5 md:pb-0 overflow-x-scroll snap-x snap-mandatory flex md:grid md:grid-flow-dense md:grid-cols-4 space-x-gutter md:space-x-0 md:gap-x-gutter"
+        class="scrollbar-hide w-full overflow-x-scroll snap-x snap-mandatory flex md:grid md:grid-flow-dense md:grid-cols-4 space-x-gutter md:space-x-0 md:gap-x-gutter"
         role="list"
       >
         {% for recommendation in recommendations.products %}
@@ -31,35 +31,33 @@
 
 
 {% schema %}
-{
-  "name": "t:sections.related-products.name",
-  "tag": "section",
-  "class": "section",
-  "enabled_on": {
-    "templates": [
-      "product"
+  {
+    "name": "t:sections.related-products.name",
+    "tag": "section",
+    "class": "section",
+    "enabled_on": {
+      "templates": ["product"]
+    },
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "t:sections.related-products.settings.paragraph__1.content"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "Related Products",
+        "label": "t:sections.related-products.settings.heading.label"
+      },
+      {
+        "type": "range",
+        "id": "products_to_show",
+        "min": 2,
+        "max": 10,
+        "step": 1,
+        "default": 4,
+        "label": "t:sections.related-products.settings.products_to_show.label"
+      }
     ]
-  },
-  "settings": [
-    {
-      "type": "paragraph",
-      "content": "t:sections.related-products.settings.paragraph__1.content"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "Related Products",
-      "label": "t:sections.related-products.settings.heading.label"
-    },
-    {
-      "type": "range",
-      "id": "products_to_show",
-      "min": 2,
-      "max": 10,
-      "step": 1,
-      "default": 4,
-      "label": "t:sections.related-products.settings.products_to_show.label"
-    }
-  ]
-}
+  }
 {% endschema %}

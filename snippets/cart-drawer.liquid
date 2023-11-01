@@ -106,20 +106,18 @@
                       </tr>
                     </thead>
 
-                    <tbody role="rowgroup" class="grid grid-cols-1 gap-gutter w-full">
-                      {%- for item in cart.items -%}
-                        <tr id="CartDrawer-Item-{{ item.index | plus: 1 }}" class="cart-item flex justify-between" role="row">
+                  <tbody role="rowgroup">
+                    {%- for item in cart.items -%}
+                      <tr id="CartDrawer-Item-{{ item.index | plus: 1 }}" class="cart-item flex justify-between" role="row">
 
-                          <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
-                            {% if item.product.vendor != blank %}
-                              {% capture handle %}{{ item.product.vendor | handleize }}{% endcapture %}
-                              {% assign vendor_collection = collections[handle] %}
-                              <p class="text-gray product-card--vendor">
-                                {% if vendor_collection != blank %}<a class="hover:underline" href="{{ vendor_collection.url }}">{% endif %}
-                                  {{ item.product.vendor }}
-                                {% if vendor_collection != blank %}</a>{% endif %}
-                              </p>
-                            {% endif %}
+                        <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
+                          {% if item.product.metafields.custom.designer_collection != blank %}
+                            <p class="text-gray">
+                              <a class="hover:underline" href="{{ item.product.metafields.custom.designer_collection.value.url }}">
+                                {{ item.product.metafields.custom.designer_collection.value.title }}
+                              </a>
+                            </p>
+                          {% endif %}
 
                             <a href="{{ item.url }}" class="text-link cart-item__name">
                               {{ item.product.title }}
