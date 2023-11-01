@@ -14,7 +14,6 @@
     assign placeholder_width =  180
 
     assign width = width | default: image.width
-    assign height = height | default: image.height
 
     if fit == 'contain'
       assign class = class | append: ' object-contain bg-contain'
@@ -49,7 +48,7 @@
       <div style="padding-bottom: {{ 1.00 | divided_by: aspect_ratio | times: 100.00 | append: '%' }} ">
   {% endif %}
 
-      {{ image | image_url: width: width, height: height | image_tag:
+      {{ image | image_url: width: width | image_tag:
         loading: loading,
         preload: preload,
         id: id,

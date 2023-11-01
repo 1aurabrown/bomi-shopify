@@ -56,14 +56,15 @@
     @apply hidden
   }
 
-  .product-card__image-wrapper .product-card__image:last-child:not(:first-child) {
-    @apply block opacity-0 duration-300 z-10
-  }
+  @media screen and (hover: hover) {
+    .product-card__image-wrapper .product-card__image:last-child:not(:first-child) {
+      @apply block opacity-0 duration-300 z-10
+    }
 
-  .product-card__image-wrapper:hover .product-card__image:last-child:not(:first-child) {
-    @apply opacity-100
+    .product-card__image-wrapper:hover .product-card__image:last-child:not(:first-child) {
+      @apply opacity-100
+    }
   }
-
 }
 
 @layer utilities {

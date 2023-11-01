@@ -523,14 +523,19 @@ input[type='radio']:focus-visible + label {
 
 .product-card__image-wrapper .product-card__image:last-child:not(:first-child) {
   display: none;
-  z-index: 10;
-  display: block;
-  opacity: 0;
-  transition-duration: 300ms;
 }
 
-.product-card__image-wrapper:hover .product-card__image:last-child:not(:first-child) {
-  opacity: 1;
+@media screen and (hover: hover) {
+  .product-card__image-wrapper .product-card__image:last-child:not(:first-child) {
+    z-index: 10;
+    display: block;
+    opacity: 0;
+    transition-duration: 300ms;
+  }
+
+  .product-card__image-wrapper:hover .product-card__image:last-child:not(:first-child) {
+    opacity: 1;
+  }
 }
 
 html {
