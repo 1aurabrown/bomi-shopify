@@ -32,8 +32,8 @@
           "type": "item",
           "settings": {
             "url": "shopify:\/\/products\/copy-of-product-3",
-            "image": "shopify:\/\/shop_images\/RITUAL.jpg",
-            "text": "Ritual",
+            "image": "shopify:\/\/shop_images\/DECOR.jpg",
+            "text": "Decor",
             "desktop_col_start": 1,
             "desktop_col_span": 6,
             "desktop_margin_top": 50,
@@ -58,8 +58,8 @@
           "type": "item",
           "settings": {
             "url": "shopify:\/\/collections",
-            "image": "shopify:\/\/shop_images\/BOMI_MOODBOARD_012923-2_3.jpg",
-            "text": "Text",
+            "image": "shopify:\/\/shop_images\/RITUAL.jpg",
+            "text": "Ritual",
             "desktop_col_start": 20,
             "desktop_col_span": 4,
             "desktop_margin_top": 190,
