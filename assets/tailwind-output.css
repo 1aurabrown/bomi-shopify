@@ -578,8 +578,8 @@ strong, b {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   text-align: center;
@@ -901,8 +901,8 @@ body .shopify-policy__body {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   text-align: center;
@@ -926,8 +926,8 @@ body .shopify-policy__body {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   text-align: center;
@@ -1431,10 +1431,6 @@ body .shopify-policy__body {
   grid-auto-flow: row dense;
 }
 
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
 .grid-cols-12 {
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
@@ -1461,10 +1457,6 @@ body .shopify-policy__body {
 
 .flex-col {
   flex-direction: column;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
 }
 
 .items-start {
@@ -1506,10 +1498,6 @@ body .shopify-policy__body {
 
 .gap-y-10 {
   row-gap: 2.5rem;
-}
-
-.gap-y-4 {
-  row-gap: 1rem;
 }
 
 .gap-y-40 {
