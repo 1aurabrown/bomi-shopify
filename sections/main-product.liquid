@@ -1,18 +1,5 @@
 {% comment %}css-purge shopify-payment-button__button{% endcomment %}
-{% liquid
-  if product.selected_variant
-    assign selected_variant = product.selected_variant
-  elsif product.available
-    for variant in product.variants
-      if variant.inventory_quantity > 0
-        assign selected_variant = variant
-        break
-      endif
-    endfor
-  else 
-    assign selected_variant = product.variants[0]
-  endif
-%}
+{% assign selected_variant = product.selected_or_first_available_variant %}
 
 <section id="MainProduct-{{ section.id }}" class="section-main-product section-{{ section.id }}" data-section="{{ section.id }}">
   {{ 'component-quantity.css' | asset_url | stylesheet_tag }}
