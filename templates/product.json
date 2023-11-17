@@ -41,21 +41,10 @@
             "heading": "Complementary Products"
           }
         },
-        "inventory": {
-          "type": "inventory",
-          "settings": {
-            "inventory_threshold": 10,
-            "show_inventory_quantity": false,
-            "preorder_text": "Ships in 5-6 weeks",
-            "show_in_stock": false,
-            "show_low_stock": false,
-            "show_preorder": true,
-            "show_out_of_stock": false
-          }
-        },
         "0e537071-9aef-4e17-8465-bc367332db5d": {
           "type": "buy_buttons",
           "settings": {
+            "show_shipping_taxes": true,
             "show_dynamic_checkout": false,
             "back_in_stock_enabled": true
           }
@@ -64,7 +53,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Details",
-            "content": "<p>{{ product.metafields.custom.details | metafield_tag }}</p>",
+            "content": "<p>{{ product.metafields.custom.details | metafield_tag }}<\/p>",
             "page": ""
           }
         },
@@ -72,7 +61,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Care",
-            "content": "<p>{{ product.metafields.descriptors.care_guide | metafield_tag }}</p>",
+            "content": "<p>{{ product.metafields.descriptors.care_guide | metafield_tag }}<\/p>",
             "page": ""
           }
         },
@@ -81,7 +70,7 @@
           "disabled": true,
           "settings": {
             "heading": "Shipping & Returns",
-            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>",
             "page": ""
           }
         }
@@ -94,7 +83,6 @@
         "9b92fe32-3c10-4fd6-9402-90a2f23d95bf",
         "variant-picker",
         "da08f30a-b406-423b-b3b6-3cffacfc5292",
-        "inventory",
         "0e537071-9aef-4e17-8465-bc367332db5d",
         "0a02c292-a3b2-49b9-824f-072fe10dc9f7",
         "71ea0195-a1b2-45fe-bf6e-4567ed57ad86",
