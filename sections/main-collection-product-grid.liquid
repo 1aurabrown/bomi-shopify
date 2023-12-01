@@ -6,7 +6,13 @@
 	{% paginate collection.products by section.settings.products_per_page %}
     <div class="grid grid-cols-2 grid-flow-dense md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-6">
       {% for product in collection.products %}
-        {%- render 'card-product', collection: collection, section: section, card_product: product, show_rating: section.settings.show_rating, show_secondary_image: section.settings.show_secondary_image -%}
+        {% liquid
+          assign preload = false
+          if forloop.index < 5
+            assign preload = true
+          endif
+        %}
+        {%- render 'card-product', preload: preload, collection: collection, section: section, card_product: product, show_rating: section.settings.show_rating, show_secondary_image: section.settings.show_secondary_image -%}
       {% endfor %}
 		</div>
 		{% render 'pagination', paginate: paginate %}

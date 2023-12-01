@@ -181,9 +181,9 @@
               <div class="loading-overlay gradient"></div>
               <ul class="grid md:grid-cols-2 lg:grid-cols-4 gap-gutter" role="list">
                 {%- for item in search.results -%}
-                  {% assign lazy_load = false %}
-                  {%- if forloop.index > 2 -%}
-                    {%- assign lazy_load = true -%}
+                  {% assign preload = true %}
+                  {%- if forloop.index > 4 -%}
+                    {%- assign preload = false -%}
                   {%- endif -%}
 
                   <li class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -196,7 +196,7 @@
                           card_product: item,
                           show_secondary_image: section.settings.show_secondary_image,
                           show_rating: section.settings.show_rating,
-                          lazy_load: lazy_load
+                          preload: preload
                         %}
                       {%- when 'article' -%}
                         {% render 'article-card',
@@ -206,7 +206,7 @@
                           show_author: section.settings.article_show_author,
                           show_badge: true,
                           media_aspect_ratio: 1,
-                          lazy_load: lazy_load
+                          preload: preload
                         %}
                       {%- when 'page' -%}
                         <div class="underline-links-hover flex flex-col justify-end h-full w-full">

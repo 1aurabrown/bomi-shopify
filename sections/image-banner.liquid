@@ -18,6 +18,12 @@ md:col-end-13
   assign half_width = section.settings.desktop_col_span | divided_by: 2
   assign start = 6 | minus: half_width | plus: 1
   assign end = 6 | plus: half_width | plus: 1
+  assign desktop_percent = section.settings.desktop_col_span | divided_by: 12.0 | times: 100 | ceil
+  assign sizes = '(min-width: 768px) ' | append: desktop_percent | append: 'vw, 100vw'
+  assign preload = false
+  if section.index == 1
+    assign preload = true
+  endif
 %}
 
 <div class="pt-15 mb-25 lg:mb-35 padding-x md:grid md:grid-cols-12">
@@ -28,30 +34,28 @@ md:col-end-13
 
       <figure>
         {% if section.settings.image %}
-          {% capture class %}
-              w-full{% if section.settings.mobile_image %} hidden md:block{% endif %}
-          {% endcapture %}
+          {%- capture class -%}w-full{%- if section.settings.mobile_image -%} hidden md:block{%- endif -%}{%- endcapture -%}
           {% render 'image',
             image: section.settings.image,
-            preload: true,
+            preload: preload,
             use_padding: false,
             class: class,
             fit: 'cover',
-            sizes: '(min-width: 768px) 33vw, 100vw',
+            sizes: sizes,
           %}
         {% endif %}
 
         {% if section.settings.mobile_image %}
-          {% capture class %}
-            w-full{% if section.settings.image %} md:hidden{% endif %}
-          {% endcapture %}
+          {%- capture class -%}
+            w-full{%- if section.settings.image -%} md:hidden{%- endif -%}
+          {%- endcapture -%}
           {% render 'image',
             image: section.settings.mobile_image,
-            preload: true,
+            preload: preload,
             use_padding: false,
             class: class,
             fit: 'cover',
-            sizes: '(min-width: 768px) 33vw, 100vw',
+            sizes: sizes,
           %}
         {% endif %}
 

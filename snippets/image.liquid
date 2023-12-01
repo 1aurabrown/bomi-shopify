@@ -8,6 +8,7 @@
     assign alt = alt | default: image.alt | escape
     assign class = class | default: ''
     assign class = class | append: ' bg-no-repeat bg-center motion-reduce'
+    assign sizes = sizes | default: '(min-width: 768px) 50vw, 100vw'
 
     assign widths = widths | default: '180, 360, 450, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, ' | append: image.width
     assign fit = fit | default: 'contain'
@@ -21,10 +22,9 @@
       assign class = class | append: ' object-cover bg-cover'
     endif
 
+    assign loading = 'lazy'
     if preload
       assign loading = 'eager'
-    else
-      assign loading = 'lazy'
     endif
 
     if use_padding != false
@@ -36,12 +36,10 @@
     If image is marked as preload (above the fold) load low-res image placeholder as background image. We don't do this on other images (which will be lazy-loaded) to reduce network requests.
   {% endcomment %}
 
-  {%- if preload -%}
-    {%- capture style -%}
-      background-image: url('{{ image | image_url: width: placeholder_width }}');
-    {%- endcapture -%}
-    {%- assign onload = 'this.style.removeProperty("background-image");' -%}
-  {%- endif -%}
+  {%- capture style -%}
+    background-image: url('{{ image | image_url: width: placeholder_width }}');
+  {%- endcapture -%}
+  {%- assign onload = 'this.style.removeProperty("background-image");' -%}
 
   {% if use_padding != false %}
     <div class="relative {{ wrapper_class }}">
