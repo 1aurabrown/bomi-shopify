@@ -1,7 +1,7 @@
 {
   "current": {
     "favicon": "shopify:\/\/shop_images\/Frame_2.svg",
-    "show_cart_note": false,
+    "show_cart_note": true,
     "checkout_logo_image": "shopify:\/\/shop_images\/BOMI-logo-0925-REDUCED_89cf4736-8b82-4472-ab92-7961af7454cd.png",
     "checkout_logo_position": "left",
     "checkout_logo_size": "small",

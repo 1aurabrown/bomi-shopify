@@ -44,7 +44,7 @@
         "0e537071-9aef-4e17-8465-bc367332db5d": {
           "type": "buy_buttons",
           "settings": {
-            "show_shipping_taxes": true,
+            "show_shipping_taxes": false,
             "show_dynamic_checkout": false,
             "back_in_stock_enabled": true
           }
