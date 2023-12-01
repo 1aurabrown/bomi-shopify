@@ -261,7 +261,7 @@
               %}
 
             {%- when 'variant_picker' -%}
-              {% comment %}{% render 'product-variant-picker', product: product, selected_variant: selected_variant, block: block, product_form_id: product_form_id %}{% endcomment %}
+              {% render 'product-variant-picker', product: product, selected_variant: selected_variant, block: block, product_form_id: product_form_id %}
             {%- when 'buy_buttons' -%}
               {%- render 'buy-buttons', block: block, product: product, selected_variant: selected_variant, product_form_id: product_form_id, show_shipping_taxes: block.settings.show_shipping_taxes, section_id: section.id, show_pickup_availability: false -%}
             {%- when 'rating' -%}

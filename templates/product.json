@@ -89,13 +89,6 @@
         "d5c6c7ad-82fd-4cab-bfa7-3952b0885290"
       ],
       "settings": {
-        "constrain_to_viewport": true,
-        "gallery_layout": "stacked",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
-        "hide_variants": false,
-        "enable_video_looping": false
       }
     },
     "related-products": {
