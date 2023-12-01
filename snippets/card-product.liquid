@@ -1,10 +1,11 @@
 <article class="{{ class }} product-card">
 	{% if card_product %}
+		{% assign sizes = '(min-width: 768px) 25vw, 100vw' %}
 		<div class="relative product-card__image-wrapper">
 			<div class="relative overflow-hidden">
 				{% render 'image',
 					image: card_product.featured_image,
-			    preload: true,
+			    preload: preload,
 			    wrapper_class: 'product-card__image'
 			    fit: 'cover',
 			    sizes: sizes,
@@ -24,8 +25,8 @@
 					{% if secondary_image %}
 						{% render 'image',
 							image: secondary_image,
-					    preload: true,
 					    fit: 'cover',
+    			    preload: preload,
 					    sizes: sizes,
 					    use_padding: false,
 					    class: 'product-card__image absolute inset-0 w-full h-full'
