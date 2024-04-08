@@ -13,12 +13,12 @@
           assign preload = true
         endif
         assign mobile_percent = block.settings.mobile_col_span | divided_by: 6.0 | times: 100 | ceil
-        assign desktop_percent = block.settings.mobile_col_span | divided_by: 24.0 | times: 100 | ceil
+        assign desktop_percent = block.settings.desktop_col_span | divided_by: 24.0 | times: 100 | ceil
       %}
-
       {% capture sizes %}(min-width: 768px) {{ desktop_percent }}vw, {{ mobile_percent }}vw{% endcapture %}
 
       <div class="homepage-items__block" data-index="{{ forloop.index }}">
+
         <style>
 
            {% liquid

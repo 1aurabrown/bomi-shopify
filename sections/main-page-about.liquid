@@ -3,11 +3,16 @@
 
 <div class="grid grid-cols-3 md:grid-cols-24 md:grid-flow-dense gap-x-gutter gap-y-10 padding-x ">
   <div class="col-span-2 md:col-span-8 lg:col-span-6{% if image %} md:col-start-[17] lg:col-start-[17]{% endif %}">
-  <h1 class="visually-hidden uppercase">
-    {{ page.title | escape }}
-  </h1>
-
-  <div class="rte">{{ page.content }}</div>
+    <h1 class="visually-hidden uppercase">
+      {{ page.title | escape }}
+    </h1>
+    <div class="flex flex-col justify-between h-full">
+      <div>
+        <div class="rte">{{ page.content }}</div>
+        {% if section.settings.contact != blank %}<div class="child-text-links mt-4 uppercase">{{ section.settings.contact }}</div>{% endif %}
+      </div>
+      {% if section.settings.credits != blank %}<div class="rte mt-4">{{ section.settings.credits }}</div>{% endif %}
+    </div>
   </div>
   {% if image %}
     <div class="w-full col-span-3 md:col-end-[16] md:col-start-1">
@@ -18,14 +23,19 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-page.name",
+  "name": "About Page",
   "tag": "section",
   "class": "page",
   "settings": [
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "contact",
       "label": "Contact Info"
+    },
+    {
+      "type": "richtext",
+      "id": "credits",
+      "label": "Credits"
     }
   ]
 }
