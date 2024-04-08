@@ -56,3 +56,12 @@
 .rte blockquote {
   display: inline-flex;
 }
+
+.rte a {
+  text-decoration: underline;
+}
+
+.rte a:hover {
+  text-decoration: none;
+}
+

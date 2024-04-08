@@ -120,9 +120,12 @@
   }
 
   .text-link {
-    @apply hover:underline
+    @apply hover:underline;
   }
 
+  .child-text-links a {
+    @apply text-link;
+  }
 }
 
 /*Typography*/
@@ -201,10 +204,6 @@
 
   body .shopify-policy__body {
     @apply mt-9
-  }
-
-  .rte a {
-    @apply text-link;
   }
 
   .rte p, .rte ul, .rte ol, .rte table, .rte blockquote {
