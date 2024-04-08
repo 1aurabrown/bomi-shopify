@@ -1532,10 +1532,6 @@ body .shopify-policy__body {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
-.justify-self-end {
-  justify-self: end;
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
