@@ -3,6 +3,8 @@
     "main": {
       "type": "main-page-about",
       "settings": {
+        "contact": "<p>54 Mercer Street 2nd Floor<br\/>New York, NY 10013<br\/><a href=\"mailto:info@Bominyc.com\">info@bominyc.com<br\/><\/a><a href=\"https:\/\/instagram.com\/bomi.nyc\" title=\"Instagram\">@bomi.nyc<\/a><\/p>",
+        "credits": "<p>Website design by <a href=\"https:\/\/s-u-m.studio\/\" title=\"Sum Studio\">Sum Studio<\/a><br\/>Developed by <a href=\"https:\/\/laurabrown.studio\/\" title=\"Laura Brown\">Laura Brown<\/a><\/p>"
       }
     }
   },
