@@ -521,6 +521,22 @@ input[type='radio']:focus-visible + label {
   --tw-ring-offset-width: 1px;
 }
 
+textarea,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="search"],
+  input[type="range"],
+  input[type="date"],
+  input[type="time"],
+  input[type="button"],
+  input[type="submit"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
 .product-card__image-wrapper .product-card__image:last-child:not(:first-child) {
   display: none;
 }
