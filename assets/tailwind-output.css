@@ -2350,6 +2350,8 @@ body .shopify-pc__prefs__header-actions button {
 
 textarea,
   input[type="text"],
+  input[type="email"],
+  input[type="password"],
   input[type="button"],
   input[type="submit"] {
   -webkit-appearance: none;
