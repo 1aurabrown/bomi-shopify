@@ -4,13 +4,28 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
+      "blocks": {
+        "announcement_YTbFJq": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "color_scheme": "bg-blue",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_YTbFJq"
+      ],
       "settings": {
       }
     },
     "header": {
       "type": "header",
       "settings": {
-        "menu": "main-menu"
+        "menu": "main-menu",
+        "enable_country_selector": true,
+        "enable_language_selector": true
       }
     }
   },
