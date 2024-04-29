@@ -4,19 +4,6 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "blocks": {
-        "announcement_cVBGJn": {
-          "type": "announcement",
-          "settings": {
-            "text": "testing",
-            "color_scheme": "bg-blue",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement_cVBGJn"
-      ],
       "settings": {
       }
     },
