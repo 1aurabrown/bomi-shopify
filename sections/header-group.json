@@ -4,19 +4,6 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "blocks": {
-        "announcement_hJEtd3": {
-          "type": "announcement",
-          "settings": {
-            "text": "announcement bar",
-            "color_scheme": "bg-blue",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement_hJEtd3"
-      ],
       "settings": {
       }
     },
