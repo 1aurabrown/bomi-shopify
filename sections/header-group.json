@@ -4,6 +4,18 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
+      "blocks": {
+        "announcement_nnFBF3": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free domestic shipping on orders over $300 USD. Some exclusions may apply.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_nnFBF3"
+      ],
       "settings": {
       }
     },

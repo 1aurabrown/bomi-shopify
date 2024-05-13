@@ -74,6 +74,7 @@ module.exports = {
       'gray': '#999999',
       'current': 'currentColor',
       'red': '#b3322c',
+      'grey': '#e8e8e8',
     },
     fontSize: {
       base: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],

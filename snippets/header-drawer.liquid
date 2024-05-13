@@ -69,6 +69,19 @@
                                         role="list"
                                         tabindex="-1"
                                       >
+                                        <li>
+                                          <a
+                                            id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+                                            href="{{ childlink.url }}"
+                                            class="link text-link list-menu__item focus-inset{% if childlink.current %} nav-link-current{% endif %}"
+                                            {% if childlink.current %}
+                                              aria-current="page"
+                                            {% endif %}
+                                          >
+                                            All
+                                          </a>
+                                        </li>
+
                                         {%- for grandchildlink in childlink.links -%}
                                           <li>
                                             <a
@@ -83,18 +96,7 @@
                                             </a>
                                           </li>
                                         {%- endfor -%}
-                                        <li>
-                                          <a
-                                            id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
-                                            href="{{ childlink.url }}"
-                                            class="link text-link list-menu__item focus-inset{% if childlink.current %} nav-link-current{% endif %}"
-                                            {% if childlink.current %}
-                                              aria-current="page"
-                                            {% endif %}
-                                          >
-                                            All {{ childlink.title | escape }}
-                                          </a>
-                                        </li>
+
                                       </ul>
                                     </div>
                                   </details>
