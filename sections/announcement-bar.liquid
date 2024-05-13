@@ -1,6 +1,6 @@
-<announcement-bar class="block">
+<announcement-bar class="hidden">
   {%- for block in section.blocks -%}
-    <div class="padding-x border-b text-center body-md-b md:body-md pt-2 md:pt-[0.375rem] pb-[0.375rem] md:pb-1 {{ block.settings.color_scheme }}" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+    <div data-block-id="{{ block.id }}" class="hidden announcement-block px-10 text-center body-md-b md:body-md pt-2 md:pt-[0.375rem] pb-[0.375rem] md:pb-1 relative bg-grey{% if forloop.index > 1%} border-t border-black/10{% endif %}" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
       {%- if block.settings.text != blank -%}
         {%- if block.settings.link != blank -%}
           <a href="{{ block.settings.link }}" class="focus-inset">
@@ -12,6 +12,7 @@
           </a>
         {%- endif -%}
       {%- endif -%}
+      <button class="announcement-block__dismiss absolute right-5 top-1/2 -translate-y-1/2">{% render 'icon-close', class: 'w-2 h-2' %}</button>
     </div>
   {%- endfor -%}
 </announcement-bar>
@@ -21,7 +22,8 @@
 class AnnouncementBar extends HTMLElement {
   constructor() {
     super();
-    this.calculateHeight = debounce(this.calculateHeight.bind(this), 100)
+    this.calculateHeight = debounce(this.calculateHeight.bind(this), 100);
+    this.blocks = Array.from(this.querySelectorAll("[data-block-id]"));
   }
 
   calculateHeight() {
@@ -29,6 +31,27 @@ class AnnouncementBar extends HTMLElement {
   }
 
   connectedCallback() {
+    const visibleBlocks = this.blocks.reduce( (acc, block) => {
+      const dismissedAnnouncements = localStorage.bomiDismissedAnnouncements ? JSON.parse(localStorage.bomiDismissedAnnouncements) : [];
+      const id = block.dataset.blockId
+      if (dismissedAnnouncements.indexOf(id) == -1) {
+        block.classList.remove('hidden')
+        const dismissEl = block.querySelector('.announcement-block__dismiss');
+        dismissEl.addEventListener('click', (el) => {
+          dismissedAnnouncements.push(id)
+          localStorage.bomiDismissedAnnouncements = JSON.stringify(dismissedAnnouncements);
+          block.classList.add('hidden')
+          this.calculateHeight();
+        })
+        acc.push(block)
+      }
+      return acc
+    }, [])
+
+    if (visibleBlocks.length > 0) {
+      this.classList.remove('hidden')
+    }
+
     this.calculateHeight();
     window.addEventListener('resize', this.calculateHeight);
   }
@@ -58,22 +81,6 @@ customElements.define('announcement-bar', AnnouncementBar);
           "id": "text",
           "default": "Welcome to our store",
           "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
-        },
-        {
-          "type": "select",
-          "id": "color_scheme",
-          "options": [
-            {
-              "value": "bg-pink",
-              "label": "Fuchsia"
-            },
-            {
-              "value": "bg-blue",
-              "label": "Blue"
-            }
-          ],
-          "default": "bg-blue",
-          "label": "t:sections.all.colors.label"
         },
         {
           "type": "url",
