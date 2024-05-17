@@ -8,7 +8,7 @@
   {% render 'header-search', input_id: 'My-Id'%}
 {% endcomment %}
 
-<details-modal class="header__search">
+<details-modal class="header__search{% if screen_size %} header__search--{{ screen_size }}{% endif %}">
   <details class="relative">
     <summary class="link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
       <span class="cursor-pointer modal__toggle-open" aria-hidden="true" focusable="false">

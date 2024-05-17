@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.header__search .search-modal.modal__content {
+.header__search--desktop .search-modal.modal__content {
   justify-content: flex-end;
 }
 
@@ -27,10 +27,19 @@
   margin-right: .25rem;
 }
 
-.header__search .search-modal__form .field,
+.header__search--desktop .search-modal__form .field,
 .template-search__search .field {
   display: flex;
   align-items: center;
+}
+
+.header__search--mobile .modal__content {
+  display: block;
+  position: static;
+}
+
+.header__search--mobile .search__input {
+  min-width: 150px;
 }
 
 .search__input.field__input::-webkit-search-cancel-button{
