@@ -25,6 +25,7 @@
   border-color: currentColor;
   border-style: solid;
   margin-right: .25rem;
+  width: 200px;
 }
 
 .header__search--desktop .search-modal__form .field,
@@ -38,9 +39,8 @@
   position: static;
 }
 
-.header__search--mobile .search__input {
-  width: 200px;
-  margin-right: 0;
+.search__input:focus, .search__input:focus-visible {
+  outline:none;
 }
 
 .search__input.field__input::-webkit-search-cancel-button{
