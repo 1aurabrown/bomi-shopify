@@ -29,7 +29,7 @@
       "type": "image-banner",
       "settings": {
         "image": "shopify://shop_images/000399520027.jpg",
-        "desktop_col_span": 6,
+        "desktop_col_span": 4,
         "text": "Shop New Collection",
         "url": "shopify://collections"
       }
