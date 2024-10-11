@@ -93,13 +93,25 @@
           "type": "item",
           "settings": {
             "url": "shopify://collections/jewelry",
-            "image": "shopify://shop_images/JEWELRY_03.png",
+            "image": "shopify://shop_images/JEWELRY_04.jpg",
             "text": "Jewelry",
             "desktop_col_start": 8,
             "desktop_col_span": 6,
             "desktop_margin_top": -10,
             "mobile_col_start": 4,
             "mobile_col_span": 3
+          }
+        },
+        "item_GKKxjp": {
+          "type": "item",
+          "settings": {
+            "url": "",
+            "text": "",
+            "desktop_col_start": 0,
+            "desktop_col_span": 8,
+            "desktop_margin_top": 0,
+            "mobile_col_start": 1,
+            "mobile_col_span": 6
           }
         },
         "8481db69-2782-4b39-8913-e9be61c45e92": {
@@ -122,6 +134,7 @@
         "b2548c99-fb95-4871-915f-d977c731f577",
         "eb4ab4ad-6f3c-4d8a-b465-3bfedfeaf9d8",
         "4acfb993-eb18-4006-8b7d-dd061b9832a5",
+        "item_GKKxjp",
         "8481db69-2782-4b39-8913-e9be61c45e92"
       ],
       "settings": {
