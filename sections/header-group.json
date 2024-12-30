@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -17,7 +17,7 @@
         "announcement_nnFBF3": {
           "type": "announcement",
           "settings": {
-            "text": "Enjoy free shipping for orders over $200 within US",
+            "text": "** SHIPPING RESUMES JAN 8th, 2025 ** Enjoy 10% off using code HNY25 this week!",
             "link": ""
           }
         }
@@ -25,8 +25,7 @@
       "block_order": [
         "announcement_nnFBF3"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "header": {
       "type": "header",
