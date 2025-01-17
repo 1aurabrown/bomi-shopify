@@ -28,8 +28,8 @@
     "image-banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/000399520027.jpg",
-        "desktop_col_span": 4,
+        "image": "shopify://shop_images/IMG_1860.jpg",
+        "desktop_col_span": 6,
         "text": "Shop New Collection",
         "url": "shopify://collections"
       }
@@ -137,8 +137,7 @@
         "item_GKKxjp",
         "8481db69-2782-4b39-8913-e9be61c45e92"
       ],
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
