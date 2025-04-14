@@ -41,8 +41,8 @@
           "type": "item",
           "settings": {
             "url": "shopify://collections/decor",
-            "image": "shopify://shop_images/DECOR_05.jpg",
-            "text": "Decor",
+            "image": "shopify://shop_images/DECOR_ACC_01.jpg",
+            "text": "ACCESSORIES",
             "desktop_col_start": 1,
             "desktop_col_span": 6,
             "desktop_margin_top": 50,
