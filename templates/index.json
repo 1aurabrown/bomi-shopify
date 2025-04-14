@@ -28,8 +28,8 @@
     "image-banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/000742250004.jpg",
-        "desktop_col_span": 6,
+        "image": "shopify://shop_images/000297090009.jpg",
+        "desktop_col_span": 8,
         "text": "Shop New Collection",
         "url": "shopify://collections"
       }
