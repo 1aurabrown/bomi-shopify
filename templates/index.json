@@ -93,7 +93,7 @@
           "type": "item",
           "settings": {
             "url": "shopify://collections/jewelry",
-            "image": "shopify://shop_images/JEWELRY_05.jpg",
+            "image": "shopify://shop_images/JEWELRY_05_copy.jpg",
             "text": "Jewelry",
             "desktop_col_start": 8,
             "desktop_col_span": 6,
@@ -118,8 +118,8 @@
           "type": "item",
           "settings": {
             "url": "https://bominyc.com/collections/accs",
-            "image": "shopify://shop_images/ACCESSORIES_03_aa575fda-9964-41d0-83d0-2c759fb2f8b8.jpg",
-            "text": "Accessories",
+            "image": "shopify://shop_images/ACCESSORIES_DECOR_01.jpg",
+            "text": "Decor",
             "desktop_col_start": 17,
             "desktop_col_span": 8,
             "desktop_margin_top": 46,
