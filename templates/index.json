@@ -40,7 +40,7 @@
         "2d9c7c70-a620-40e0-b5c0-72833690dee0": {
           "type": "item",
           "settings": {
-            "url": "shopify://collections/decor",
+            "url": "shopify://collections/accs",
             "image": "shopify://shop_images/DECOR_ACC_01.jpg",
             "text": "ACCESSORIES",
             "desktop_col_start": 1,
@@ -117,7 +117,7 @@
         "8481db69-2782-4b39-8913-e9be61c45e92": {
           "type": "item",
           "settings": {
-            "url": "https://bominyc.com/collections/accs",
+            "url": "shopify://collections/decor",
             "image": "shopify://shop_images/ACCESSORIES_DECOR_01.jpg",
             "text": "Decor",
             "desktop_col_start": 17,
