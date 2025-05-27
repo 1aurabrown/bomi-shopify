@@ -51,7 +51,7 @@
             value="{{ selected_variant.id }}"
             disabled
             class="product-variant-id"
-          >
+          />
           <div class="product-form__buttons">
             {%- liquid
               assign check_against_inventory = true
@@ -99,12 +99,12 @@
         {%- endform -%}
       </product-form>
     {%- else -%}
-      <bis-form id="bis-form-{{ section.id }}"class="block">
+      <bis-form id="bis-form-{{ section.id }}" class="block">
         <form action="#">
           <input type="hidden" name="variantId" id="bis-variantId" value="{{ selected_variant.id }}" disabled />
           <input type="hidden" name="productId" id="bis-productId" value="{{ product.id }}" disabled />
           <label for="bis-email" class="sr-only">Email</label>
-          <input id="bis-email" class="block w-full grow border-black border-b focus:ring-0" name="email" type="email" placeholder="Email Address"></input>
+          <input id="bis-email" class="block w-full grow border-black border-b focus:ring-0" name="email" type="email" placeholder="Email Address"/>
           <button
             type="submit"
             name="add"
@@ -150,7 +150,6 @@
   {%- endif -%}
 
   {%- if show_pickup_availability -%}
-    {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
 
     {%- assign pick_up_availabilities = selected_variant.store_availabilities
       | where: 'pick_up_enabled', true

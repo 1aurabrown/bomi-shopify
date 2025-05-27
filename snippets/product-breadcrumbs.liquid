@@ -23,4 +23,4 @@
   endif
 %}
 
-<div class="flex space-x-1 mb-text-line">{% if parent_link %}<a href={{ parent_link.url }} class="uppercase text-link">{{ parent_link.title }}</a><span>•</span>{% endif %}<a class="text-link" href="{{ collection.url }}">{{ collection.title }}</a></div>
+<div class="flex space-x-1 mb-text-line {{ class }}">{% if parent_link %}<a href={{ parent_link.url }} class="uppercase text-link">{{ parent_link.title }}</a><span>•</span>{% endif %}<a class="text-link" href="{{ collection.url }}">{{ collection.title }}</a></div>

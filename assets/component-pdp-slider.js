@@ -34,9 +34,6 @@ if (!customElements.get('pdp-slider')) {
         a11y: {
           enabled: true
         },
-        pagination: {
-          el: '.swiper-pagination'
-        },
         threshold: 10,
         centeredSlides: false,
         preventClicksPropagation: false,

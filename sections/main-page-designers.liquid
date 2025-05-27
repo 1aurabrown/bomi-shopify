@@ -1,8 +1,8 @@
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
-{% assign collection_list = section.settings.collection_list | sort: 'title' %}
+{% assign collection_list = section.settings.collection_list | sort_natural: 'title' %}
 
 <ul class="sm:hidden padding-x">
-  {% for collection in section.settings.collection_list %}
+  {% for collection in collection_list %}
     <li><h2><a href="{{ collection.url }}" data-index="{{ forloop.index }}">{{ collection.title }}</a></h2></li>
   {% endfor %}
 </ul>
