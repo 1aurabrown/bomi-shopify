@@ -1,5 +1,4 @@
 {% if image %}
-
   {% liquid
     if aspect_ratio > 0
       assign aspect_ratio = aspect_ratio
@@ -13,10 +12,7 @@
 
     assign widths = widths | default: '180, 360, 450, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, ' | append: image.width
     assign fit = fit | default: 'contain'
-
-    unless placeholder_width
-      assign placeholder_width =  90
-    endunless
+    assign placeholder_width =  180
 
     assign width = width | default: image.width
 
@@ -42,35 +38,14 @@
 
   {%- capture style -%}
     background-image: url('{{ image | image_url: width: placeholder_width }}');
-
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
-    -moz-filter: blur(2px);
-    -ms-filter: blur(2px);
-    -o-filter: blur(2px);
-
-    transition: 200ms filter linear;
-    -webkit-transition: 200ms -webkit-filter linear;
-    -moz-transition: 200ms -moz-filter linear;
-    -ms-transition: 200ms -ms-filter linear;
-    -o-transition: 200ms -o-filter linear;
   {%- endcapture -%}
-
-  {%- capture onload -%}
-    this.style.removeProperty("filter");
-    this.style.removeProperty("-webkit-filter");
-    this.style.removeProperty("-moz-filter");
-    this.style.removeProperty("-ms-filter");
-    this.style.removeProperty("-o-filter");
-
-    this.style.removeProperty("background-image");
-  {%- endcapture -%}
+  {%- assign onload = 'this.style.removeProperty("background-image");' -%}
 
   {% if use_padding != false %}
     <div class="relative {{ wrapper_class }}">
       <div style="padding-bottom: {{ 1.00 | divided_by: aspect_ratio | times: 100.00 | append: '%' }} ">
   {% endif %}
-    <div class="bg-placeholder-gray overflow-hidden {{ class }}">
+
       {{ image | image_url: width: width | image_tag:
         loading: loading,
         preload: preload,
@@ -83,7 +58,6 @@
         onload: onload,
         alt: alt
       }}
-    </div>
 
   {% if use_padding != false %}
       </div>

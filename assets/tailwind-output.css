@@ -1277,6 +1277,14 @@ body .shopify-policy__body {
   margin-top: 1rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.mt-thin {
+  margin-top: .125rem;
+}
+
 .block {
   display: block;
 }
@@ -1474,6 +1482,11 @@ body .shopify-policy__body {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.columns-2 {
+  -moz-columns: 2;
+       columns: 2;
 }
 
 .grid-flow-dense {
@@ -1754,12 +1767,80 @@ body .shopify-policy__body {
   padding-top: 0.75rem;
 }
 
+.pt-1 {
+  padding-top: 0.25rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.pt-11 {
+  padding-top: 2.75rem;
+}
+
+.pt-12 {
+  padding-top: 3rem;
+}
+
+.pt-14 {
+  padding-top: 3.5rem;
+}
+
+.pt-16 {
+  padding-top: 4rem;
+}
+
+.pt-18 {
+  padding-top: 4.5rem;
+}
+
+.pt-19 {
+  padding-top: 4.75rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pt-5 {
+  padding-top: 1.25rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
+}
+
+.pt-7 {
+  padding-top: 1.75rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.pt-9 {
+  padding-top: 2.25rem;
+}
+
 .text-center {
   text-align: center;
 }
 
 .text-right {
   text-align: right;
+}
+
+.-indent-2 {
+  text-indent: -0.5rem;
+}
+
+.indent-2 {
+  text-indent: 0.5rem;
 }
 
 .align-middle {
@@ -1786,6 +1867,10 @@ body .shopify-policy__body {
 
 .leading-menu {
   line-height: 1.8333;
+}
+
+.leading-\[1\] {
+  line-height: 1;
 }
 
 .tracking-normal {
@@ -2255,6 +2340,16 @@ body .shopify-pc__prefs__header-actions button {
     width: auto;
   }
 
+  .md\:columns-4 {
+    -moz-columns: 4;
+         columns: 4;
+  }
+
+  .md\:columns-2 {
+    -moz-columns: 2;
+         columns: 2;
+  }
+
   .md\:grid-flow-dense {
     grid-auto-flow: dense;
   }
@@ -2373,6 +2468,10 @@ body .shopify-pc__prefs__header-actions button {
     grid-column-start: 17;
   }
 
+  .lg\:col-start-2 {
+    grid-column-start: 2;
+  }
+
   .lg\:col-end-4 {
     grid-column-end: 4;
   }
@@ -2397,6 +2496,11 @@ body .shopify-pc__prefs__header-actions button {
     width: 1.25rem;
   }
 
+  .lg\:columns-2 {
+    -moz-columns: 2;
+         columns: 2;
+  }
+
   .lg\:grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
@@ -2407,8 +2511,16 @@ body .shopify-pc__prefs__header-actions button {
 }
 
 @media (min-width: 1280px) {
+  .xl\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
   .xl\:col-start-3 {
     grid-column-start: 3;
+  }
+
+  .xl\:col-start-2 {
+    grid-column-start: 2;
   }
 
   .xl\:col-end-3 {
