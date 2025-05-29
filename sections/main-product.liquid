@@ -265,6 +265,8 @@
 
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, selected_variant: selected_variant, block: block, product_form_id: product_form_id %}
+              {%- when 'in_store_inquiry_button' -%}
+                {% render 'in_store_inquiry_button', product: product, settings:block.settings selected_variant: selected_variant, block: block  %}
               {%- when 'buy_buttons' -%}
                 {%- render 'buy-buttons', block: block, product: product, selected_variant: selected_variant, product_form_id: product_form_id, show_shipping_taxes: block.settings.show_shipping_taxes, section_id: section.id, show_pickup_availability: false -%}
               {%- when 'rating' -%}
@@ -589,6 +591,32 @@
           "default": false,
           "label": "Show Back In Stock Form",
           "info": "Enables Back In Stock form for out-of-stock items. Uncheck this if you uninstall the Back In Stock app."
+        }
+      ]
+    },
+    {
+      "type": "in_store_inquiry_button",
+      "name": "In-Store Inquiry Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "email",
+          "default": "info@bominyc.com",
+          "label": "Email Address"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Request more info",
+          "label": "Button text"
+        },
+        {
+          "type": "text",
+          "id": "subject",
+          "default": "Request for info:",
+          "label": "Email Subject",
+          "info": "Email subject automatically includes product title and variant. Add some words to prefix the product name."
         }
       ]
     },

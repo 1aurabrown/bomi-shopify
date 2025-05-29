@@ -1,0 +1,17 @@
+{% liquid
+  assign subject= ''
+  if settings.subject != blank
+    assign subject = settings.subject | append: ' ' 
+  endif
+%}
+<div id="buy-buttons-{{ section.id }}" class="mt-6 mb-8" {{ block.shopify_attributes }}>
+  {%- if product != blank -%}
+    <div class="product-form">
+      <div class="product-form__buttons form">
+        <a href="mailto:{{ settings.email }}?subject={{ subject }}{{ product.title }} in {{ selected_variant.title }}" class="block flex button button--full-width button--primary" >
+          {{  settings.text }}
+        </a>
+      </div>
+    </div>
+  {% endif %}
+</div>
