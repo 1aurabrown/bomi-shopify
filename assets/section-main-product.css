@@ -12,12 +12,6 @@
 
 /* Swiper */
 
-.pdp-slider {
-  --swiper-pagination-color: #000;
-  --swiper-pagination-bullet-horizontal-gap: 2px;
-  --swiper-pagination-bullet-inactive-color: transparent;
-  --swiper-pagination-bullet-inactive-opacity: 1;
-}
 .pdp-prev, .pdp-next {
   position: absolute;
   top: 50%;
@@ -34,13 +28,6 @@
 }
 
 .pdp-next svg {
-}
-
-.swiper-pagination-bullet {
-  display: block;
-  width: 8px;
-  margin: 0 2px;
-  border: 1px solid var(--swiper-pagination-color)
 }
 
 .js {

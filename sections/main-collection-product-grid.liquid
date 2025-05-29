@@ -8,7 +8,7 @@
       {% for product in collection.products %}
         {% liquid
           assign preload = false
-          if forloop.index < 5
+          if forloop.index < 9
             assign preload = true
           endif
         %}
@@ -28,9 +28,9 @@
       "type": "range",
       "id": "products_per_page",
       "min": 8,
-      "max": 24,
+      "max": 48,
       "step": 4,
-      "default": 16,
+      "default": 32,
       "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
     },
     {
