@@ -11,6 +11,27 @@ md:col-end-10
 md:col-end-11
 md:col-end-12
 md:col-end-13
+
+pt-1
+pt-2
+pt-3
+pt-4
+pt-5
+pt-6
+pt-7
+pt-8
+pt-9
+pt-10
+pt-11
+pt-12
+pt-13
+pt-14
+pt-15
+pt-16
+pt-17
+pt-18
+pt-19
+pt-20
 {% endcomment %}
 
 {% liquid
@@ -26,7 +47,7 @@ md:col-end-13
   endif
 %}
 
-<div class="pt-15 mb-25 lg:mb-35 padding-x md:grid md:grid-cols-12">
+<div class="pt-{{ section.settings.top_padding }} mb-25 lg:mb-35 padding-x md:grid md:grid-cols-12">
   <div class="w-full md:col-start-{{ start }} md:col-end-{{ end }}">
     {% if section.settings.url != blank %}
       <a class="block" href="{{ section.settings.url }}" title="{{ text }}">
@@ -96,6 +117,15 @@ md:col-end-13
       "max": 12,
       "step": 2,
       "default": 8
+    },
+    {
+      "type": "range",
+      "id": "top_padding",
+      "label": "Top Padding",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 15
     },
     {
       "type": "text",

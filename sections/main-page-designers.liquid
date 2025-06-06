@@ -1,15 +1,15 @@
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
-{% assign collection_list = section.settings.collection_list | sort: 'title' %}
+{% assign collection_list = section.settings.collection_list | sort_natural: 'title' %}
 
 <ul class="sm:hidden padding-x">
-  {% for collection in section.settings.collection_list %}
+  {% for collection in collection_list %}
     <li><h2><a href="{{ collection.url }}" data-index="{{ forloop.index }}">{{ collection.title }}</a></h2></li>
   {% endfor %}
 </ul>
 
 <div class="md:pt-[5vw]">
   <page-collections class="h-full hidden sm:grid grid-cols-2 md:grid-cols-12 sm:gap-gutter padding-x items-start">
-    <ul class="lg:col-start-3 md:col-span-2 collections-page__buttons-list">
+    <ul class="md:columns-2 gap-gutter md:col-span-4 lg:col-span-2 lg:col-start-2 collections-page__buttons-list">
       {% for collection in collection_list %}
         {% assign this_first_letter = collection.title.first | downcase %}
         <li {% unless forloop.first or previous_first_letter == this_first_letter %}class="mt-text-line"{% endunless %} ><h2><a href="{{ collection.url }}" class="collections-page__button" data-index="{{ forloop.index }}">{{ collection.title }}</a></h2></li>

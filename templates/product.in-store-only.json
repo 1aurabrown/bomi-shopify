@@ -1,38 +1,23 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
+
 {
   "sections": {
     "main-product": {
       "type": "main-product",
       "blocks": {
-        "baa36ff2-98a6-40d7-9f96-57a6bee9bc0d": {
-          "type": "breadcrumbs",
-          "settings": {
-            "menu": "main-menu"
-          }
-        },
         "ab19b2bf-cbc7-430d-a503-5095c80c7e8f": {
           "type": "designer",
-          "settings": {}
+          "settings": {
+          }
         },
         "76561e00-7c67-4322-987f-30e4a470a036": {
           "type": "title",
-          "settings": {}
-        },
-        "79f1b88f-520b-4a38-a943-780dbec529db": {
-          "type": "price",
-          "settings": {}
+          "settings": {
+          }
         },
         "9b92fe32-3c10-4fd6-9402-90a2f23d95bf": {
           "type": "description",
-          "settings": {}
+          "settings": {
+          }
         },
         "variant-picker": {
           "type": "variant_picker",
@@ -47,18 +32,13 @@
           }
         },
         "0e537071-9aef-4e17-8465-bc367332db5d": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_shipping_taxes": false,
-            "show_dynamic_checkout": false,
-            "back_in_stock_enabled": true
-          }
+          "type": "in_store_inquiry_button"
         },
         "0a02c292-a3b2-49b9-824f-072fe10dc9f7": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "Details",
-            "content": "<p>{{ product.metafields.custom.details | metafield_tag }}</p>",
+            "content": "<p>{{ product.metafields.custom.details | metafield_tag }}<\/p>",
             "page": ""
           }
         },
@@ -66,7 +46,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Care",
-            "content": "<p>{{ product.metafields.descriptors.care_guide | metafield_tag }}</p>",
+            "content": "<p>{{ product.metafields.descriptors.care_guide | metafield_tag }}<\/p>",
             "page": ""
           }
         },
@@ -75,16 +55,14 @@
           "disabled": true,
           "settings": {
             "heading": "Shipping & Returns",
-            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>",
             "page": ""
           }
         }
       },
       "block_order": [
-        "baa36ff2-98a6-40d7-9f96-57a6bee9bc0d",
         "ab19b2bf-cbc7-430d-a503-5095c80c7e8f",
         "76561e00-7c67-4322-987f-30e4a470a036",
-        "79f1b88f-520b-4a38-a943-780dbec529db",
         "9b92fe32-3c10-4fd6-9402-90a2f23d95bf",
         "variant-picker",
         "da08f30a-b406-423b-b3b6-3cffacfc5292",
@@ -93,7 +71,8 @@
         "71ea0195-a1b2-45fe-bf6e-4567ed57ad86",
         "d5c6c7ad-82fd-4cab-bfa7-3952b0885290"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "related-products": {
       "type": "related-products",
