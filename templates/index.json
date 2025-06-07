@@ -30,7 +30,7 @@
       "settings": {
         "image": "shopify://shop_images/IMG_4402.jpg",
         "desktop_col_span": 6,
-        "top_padding": 2,
+        "top_padding": 4,
         "text": "Shop New Collection",
         "url": "shopify://collections"
       }
