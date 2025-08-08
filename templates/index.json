@@ -30,7 +30,7 @@
       "settings": {
         "image": "shopify://shop_images/HERO_e2348c53-35d2-44f1-8d05-f8252eccdd64.jpg",
         "desktop_col_span": 6,
-        "top_padding": 4,
+        "top_padding": 20,
         "text": "Shop New Collection",
         "url": "shopify://collections"
       }
@@ -81,7 +81,7 @@
           "type": "item",
           "settings": {
             "url": "shopify://collections/library-1",
-            "image": "shopify://shop_images/LIBRARY_02.jpg",
+            "image": "shopify://shop_images/LIBRARY_59c7e2c4-9580-4bd2-9d02-917334b54fef.jpg",
             "text": "Library",
             "desktop_col_start": 1,
             "desktop_col_span": 5,
