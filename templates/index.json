@@ -55,7 +55,7 @@
           "type": "item",
           "settings": {
             "url": "shopify://collections/tabletop",
-            "image": "shopify://shop_images/TABLETOP_04.jpg",
+            "image": "shopify://shop_images/TABLEWARE.jpg",
             "text": "Tableware",
             "desktop_col_start": 10,
             "desktop_col_span": 9,
