@@ -42,7 +42,7 @@
           "type": "item",
           "settings": {
             "url": "shopify://collections/accs",
-            "image": "shopify://shop_images/DECOR_ACC_01.jpg",
+            "image": "shopify://shop_images/DECOR_ACC_01_6dcac8f7-da95-4507-ae5b-31340dbc8adf.jpg",
             "text": "ACCESSORIES",
             "desktop_col_start": 1,
             "desktop_col_span": 6,
@@ -68,7 +68,7 @@
           "type": "item",
           "settings": {
             "url": "shopify://collections/ritual",
-            "image": "shopify://shop_images/RITUAL_03.jpg",
+            "image": "shopify://shop_images/RITUAL_01.jpg",
             "text": "Ritual",
             "desktop_col_start": 20,
             "desktop_col_span": 4,
@@ -94,7 +94,7 @@
           "type": "item",
           "settings": {
             "url": "shopify://collections/jewelry",
-            "image": "shopify://shop_images/JEWELRY_05_copy.jpg",
+            "image": "shopify://shop_images/JEWELRY_6.jpg",
             "text": "Jewelry",
             "desktop_col_start": 8,
             "desktop_col_span": 6,
