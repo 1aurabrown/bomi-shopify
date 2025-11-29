@@ -30,9 +30,9 @@
       "settings": {
         "image": "shopify://shop_images/000088450023.jpg",
         "desktop_col_span": 6,
-        "top_padding": 6,
-        "text": "Shop New Collection",
-        "url": "shopify://collections"
+        "top_padding": 5,
+        "text": "HOLIDAY GIFT EDIT",
+        "url": "shopify://collections/gift"
       }
     },
     "homepage-items": {
