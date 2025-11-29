@@ -28,9 +28,9 @@
     "image-banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/HERO_e2348c53-35d2-44f1-8d05-f8252eccdd64.jpg",
+        "image": "shopify://shop_images/000088450023.jpg",
         "desktop_col_span": 6,
-        "top_padding": 20,
+        "top_padding": 0,
         "text": "Shop New Collection",
         "url": "shopify://collections"
       }
