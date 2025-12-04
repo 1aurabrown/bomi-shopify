@@ -55,7 +55,7 @@
           "type": "item",
           "settings": {
             "url": "shopify://collections/tabletop",
-            "image": "shopify://shop_images/TABLEWARE_aaf243b1-8e35-4aac-9d2f-2190c4917b1b.jpg",
+            "image": "shopify://shop_images/TABLETOP_05.jpg",
             "text": "Tableware",
             "desktop_col_start": 10,
             "desktop_col_span": 9,
@@ -119,7 +119,7 @@
           "type": "item",
           "settings": {
             "url": "shopify://collections/decor",
-            "image": "shopify://shop_images/ACCESSORIES_DECOR_01.jpg",
+            "image": "shopify://shop_images/CORALI_SPOON_02.jpg",
             "text": "Decor",
             "desktop_col_start": 17,
             "desktop_col_span": 8,
