@@ -28,7 +28,7 @@
     "image-banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/000088450023.jpg",
+        "image": "shopify://shop_images/000088450013.jpg",
         "desktop_col_span": 6,
         "top_padding": 5,
         "text": "NEW ARRIVALS",
