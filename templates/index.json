@@ -112,8 +112,8 @@
             "desktop_col_start": 5,
             "desktop_col_span": 8,
             "desktop_margin_top": -10,
-            "mobile_col_start": 1,
-            "mobile_col_span": 6
+            "mobile_col_start": 2,
+            "mobile_col_span": 4
           }
         },
         "8481db69-2782-4b39-8913-e9be61c45e92": {
