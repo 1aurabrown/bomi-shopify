@@ -15,7 +15,11 @@
         {%- render 'card-product', preload: preload, collection: collection, section: section, card_product: product, show_rating: section.settings.show_rating, show_secondary_image: section.settings.show_secondary_image -%}
       {% endfor %}
 		</div>
-		{% render 'pagination', paginate: paginate %}
+    
+    {%- if paginate.parts.size > 0 -%}
+  		{% render 'pagination', paginate: paginate %}
+    {%- endif -%}
+
 	{% endpaginate %}
 </section>
 
