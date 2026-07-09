@@ -317,11 +317,11 @@ body .shopify-pc__prefs__header-actions button {
 
 /* PDP */
 .product-form__input input[type='radio'] + label {
-  @apply text-gray inline-block text-center relative;
+  @apply text-black inline-block text-center relative;
 }
 
-.product-form__input input[type='radio']:checked + label {
-  @apply text-black;
+.product-form__input input.disabled[type='radio'] + label {
+  @apply text-gray;
 }
 
 .product-form__input input[type='radio']:checked + label .value {

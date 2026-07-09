@@ -47,6 +47,8 @@
     endfor
   -%}
 
+  {%- comment -%}option_disabled means option has no available variants{%- endcomment -%}
+
   {%- if block.settings.picker_type == 'button' -%}
     <input
       type="radio"
