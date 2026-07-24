@@ -58,7 +58,9 @@ class HeaderMenu extends HTMLElement {
 
     this.summary.addEventListener('click', this.onClick.bind(this));
     this.summaryLink.addEventListener('click', this.onLinkClick.bind(this));
+
     this.mainDetailsToggle.addEventListener('mouseenter', this.open.bind(this));
+
 
     this.mainDetailsToggle.addEventListener('focusout', this.onFocusOut.bind(this));
     this.mainDetailsToggle.addEventListener('mouseleave', this.onMouseLeave.bind(this));
@@ -69,7 +71,7 @@ class HeaderMenu extends HTMLElement {
       if (this.mainDetailsToggle.classList.contains('open')) {
         this.close()
       } else {
-        this.open(e, this.content.querySelector('a'))
+        this.open(e)
       }
     }
   }
@@ -102,12 +104,12 @@ class HeaderMenu extends HTMLElement {
     });
   }
 
-  open(e, focusEl) {
+  open(e) {
     this.summary.setAttribute('aria-expanded', true);
     this.mainDetailsToggle.classList.add('open')
 
     trapFocus(
-      this.content, focusEl
+      this.content
     );
   }
 
