@@ -102,12 +102,9 @@
     {%- liquid
       if section.settings.menu != blank
         render 'header-drawer'
+        render 'header-mega-menu'
       endif
     -%}
-
-    {%- if section.settings.menu != blank -%}
-      {% render 'header-mega-menu' %}
-    {%- endif -%}
 
     <div class="col-start-6 col-span-2 flex items-center justify-center">
       {%- if request.page_type == 'index' -%}
