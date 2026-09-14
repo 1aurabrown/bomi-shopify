@@ -28,11 +28,11 @@
     "image-banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/000234600017.jpg",
+        "image": "shopify://shop_images/000219840007_3.jpg",
         "desktop_col_span": 6,
         "top_padding": 0,
-        "text": "SHOP SUMMER EDIT",
-        "url": "shopify://collections/summer-edit"
+        "text": "SHOP NEW ARRIVALS",
+        "url": "shopify://collections/all"
       }
     },
     "homepage-items": {
