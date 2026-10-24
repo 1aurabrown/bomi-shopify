@@ -69,12 +69,13 @@ function trapFocus(container, elementToFocus = container) {
 
   if (elementToFocus !== null) {
     elementToFocus.focus();
-  }
+  
 
-  if (elementToFocus.tagName === 'INPUT' &&
-    ['search', 'text', 'email', 'url'].includes(elementToFocus.type) &&
-    elementToFocus.value) {
-    elementToFocus.setSelectionRange(0, elementToFocus.value.length);
+    if (elementToFocus.tagName === 'INPUT' &&
+      ['search', 'text', 'email', 'url'].includes(elementToFocus.type) &&
+      elementToFocus.value) {
+      elementToFocus.setSelectionRange(0, elementToFocus.value.length);
+    }
   }
 }
 
@@ -799,6 +800,7 @@ class VariantSelects extends HTMLElement {
   }
 
   onVariantChange() {
+    console.log('on variant change with this: ', this)
     this.updateOptions();
     this.updateMasterId();
     this.toggleAddButton(true, '', false);
@@ -807,6 +809,7 @@ class VariantSelects extends HTMLElement {
     this.updateVariantStatuses();
 
     if (!this.currentVariant) {
+      console.log('no current variant')
       this.toggleAddButton(true, '', true);
       this.setUnavailable();
     } else {
@@ -816,6 +819,12 @@ class VariantSelects extends HTMLElement {
       this.renderProductInfo();
       this.updateShareUrl();
     }
+  }
+
+  connectedCallback() {
+    this.updateOptions();
+    this.updateMasterId()
+    console.log('VariantSelects connectedCallback', this)
   }
 
   updateOptions() {
@@ -856,6 +865,7 @@ class VariantSelects extends HTMLElement {
 
   updateVariantInput() {
     const productForms = document.querySelectorAll(`#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}`);
+    console.log('updateVariantInput with productForms: ', productForms)
     productForms.forEach((productForm) => {
       const input = productForm.querySelector('input[name="id"]');
       input.value = this.currentVariant.id;
@@ -898,10 +908,7 @@ class VariantSelects extends HTMLElement {
   }
 
   removeErrorMessage() {
-    const section = this.closest('section');
-    if (!section) return;
-
-    const productForm = section.querySelector('product-form');
+    const productForm = document.querySelector(`#buy-buttons-${ this.dataset.section } product-form`);
     if (productForm) productForm.handleErrorMessage();
   }
 
@@ -949,7 +956,9 @@ class VariantSelects extends HTMLElement {
   }
 
   toggleAddButton(disable = true, text, modifyClass = true) {
+    console.log('toggleAddButton', "disable: ", disable, text, modifyClass)
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
+    console.log('toggleAddButton with productForm: ', productForm)
     const bisForm = document.getElementById(`bis-form-${this.dataset.section}`);
     if (productForm) {
       let addButton = productForm.querySelector('[name="add"]');

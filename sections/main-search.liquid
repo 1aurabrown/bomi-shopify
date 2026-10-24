@@ -15,8 +15,6 @@
   assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
 -%}
 
-<script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
-
 {% paginate search.results by 24 %}
   <div class="padding-x template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
     <div class="template-search__header space-y-text-line page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
