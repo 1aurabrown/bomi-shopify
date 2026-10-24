@@ -796,7 +796,6 @@ customElements.define('slideshow-component', SlideshowComponent);
 class VariantSelects extends HTMLElement {
   constructor() {
     super();
-    this.addEventListener('change', this.onVariantChange);
   }
 
   onVariantChange() {
@@ -824,6 +823,7 @@ class VariantSelects extends HTMLElement {
   connectedCallback() {
     this.updateOptions();
     this.updateMasterId()
+    this.addEventListener('change', this.onVariantChange);
     console.log('VariantSelects connectedCallback', this)
   }
 
@@ -908,7 +908,10 @@ class VariantSelects extends HTMLElement {
   }
 
   removeErrorMessage() {
-    const productForm = document.querySelector(`#buy-buttons-${ this.dataset.section } product-form`);
+    const section = this.closest('section');
+    if (!section) return;
+
+    const productForm = section.querySelector('product-form');
     if (productForm) productForm.handleErrorMessage();
   }
 

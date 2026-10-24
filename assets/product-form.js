@@ -2,14 +2,24 @@ if (!customElements.get('product-form')) {
   customElements.define('product-form', class ProductForm extends HTMLElement {
     constructor() {
       super();
+    }
 
+    connectedCallback() {
+      console.log('product-form connectedCallback')
       this.form = this.querySelector('form');
+      if (!this.form) {
+        console.error('product-form has no children', this, this.children)
+        setTimeout(
+          () => {this.connectedCallback();}
+        , 100)
+        return;
+      }
+      this.submitButton = this.querySelector('[type="submit"]');
+      console.log('product-form has children', this, this.children)
       this.form.querySelector('[name=id]').disabled = false;
       this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
       this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-      this.submitButton = this.querySelector('[type="submit"]');
       if (document.querySelector('cart-drawer')) this.submitButton.setAttribute('aria-haspopup', 'dialog');
-      console.log('product-form initialized')
     }
 
     onSubmitHandler(evt) {

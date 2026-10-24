@@ -7,9 +7,9 @@
   {{ 'component-rte.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'bis-form.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer></script>
+  <script src="{{ 'bis-form.js' | asset_url }}" defer></script>
+  <script src="{{ 'product-info.js' | asset_url }}" defer></script>
 
   <a class="skip-to-content-link sr-only" href="#ProductInfo-{{ section.id }}">
     {{ "accessibility.skip_to_product_info" | t }}
