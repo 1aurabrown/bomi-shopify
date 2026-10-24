@@ -20,7 +20,7 @@ if (!customElements.get('bis-form')) {
       const variantId = this.variantIdEl.value
       const productId = this.productIdEl.value
       const acceptsMarketing = false
-
+      if (!BIS) { console.error('BIS called but not loaded. ', this); return;}
       BIS.create(email, variantId, productId, { accepts_marketing: acceptsMarketing })
         .then(function(res) {
           this.form.disabled = false;
