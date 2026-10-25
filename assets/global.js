@@ -47,7 +47,7 @@ function trapFocus(container, elementToFocus = container) {
   };
 
   trapFocusHandlers.keydown = function(event) {
-    if (event.code.toUpperCase() !== 'TAB') return; // If not TAB key
+    if (!event.code || (event.code.toUpperCase() !== 'TAB')) { return; }// If not TAB key
     // On the last focusable element and tab forward, focus the first element.
     if (event.target === last && !event.shiftKey) {
       event.preventDefault();
