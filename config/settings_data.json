@@ -1,13 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "favicon": "shopify:\/\/shop_images\/Frame_2.svg",
+    "favicon": "shopify://shop_images/Frame_2.svg",
     "show_cart_note": true,
-    "checkout_logo_image": "shopify:\/\/shop_images\/BOMI-logo-0925-REDUCED_89cf4736-8b82-4472-ab92-7961af7454cd.png",
+    "checkout_logo_image": "shopify://shop_images/BOMI-logo-0925-REDUCED_89cf4736-8b82-4472-ab92-7961af7454cd.png",
     "checkout_logo_position": "left",
     "checkout_logo_size": "small",
     "cart_type": "drawer",
-    "content_for_index": [
-
-    ]
+    "content_for_index": [],
+    "blocks": {
+      "12526071353035850722": {
+        "type": "shopify://apps/amp-back-in-stock/blocks/app-embed/bfa6a8c4-24e2-411a-9396-e35031b33f34",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   }
 }
