@@ -29,7 +29,7 @@
       "type": "image-banner",
       "settings": {
         "image": "shopify://shop_images/main_stockings.jpg",
-        "desktop_col_span": 12,
+        "desktop_col_span": 10,
         "top_padding": 0,
         "text": "SHOP NEW ARRIVALS",
         "url": "shopify://collections/all"
