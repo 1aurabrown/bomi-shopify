@@ -41,9 +41,9 @@
         "2d9c7c70-a620-40e0-b5c0-72833690dee0": {
           "type": "item",
           "settings": {
-            "url": "shopify://collections/accs",
-            "image": "shopify://shop_images/FANE_PRODUCTSHOT_LISSE_NOIR_SPAZZOLATO_04.webp",
-            "text": "ACCESSORIES",
+            "url": "shopify://collections/tabletop",
+            "image": "shopify://shop_images/Florentine_Oyster_Shucker_05.jpg",
+            "text": "TABLEWARE",
             "desktop_col_start": 1,
             "desktop_col_span": 6,
             "desktop_margin_top": 50,
