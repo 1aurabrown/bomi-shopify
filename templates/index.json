@@ -31,8 +31,8 @@
         "image": "shopify://shop_images/baldesseriscan-bg-6.jpg",
         "desktop_col_span": 6,
         "top_padding": 0,
-        "text": "SHOP NEW ARRIVALS",
-        "url": "shopify://collections/all"
+        "text": "HOLIDAY GIFT GUIDE",
+        "url": "shopify://collections/gift"
       }
     },
     "homepage-items": {
