@@ -54,9 +54,9 @@
         "d95512ee-9a67-4fa5-82fe-659ae8b15a72": {
           "type": "item",
           "settings": {
-            "url": "shopify://collections/tabletop",
-            "image": "shopify://shop_images/TABLETOP_07.jpg",
-            "text": "Tableware",
+            "url": "shopify://collections/accs",
+            "image": "shopify://shop_images/Screenshot_2026-11-23_at_8.58.53_PM.png",
+            "text": "ACCESSORIES",
             "desktop_col_start": 10,
             "desktop_col_span": 9,
             "desktop_margin_top": 0,
