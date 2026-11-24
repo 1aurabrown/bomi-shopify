@@ -68,10 +68,10 @@
           "type": "item",
           "settings": {
             "url": "shopify://collections/ritual",
-            "image": "shopify://shop_images/RITUAL_05.jpg",
+            "image": "shopify://shop_images/000102830016.jpg",
             "text": "Ritual",
             "desktop_col_start": 20,
-            "desktop_col_span": 4,
+            "desktop_col_span": 5,
             "desktop_margin_top": 190,
             "mobile_col_start": 2,
             "mobile_col_span": 5
